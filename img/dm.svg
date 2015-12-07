@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 960 560" style="enable-background:new 0 0 960 560;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#7DCCBE;stroke:#7DCCBE;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#7DCCBE;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#C9D787;}
+	.st4{font-family:'Seravek-Medium';}
+	.st5{font-size:72px;}
+	.st6{fill:#FF8598;}
+	.st7{fill:#FFFFFF;stroke:#7DCCBE;stroke-miterlimit:10;}
+</style>
+<circle class="st0" cx="458.6" cy="286.8" r="105"/>
+<g>
+	<circle class="st1" cx="472" cy="269.9" r="47"/>
+	<circle class="st2" cx="472" cy="269.9" r="47"/>
+</g>
+<text transform="matrix(1 0 0 1 571.879 265.0048)"><tspan x="0" y="0" class="st3 st4 st5">Dining</tspan><tspan x="208.4" y="0" class="st4 st5"> </tspan><tspan x="29.6" y="86.4" class="st6 st4 st5">Mate</tspan></text>
+<circle class="st0" cx="471.9" cy="270.1" r="35.2"/>
+<path class="st7" d="M398.3,354.9l-13.3-13.6c-2.3-2.4-2.3-6.2,0.1-8.5l33.5-32.7c2.4-2.3,6.2-2.3,8.5,0.1l13.3,13.6
+	c2.3,2.4,2.3,6.2-0.1,8.5L406.8,355C404.5,357.3,400.6,357.2,398.3,354.9z"/>
+</svg>
