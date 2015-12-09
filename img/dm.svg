@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 960 560" style="enable-background:new 0 0 960 560;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#7DCCBE;stroke:#7DCCBE;stroke-miterlimit:10;}
-	.st1{fill:none;stroke:#7DCCBE;stroke-miterlimit:10;}
-	.st2{fill:#FFFFFF;}
-	.st3{fill:#C9D787;}
-	.st4{font-family:'Seravek-Medium';}
-	.st5{font-size:72px;}
-	.st6{fill:#FF8598;}
-	.st7{fill:#FFFFFF;stroke:#7DCCBE;stroke-miterlimit:10;}
-</style>
-<circle class="st0" cx="458.6" cy="286.8" r="105"/>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 960 560" enable-background="new 0 0 960 560" xml:space="preserve">
+<circle fill="#7DCCBE" stroke="#7DCCBE" stroke-miterlimit="10" cx="201.5" cy="262.9" r="199.3"/>
 <g>
-	<circle class="st1" cx="472" cy="269.9" r="47"/>
-	<circle class="st2" cx="472" cy="269.9" r="47"/>
+	<circle fill="none" stroke="#7DCCBE" stroke-miterlimit="10" cx="227" cy="230.8" r="89.2"/>
+	<circle fill="#FFFFFF" cx="227" cy="230.8" r="89.2"/>
 </g>
-<text transform="matrix(1 0 0 1 571.879 265.0048)"><tspan x="0" y="0" class="st3 st4 st5">Dining</tspan><tspan x="208.4" y="0" class="st4 st5"> </tspan><tspan x="29.6" y="86.4" class="st6 st4 st5">Mate</tspan></text>
-<circle class="st0" cx="471.9" cy="270.1" r="35.2"/>
-<path class="st7" d="M398.3,354.9l-13.3-13.6c-2.3-2.4-2.3-6.2,0.1-8.5l33.5-32.7c2.4-2.3,6.2-2.3,8.5,0.1l13.3,13.6
-	c2.3,2.4,2.3,6.2-0.1,8.5L406.8,355C404.5,357.3,400.6,357.2,398.3,354.9z"/>
+<text transform="matrix(1 0 0 1 410.3472 213.5137)" fill="#C9D787" font-family="'Seravek-Medium'" font-size="177.5673">Dining</text>
+<text transform="matrix(1 0 0 1 924.3027 213.5137)" font-family="'Seravek-Medium'" font-size="177.5673"> </text>
+<text transform="matrix(1 0 0 1 483.3457 426.5957)" fill="#FF8598" font-family="'Seravek-Medium'" font-size="177.5673">Mate</text>
+<circle fill="#7DCCBE" stroke="#7DCCBE" stroke-miterlimit="10" cx="226.8" cy="231.2" r="66.8"/>
+<path fill="#FFFFFF" stroke="#7DCCBE" stroke-miterlimit="10" d="M87.1,392.2l-25.2-25.8c-4.4-4.6-4.4-11.8,0.2-16.1l63.6-62.1
+	c4.6-4.4,11.8-4.4,16.1,0.2l25.2,25.8c4.4,4.6,4.4,11.8-0.2,16.1l-63.6,62.1C98.9,396.7,91.5,396.6,87.1,392.2z"/>
 </svg>
