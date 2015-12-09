@@ -3,3 +3,14 @@
 	height: 50px;
 }
 
+.navbar-left{
+  font-family: Courier;
+}
+
+/*.active{
+	color: white;
+	background-color: #dd604b;
+}*/
+#background_img{
+	width: 100vh;
+}

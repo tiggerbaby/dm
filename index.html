@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Dining Mate</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,8 +22,9 @@
   </head>
   <body>
    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+   <div class="container">
+    <nav class="navbar navbar-default navbar-tall" role="navigation">
+        
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="dm-nav">
@@ -38,7 +39,8 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="dm-nav">
-                <ul class="nav navbar-nav">
+            
+                <ul class="nav navbar-nav navbar-left">
                     <li>
                         <a href="#">Home</a>
                     </li>
@@ -49,6 +51,16 @@
                         <a href="#">AboutUs</a>
                     </li>
                 </ul>
+                        
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                     <a href="#" class="active">Sign up</a>
+                  </li>
+                  <li>
+                      <a href="#">Sign in</a>
+                  </li>
+              </ul>
+              </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -56,8 +68,21 @@
     </nav>
 
     <main>
-    <div class="container row">
-       <img src="img/background.jpg" alt="background img">
+    
+     <div class="row col-lg-12">
+       <img src="img/background.jpg" alt="background img" id="background_img">
+       </div>
+
+           <div class="col-lg-6">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="Restaurant name, location">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Search</button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+      </div>
       
     </div>
     </main>
