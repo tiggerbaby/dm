@@ -22,7 +22,7 @@
   </head>
   <body>
    <!-- Navigation -->
-   <div class="container">
+   <div class="container-fulid">
     <nav class="navbar-default navbar-tall" role="navigation">
         
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -67,8 +67,8 @@
         <!-- /.container -->
     </nav>
 
-
-      <section class="image-bg-fluid-height">
+      
+      <section class="container-fluid image-bg-fluid-height">
           <div class="row">
             <div class="col-lg-6" id="searchBar">
         <div class="input-group input-group-lg">
@@ -87,15 +87,38 @@
     
 
     <footer class="bs-docs-footer" role="contentinfo">
-      <p>Johin us on:</p>
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="col-md-3">
+      <p>Join us on:</p>
     <ul>
-      <li><a href="https://www.facebook.com/">
-        <img src="img/fb.svg" alt="facebook logo">
+      <li><a href="https://www.instagram.com/">
+        <img src="img/ing.svg" alt="instagram logo" class="footerlink">
       </a></li>
-
+        <li><a href="https://www.plus.google.com/">
+        <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
+      </a></li>
+       <li><a href="https://www.facebook.com/">
+        <img src="img/fb.svg" alt="facebook logo" class="footerlink">
+      </a></li>
+      <li><a href="https://www.twitter.com/">
+        <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
+      </a></li>
     </ul>
-
-      
+    </div>
+</div>
+      <div class="col-md-3">
+    <p>©2015 Dining Mate All Rights Reserved.</p>
+    </div>
+    
+    <div class="col-md-3 left-align">
+    <ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Restaurants</a></li>
+  <li><a href="#">About Us</a></li>
+  </ol>
+  </div>
+  </div>
     </footer>
 
     

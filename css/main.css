@@ -24,6 +24,7 @@
 
 #searchBar{
   margin-left:25%;
+  margin-right:25%;
   margin-top: 5%;
 }
 #searchButton{
@@ -32,4 +33,13 @@
 
 #searchButton:hover{
 	background-color: #79BFB2;
+}
+
+footer{
+	background-color: #4d4d4d;
+	color: white;
+}
+.footerlink{
+	width:45px;
+	height: 45px;
 }
