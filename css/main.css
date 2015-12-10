@@ -14,3 +14,22 @@
 #background_img{
 	width: 100vh;
 }
+
+.image-bg-fluid-height{
+	background-image: url(../img/table.jpg);
+	/*background: url('http://lorempixel.com/image_output/food-q-c-1920-500-1.jpg') no-repeat center center scroll;*/
+    height: 500px;
+    padding: 100px 0;
+}
+
+#searchBar{
+  margin-left:25%;
+  margin-top: 5%;
+}
+#searchButton{
+	background-color: #7DCBBE;	
+}
+
+#searchButton:hover{
+	background-color: #79BFB2;
+}
