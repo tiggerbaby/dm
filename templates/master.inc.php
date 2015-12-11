@@ -23,7 +23,7 @@
   <body>
    <!-- Navigation -->
    <div class="container-fulid">
-    <nav class="navbar-default" role="navigation">
+    <nav class="navbar-default navbar-tall" role="navigation">
         
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -33,8 +33,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                    
-              <img src="img/dm.svg" alt="logo" id="logo">
+                
+                    <img src="img/dm.svg" alt="logo" id="logo">
                 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,65 +68,43 @@
     </nav>
 
       
-      <section class="container-fluid image-bg-fluid-height">
-          <div class="row">
-            <div class="col-lg-6" id="searchBar">
-        <div class="input-group input-group-lg">
-       <!--   <span class="glyphicon glyphicon-search form-control-feedback"></span> -->
-          <input type="text" class="form-control" placeholder="Restaurant name, location"/>
-          <span class="input-group-btn">
-            <button class="btn btn-info" type="button" id="searchButton">Search</button>
-          </span>
-        </div>
-      </div><!-- /.col-lg-6 -->
-
-          </div>
-                 
-
-      </section>
+      
     
-    
-    <div class="container-fulid">
 
-     <footer class="bs-docs-footer" role="contentinfo">
-    <div class="row row-centered">
+    <footer class="bs-docs-footer" role="contentinfo">
+    <div class="row">
     <div class="col-lg-12">
-    <div class="col-md-12 text-center">
+    <div class="col-md-3">
       <p>Join us on:</p>
-    
-      <a href="https://www.instagram.com/">
+    <ul>
+      <li><a href="https://www.instagram.com/">
         <img src="img/ing.svg" alt="instagram logo" class="footerlink">
-      </a>
-        <a href="https://www.plus.google.com/">
+      </a></li>
+        <li><a href="https://www.plus.google.com/">
         <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
-      </a>
-       <a href="https://www.facebook.com/">
+      </a></li>
+       <li><a href="https://www.facebook.com/">
         <img src="img/fb.svg" alt="facebook logo" class="footerlink">
-      </a>
-      <a href="https://www.twitter.com/">
+      </a></li>
+      <li><a href="https://www.twitter.com/">
         <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
-      </a>
-    
+      </a></li>
+    </ul>
     </div>
 </div>
-
-<div class="col-md-6 pull-right">
+      <div class="col-md-3">
+    <p>©2015 Dining Mate All Rights Reserved.</p>
+    </div>
+    
+    <div class="col-md-3 left-align">
     <ol class="breadcrumb">
   <li><a href="#">Home</a></li>
   <li><a href="#">Restaurants</a></li>
   <li><a href="#">About Us</a></li>
   </ol>
   </div>
-
-      <div class="col-md-6 pull-left">
-    <p>©2015 Dining Mate All Rights Reserved.</p>
-    </div>
-    
-    
   </div>
     </footer>
-    </div>
-   
 
     
 
