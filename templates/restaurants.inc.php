@@ -1,8 +1,6 @@
 
-
-<div class="jumbotron" id="searchbarBackground">
 <div class="container">
-<div class="cext-center" id="searchBar">
+	<div class="col-lg-8" id="searchBar">
         <div class="input-group input-group-lg">
        <!--   <span class="glyphicon glyphicon-search form-control-feedback"></span> -->
           <input type="text" class="form-control" placeholder="Restaurant name, location"/>
@@ -11,10 +9,6 @@
           </span>
         </div>
       </div>
-  
-</div>
-  
-
 </div>
 
-            
+

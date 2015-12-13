@@ -22,95 +22,69 @@
   </head>
   <body>
    <!-- Navigation -->
-   <div class="container-fulid">
-    <nav class="navbar-default navbar-tall" role="navigation">
-        
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="dm-nav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-                    <img src="img/dm.svg" alt="logo" id="logo">
-                
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="dm-nav">
-            
-                <ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Restaurants</a>
-                    </li>
-                    <li>
-                        <a href="#">AboutUs</a>
-                    </li>
-                </ul>
-                        
-              <ul class="nav navbar-nav navbar-right">
-                  <li>
-                     <a href="#" class="active">Sign up</a>
-                  </li>
-                  <li>
-                      <a href="#">Sign in</a>
-                  </li>
-              </ul>
-              </div>
-            </div>
-            <!-- /.navbar-collapse -->
+
+
+ <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img src="img/dm.svg" id="logo">
         </div>
-        <!-- /.container -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li<?php if ($page === "index"): ?> class="active" <?php endif ;?>><a href=".\">Home</a></li>
+            <li<?php if ($page === "restaurants"): ?> class="active" <?php endif ;?>><a href=".\?=restaurants">Restaurants</a></li>
+            <li<?php if($page==="about"): ?> <?php endif ;?>><a href=".\?=about">About Us</a></li>
+         
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Sign Up<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Sign In</a></li>          
+          </ul>
+        </div>
+      </div>
     </nav>
 
-      
-      
-    
+<?php $this->content();?>
 
-    <footer class="bs-docs-footer" role="contentinfo">
+<footer class="footer">
+  <div class="container">
     <div class="row">
-    <div class="col-lg-12">
-    <div class="col-md-3">
-      <p>Join us on:</p>
-    <ul>
-      <li><a href="https://www.instagram.com/">
-        <img src="img/ing.svg" alt="instagram logo" class="footerlink">
-      </a></li>
-        <li><a href="https://www.plus.google.com/">
-        <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
-      </a></li>
-       <li><a href="https://www.facebook.com/">
-        <img src="img/fb.svg" alt="facebook logo" class="footerlink">
-      </a></li>
-      <li><a href="https://www.twitter.com/">
-        <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
-      </a></li>
-    </ul>
-    </div>
-</div>
-      <div class="col-md-3">
-    <p>©2015 Dining Mate All Rights Reserved.</p>
-    </div>
-    
-    <div class="col-md-3 left-align">
-    <ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Restaurants</a></li>
-  <li><a href="#">About Us</a></li>
-  </ol>
-  </div>
-  </div>
-    </footer>
+      <div class="text-center">
+          <p>Join us on:</p>    
+          <a href="https://www.instagram.com/">
+            <img src="img/ing.svg" alt="instagram logo" class="footerlink">
+              </a>
+                <a href="https://www.plus.google.com/">
+                  <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
+                </a>
+                 <a href="https://www.facebook.com/">
+                    <img src="img/fb.svg" alt="facebook logo" class="footerlink">
+                  </a>
+                <a href="https://www.twitter.com/">
+              <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
+            </a>
+        </div>
 
-    
+        <hr>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+         <ol class="breadcrumb pull-right">
+          <li<?php if ($page === "index"): ?><?php endif ;?>><a href=".\">Home</a></li>
+            <li<?php if ($page === "restaurants"): ?><?php endif ;?>><a href=".\?=restaurants">Restaurants</a></li>
+          <li<?php if($page==="about"): ?> <?php endif ;?>><a href=".\?=about">About Us</a></li>
+        </ol>
+
+       <p class="pull-left"> ©2015 Dining Mate All Rights Reserved.</p>
+    </div>  
+  </div> 
+</footer>
+
+
+
+
+

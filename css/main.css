@@ -4,36 +4,24 @@
 	
 }
 
-.navbar-left{
-  font: bold 18px Courier;
-  margin-left: 8%;
+.navbar-header{
+   background-color: white; 
 }
 
-.navbar-right{
-	margin-right: 8%;
-}
-
-.active{
-	color: white;
-	background-color: #dd604b;
-	/*padding: 10px;*/
-}
-#background_img{
-	width: 100vh;
-}
-
-.image-bg-fluid-height{
+#searchbarBackground{
 	background-image: url(../img/table.jpg);
-	/*background: url('http://lorempixel.com/image_output/food-q-c-1920-500-1.jpg') no-repeat center center scroll;*/
     height: 400px;
     padding: 100px 0;
 }
 
-#searchBar{
-  margin-left:25%;
-  margin-right:25%;
-  margin-top: 5%;
+
+.active a {
+	color: white;
+	background-color: #dd604b;
+	
 }
+
+
 #searchButton{
 	background-color: #7DCBBE;	
 }
@@ -51,6 +39,12 @@
 .breadcrumb a{
      color: white;
 }
+
+/*About*/
+#aboutBackgroundColor{
+	background-color: 77c4d3;
+}
+
 
 
 footer{
