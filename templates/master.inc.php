@@ -50,6 +50,8 @@
       </div>
     </nav>
 
+
+
 <?php $this->content();?>
 
 <footer class="footer">
