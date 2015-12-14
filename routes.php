@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\Exceptions\ModelNotFoundException;
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // use App\Controllers\AboutController;
-
-switch ($page) {
+try{
+	switch ($page) {
 	case "home":
 		$controller = new HomeController();
 		$controller -> show();
@@ -16,7 +17,11 @@ switch ($page) {
 		$controller = new RestaurantsController();
 		$controller -> show();
 		break;
-
+    
+    case "restaurantsuggest":
+        $controller = new RestaurantSuggestController();
+	    $controller-> show();		
+		break;
 
 	case "about":
 		$controller = new AboutController();
@@ -26,6 +31,22 @@ switch ($page) {
 	default:
 		echo "404";
 		break;
+
+	default:
+			throw new ModelNotFoundException();
+			break;
+	}
+}catch (ModelNotFoundException $e)
+{
+	$controller = new ErrorController();
+	$controller->error404();
+
+} catch (InsufficientPrivilegesException $e)
+{
+	$controller = new ErrorController();
+	$controller->error401();
+}
+
 
 
 // switch ($page) {
@@ -44,4 +65,3 @@ switch ($page) {
 // 	default:
 // 		echo "404";
 // 		break;
-}

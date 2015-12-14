@@ -38,13 +38,13 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li<?php if ($page === "index"): ?> class="active" <?php endif ;?>><a href=".\">Home</a></li>
-            <li<?php if ($page === "restaurants"): ?> class="active" <?php endif ;?>><a href=".\?=restaurants">Restaurants</a></li>
-            <li<?php if($page==="about"): ?> <?php endif ;?>><a href=".\?=about">About Us</a></li>
+            <li<?php if ($page === "restaurants"): ?> class="active" <?php endif ;?>><a href=".\?page=restaurants">Restaurants</a></li>
+            <li<?php if($page==="about"): ?> class="active" <?php endif ;?>><a href=".\?page=about">About Us</a></li>
          
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Sign Up<span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Sign In</a></li>          
+          <li<?php if($page==="register"): ?> class="active"<?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li>
+            <li<?php if($page==="signin"): ?> class="active"<?php endif ;?>><a href=".\?page=signin">Sign In</a></li>          
           </ul>
         </div>
       </div>
@@ -56,7 +56,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-          <p>Join us on:</p>    
+          <p>Join us on</p>    
           <a href="https://www.instagram.com/">
             <img src="img/ing.svg" alt="instagram logo" class="footerlink">
               </a>
@@ -75,8 +75,8 @@
 
          <ol class="breadcrumb pull-right">
           <li<?php if ($page === "index"): ?><?php endif ;?>><a href=".\">Home</a></li>
-            <li<?php if ($page === "restaurants"): ?><?php endif ;?>><a href=".\?=restaurants">Restaurants</a></li>
-          <li<?php if($page==="about"): ?> <?php endif ;?>><a href=".\?=about">About Us</a></li>
+            <li<?php if ($page === "restaurants"): ?><?php endif ;?>><a href=".\?page=restaurants">Restaurants</a></li>
+          <li<?php if($page==="about"): ?> <?php endif ;?>><a href=".\?page=about">About Us</a></li>
         </ol>
 
        <p class="pull-left"> ©2015 Dining Mate All Rights Reserved.</p>

@@ -9,6 +9,6 @@ class RestaurantsController
 	public function show()
 	{
 		$view = new RestaurantsView();
-		$view->render();
+		$view-> render();
 	}
 }

@@ -4,8 +4,17 @@
 	
 }
 
+nav{
+	height: 70px;
+	padding-top: 10px;
+	font: bold 18px Courier;
+}
 .navbar-header{
    background-color: white; 
+}
+
+body{
+	background-color: white;
 }
 
 #searchbarBackground{
