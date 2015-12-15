@@ -8,7 +8,10 @@ class RestaurantSuggestSuccessController
 {
 	public function show()
 	{
+		
 		$view = new RestaurantSuggestSuccessView();
 		$view->render();
 	}
+
+
 }

@@ -20,8 +20,15 @@ class RestaurantSuggestController extends Controller
 	{
 		var_dump($_POST);
 		$restaurants = new RestaurantModel($_POST);
+
+		if(! $restaurant->isValid()){
+			$_SESSION['restaurant.suggest'] = $restaurant;
+			header("Location: .\?page=restaurant.suggest");
+			exit();
+		}
 		// var_dump($restaurants);
 		$restaurants -> save();
+        header("Location: .\?page=restaurantsuggestsuccess");
 
 		
 	}

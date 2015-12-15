@@ -124,6 +124,75 @@ abstract class DatabaseModel
           }
         $this->data[$name] = $value;
  	}
+   
+   public function isValid()
+	{
 
+		$valid = true;
+		foreach (static::$validationRules as $column => $rules) {
+			$this->errors[$column] = null;
+			$rules = explode(",", $rules);
+			foreach ($rules as $rule) {
+				if(strstr($rule, ":")){
+					$rule = explode(":", $rule);
+					$value = $rule[1];
+					$rule = $rule[0];
+				}
+				switch ($rule) {
+					case 'minlength':
+						// var_dump($this->$column);
+						if(strlen($this->$column) < $value){
+							$valid = false;
+							$this->errors[$column] = "Must be at least $value characters long.";
+						}
+						break;
+					case 'maxlength':
+						if(strlen($this->$column) > $value){
+							$valid = false;
+							$this->errors[$column] = "Must be no more than $value characters long.";
+						}
+						break;
+					case 'numeric':
+						if(! is_numeric($this->$column)){
+							$valid = false;
+							$this->errors[$column] = "Must be a number.";
+						}
+						break;
+					case 'email':
+						if(! filter_var($this->$column, FILTER_VALIDATE_EMAIL)){
+							$valid = false;
+							$this->errors[$column] = "Must be a valid email address.";
+						}
+						break;
+					case 'match':
+						if( $this->$column !== $this->$value){
+							$valid = false;
+							$this->errors[$column] = "Must match with the $value field.";
+						}
+						break;
+					case 'unique':
+						try {
+							$record = $value::findBy($column, $this->$column);
+						} catch (ModelNotFoundException $e) {
+							break;
+						}
+						$valid = false;
+						$this->errors[$column] = "This email is already in use";
+						break;
+					case 'exists':
+						try {
+							$record = new $value($this->$column);
+						} catch (ModelNotFoundException $e) {
+							$valid = false;
+							$this->errors[$column] = "This value does not exist.";
+							break;
+						}
+						
+				}
+			}
+			
+		}
+		return $valid;
+	}
 }	
 		
