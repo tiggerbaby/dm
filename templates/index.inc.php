@@ -34,6 +34,7 @@
       <img src="http://placehold.it/350x200" alt="restaurant view">
     </a>
   </div>	
+ </div>
 </div>
 
             

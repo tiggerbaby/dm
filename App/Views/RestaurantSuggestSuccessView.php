@@ -2,18 +2,18 @@
 
 namespace App\Views;
 
-class RestaurantSuggestStoreView extends TemplateView
+class RestaurantSuggestSuccessView extends TemplateView
 {
 
   public function render()
   {
-      $page = "restaurantsuggeststore";
+      $page = "restaurantsuggestsuccess";
       $page_title = "Thanks for the suggestion!";
       include "templates/master.inc.php";
   }
 
   protected function content()
   {
-      include "templates/restuarantsuggeststore.inc.php";
+      include "templates/restaurantsuggestsuccess.inc.php";
   }
 }

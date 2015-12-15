@@ -22,19 +22,26 @@ try{
         $controller = new RestaurantSuggestController();
 	    $controller-> show();		
 		break;
-
     
     case "restaurantsuggeststore":
     
         $controller = new RestaurantSuggestController();
 	    $controller-> store();		
 		break;
+     
+     	case "restaurantsuggestsuccess":
 
+			$controller = new RestaurantSuggestSuccessController();
+			$controller->show();		
+			
+			break;
+	
 	case "about":
 		$controller = new AboutController();
 		$controller -> show();
 		break;
-	
+	 
+
 	default:
 		echo "404";
 		break;

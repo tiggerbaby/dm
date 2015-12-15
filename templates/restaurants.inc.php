@@ -1,6 +1,4 @@
-<?php
-$page==="restaurantsuggest";
-?>
+
 <div class="container">
 	<div class="col-lg-8" id="searchBar">
         <div class="input-group input-group-lg">
@@ -56,8 +54,8 @@ $page==="restaurantsuggest";
   <a href=".\?page=restaurantsuggest">
       Are we missing any restaurant? Suggest a place to include in Dining Mate here.</a>
       </p>
-</div>
 
+</div>
 </div>
 
 
