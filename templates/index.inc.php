@@ -11,10 +11,29 @@
           </span>
         </div>
       </div>
-  
+ </div>
 </div>
-  
 
+<div class="container">
+
+<div class="row">
+  <div class="col-xs-6 col-md-4">
+    <a href="#" class="thumbnail">
+      <img src="http://placehold.it/350x200" alt="restaurant view">
+    </a>
+  </div>
+   
+  <div class="col-xs-6 col-md-4">
+    <a href="#" class="thumbnail">
+      <img src="http://placehold.it/350x200" alt="restaurant view">
+    </a>
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+    <a href="#" class="thumbnail">
+      <img src="http://placehold.it/350x200" alt="restaurant view">
+    </a>
+  </div>	
 </div>
 
             
