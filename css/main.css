@@ -1,6 +1,6 @@
 #logo{
 	width: 150px;
-	height: 50px;
+	height: 60px;
 	
 }
 
@@ -9,7 +9,7 @@ nav{
 	padding-top: 10px;
 	font: bold 18px Courier;
 }
-.navbar-header{
+.navbar-default{
    background-color: white; 
 }
 
@@ -24,11 +24,10 @@ body{
 }
 
 
-.active a {
+/*.active {
 	color: white;
-	background-color: #dd604b;
-	
-}
+	background-color: #dd604b;	
+}*/
 
 
 #searchButton{

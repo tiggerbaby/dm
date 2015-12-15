@@ -7,8 +7,10 @@ use App\Views\RestaurantsView;
 class RestaurantsController 
 {
 	public function show()
-	{
-		$view = new RestaurantsView();
+	{ 
+	
+		$page = "restaurantsuggest";
+		$view = new RestaurantsView(compact('page'));
 		$view-> render();
 	}
 }

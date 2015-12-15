@@ -24,7 +24,7 @@
    <!-- Navigation -->
 
 
- <nav class="navbar navbar-default navbar-static-top">
+ <nav class="navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,7 +44,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <!-- <li<?php if($page==="register"): ?> class="active"<?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li> -->
-             <li type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+             <li class="btn btn-primary" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo">
 Sign Up</li>
             <li<?php if($page==="signin"): ?> class="active"<?php endif ;?>><a href=".\?page=signin">Sign In</a></li>          
          
@@ -54,28 +54,40 @@ Sign Up</li>
     </nav>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Welcome to Dining Mate!</h4>
       </div>
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="control-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
+              <label for="registerName" class="control-label">Name*</label>
+            <input type="text" class="form-control" id="registerName">
+           </div>
+            <div class="form-group">
+              <label for="registerEmail" class="control-label">Email*</label>
+              <input type="email" class="form-control" id="registerEmail">
+            </div>
+            <div class="form-group">
+              <label for="registerPassword" class="control-label">Password*</label>
+              <input type="password" class="form-control" id="registerPassword">
+            </div>
+             <div class="form-group">
+              <label for="comfirmPassword" class="control-label">Comfirm Password*</label>
+              <input type="password" class="form-control" id="comfirmPassword">
+            </div>
+          <div class="checkbox">
+           <label>
+            <input type="checkbox">I agree to the terms and conditions of Use and Privacy Policy.
+           </label>
+         </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-danger">Create Account</button>
       </div>
     </div>
   </div>

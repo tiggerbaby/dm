@@ -1,4 +1,6 @@
-
+<?php
+$page==="restaurantsuggest";
+?>
 <div class="container">
 	<div class="col-lg-8" id="searchBar">
         <div class="input-group input-group-lg">
@@ -19,5 +21,6 @@
       </p>
 	</div>
 </div>
+
 
  
