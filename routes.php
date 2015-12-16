@@ -23,6 +23,7 @@ try{
         $controller = new RestaurantSuggestController();
 	    $controller-> show();		
 		break;
+		
 	case "restaurantsuggest.invalid":
     
         $controller = new RestaurantSuggestController();

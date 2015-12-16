@@ -44,9 +44,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <!-- <li<?php if($page==="register"): ?> class="active"<?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li> -->
-             <li class="btn btn-primary" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo">
-Sign Up</li>
-            <li<?php if($page==="signin"): ?> class="active"<?php endif ;?>><a href=".\?page=signin">Sign In</a></li>          
+          <!--  <li<?php if($page==="signin"): ?> class="active"<?php endif ;?>><a href=".\?page=signin">Sign In</a></li>    -->
+            <!--  <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo">
+Sign Up</button></li> --> 
+             <li class="bg-danger" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo"><a href="#" > Sign Up</a> </li>
+             <li data-toggle="modal" data-target="#signInForm" data-whatever="@mdo"><a href="#"> Sign In</a></li>           
+
+
+                   
          
           </ul>
         </div>
@@ -54,12 +59,12 @@ Sign Up</li>
     </nav>
 
 
-<div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="signUpFormLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Welcome to Dining Mate!</h4>
+        <h4 class="modal-title" id="signUpFormLabel">Welcome to Dining Mate!</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -88,6 +93,32 @@ Sign Up</li>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signInForm" tabindex="-1" role="dialog" aria-labelledby="signInFormLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="signInFormLabel">Please Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group">
+              <label for="loginEmail" class="control-label">Email*</label>
+              <input type="email" class="form-control" id="loginEmail">
+            </div>
+            <div class="form-group">
+              <label for="password" class="control-label">Password*</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Sign In</button>
       </div>
     </div>
   </div>

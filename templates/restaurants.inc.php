@@ -49,11 +49,11 @@
       <img src="http://placehold.it/350x200" alt="restaurant view">
     </a>
   </div>  
-
+  
    <p<?php if($page==="restaurantsuggest"): ?> class="col-sm-12 text-danger" <?php endif ;?>
   <a href=".\?page=restaurantsuggest">
-      Are we missing any restaurant? Suggest a place to include in Dining Mate here.</a>
-      </p>
+      Are we missing any restaurant? Suggest a place to include in Dining Mate here.
+  </a></p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 
 
- <div class="jumbotron">
-      <div class="container" id="aboutBackgroundColor">
+ <div class="jumbotron" id="aboutBackgroundColor">
+      <div class="container">
         <h1>Who we are?</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -13,16 +13,16 @@
       </div>
     </div>
 
-
-    	 <form class="form-horizontal">
- 
-  <div class="form-group">
+     <div class="container">
+       
+       <form class="form-horizontal">
+   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Contact Name</label>
     <div class="col-sm-4">
       <input type="text" class="form-control" id="name">
     </div>
   </div>
-  	
+    
 
   
   <div class="form-group">
@@ -60,6 +60,8 @@
     </div>
   </div>
 </form>
+     </div>
+       	 
 
 
    
