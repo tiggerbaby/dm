@@ -13,24 +13,45 @@ class RestaurantSuggestController extends Controller
 	public function show()
 	{
 		$restaurants = new RestaurantModel();
-		$view = new RestaurantSuggestView(compact('restaurant'));
+		$view = new RestaurantSuggestView(compact('restaurants'));
 		$view-> render();
 	}
+
+	public function displayerror()
+	{
+		$restaurants = $this->getFormData();
+		$view = new RestaurantSuggestView(compact('restaurants'));
+		$view->render();
+	}
+
 	public function store()
 	{
 		var_dump($_POST);
 		$restaurants = new RestaurantModel($_POST);
-
-		if(! $restaurant->isValid()){
-			$_SESSION['restaurant.suggest'] = $restaurant;
-			header("Location: .\?page=restaurant.suggest");
+        
+		if(! $restaurants->isValid()){
+			var_dump($restaurants);
+			$_SESSION['restaurant.suggest'] = $restaurants;
+			header("Location: .\?page=restaurantsuggest.invalid");
 			exit();
 		}
-		// var_dump($restaurants);
+		
 		$restaurants -> save();
         header("Location: .\?page=restaurantsuggestsuccess");
 
 		
 	}
+	public function getFormData($id = null){
+		if(isset($_SESSION['restaurant.suggest'])){
+			$restaurants = $_SESSION['restaurant.suggest'];
+			unset($_SESSION['restaurant.suggest']);
+		} else {
+			$restaurants = new RestaurantModel((int)$id);
+		}
+		return $restaurants;
+	}
 	
 }
+
+
+

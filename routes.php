@@ -17,12 +17,18 @@ try{
 		$controller = new RestaurantsController();
 		$controller -> show();
 		break;
+	
 	case "restaurantsuggest":
     
         $controller = new RestaurantSuggestController();
 	    $controller-> show();		
 		break;
+	case "restaurantsuggest.invalid":
     
+        $controller = new RestaurantSuggestController();
+	    $controller-> displayerror();		
+		break;
+
     case "restaurantsuggeststore":
     
         $controller = new RestaurantSuggestController();

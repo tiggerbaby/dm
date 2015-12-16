@@ -109,7 +109,11 @@ Sign Up</li>
                   <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
                 </a>
                  <a href="https://www.facebook.com/">
-                    <img src="img/fblogo.svg" alt="facebook logo" class="footerlink">
+                 <!-- <div class="footerlink">
+                   <object data="img/fblogo.svg" type="img/svg+xml"></object>
+                 </div> -->
+                
+                    <img src="img/fb.svg" alt="facebook logo" class="footerlink">
                   </a>
                 <a href="https://www.twitter.com/">
               <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
