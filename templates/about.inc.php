@@ -1,4 +1,6 @@
-
+<?php
+$errors=$enqiry->errors;
+?>
 
  <div class="jumbotron" id="aboutBackgroundColor">
       <div class="container">
@@ -28,8 +30,8 @@
  <div  class="form-group <?php if($errors['phone']): ?> has-error <?php endif; ?>">
       <label for="phone" class="col-sm-2 control-label">Contact Phone</label>
       <div class="col-sm-4">
-        // <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $enqiry->phone; ?>">
-        <div class="help-block"><?php echo $errors['restaurant_phone']; ?></div>
+        <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $enqiry->phone; ?>">
+        <div class="help-block"><?php echo $errors['phone']; ?></div>
       </div>
     </div>
   
@@ -42,18 +44,19 @@
   </div>
   
 
-  <div class="form-group <?php if($errors['restaurant_name']): ?> has-error <?php endif; ?>">
+  <div class="form-group <?php if($errors['restaurant']): ?> has-error <?php endif; ?>">
     <label for="restaurant" class="col-sm-2 control-label">Restaurant Name</label>
     <div class="col-sm-4">
       <input type="text" class="form-control" name="restaurant" id="restaurant" value="<?php echo $enqiry->restaurant; ?>">
-       <div class="help-block"><?php echo $errors['restaurant_name']; ?></div>     
+       <div class="help-block"><?php echo $errors['restaurant']; ?></div>     
     </div>
   </div>
 
-  <div class="form-group <?php if($errors['restaurant_address']): ?> has-error <?php endif; ?>">
+  <div class="form-group <?php if($errors['address']): ?> has-error <?php endif; ?>">
     <label for="address" class="col-sm-2 control-label">Restaurant Address</label>
     <div class="col-sm-4">
       <input type="text" class="form-control" name="address" id="address" value="<?php echo $enqiry->address; ?>">
+      <div class="help-block"><?php echo $errors['address']; ?></div>
     </div>
   </div>
   

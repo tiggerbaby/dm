@@ -26,7 +26,7 @@ $errors=$restaurants->errors;
     <div  class="form-group <?php if($errors['restuanrt_phone']): ?> has-error <?php endif; ?>">
       <label for="restaurantPhone" class="col-sm-2 control-label">Restaurant Phone</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" name="restaurant_phone" id="restaurantPhone">
+        <input type="text" class="form-control" name="restaurant_phone" id="restaurantPhone" value="<?php echo $restaurants->restaurant_phone; ?>">
         <div class="help-block"><?php echo $errors['restaurant_phone']; ?></div>
       </div>
     </div>
