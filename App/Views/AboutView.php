@@ -15,4 +15,6 @@ class AboutView extends TemplateView
 		
 		include "templates/about.inc.php";
 	}
+
+	
 }

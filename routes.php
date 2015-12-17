@@ -47,7 +47,18 @@ try{
 		$controller = new AboutController();
 		$controller -> show();
 		break;
-	 
+
+	 case "enqiry.invalid":
+    
+        $controller = new AboutController();
+	    $controller-> displayerror();		
+		break;
+
+    case "enqirystore":
+    
+        $controller = new AboutController();
+	    $controller-> store();		
+		break;
 
 	default:
 		echo "404";
