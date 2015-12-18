@@ -59,6 +59,12 @@ try{
         $controller = new AboutController();
 	    $controller-> store();		
 		break;
+   case "enqirysuccess":
+    
+        $controller = new AboutController();
+	    $controller-> success();		
+		break;
+
 
 	default:
 		echo "404";

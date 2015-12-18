@@ -70,6 +70,7 @@ $errors=$enqiry->errors;
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
+    <input type="hidden" name="modal" value="active">
       <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#enqiryform" data-whatever="@mdo">Send to Dining Mate</button>
     </div>
   </div>
@@ -77,19 +78,21 @@ $errors=$enqiry->errors;
      </div>
        	 
 
-<!-- <div class="modal fade" id="enqiryform" tabindex="-1" role="dialog" aria-labelledby="enqiryformLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="enqiryformLabel">Thanks for contacting us!</h4>
-      </div>
-      <div class="modal-body">
-        <p>We will be contact you soon.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Got it</button>
+    <div class="modal fade" id="enqiryform" tabindex="-1" role="dialog" aria-labelledby="enqiryformLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="enqiryformLabel">Thanks for contacting us!</h4>
+          </div>
+          <div class="modal-body">
+            <p>We will be contact you soon.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Got it</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div> -->
+
+

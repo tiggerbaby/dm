@@ -10,7 +10,6 @@ class AboutModel extends DatabaseModel
 
 	protected static $tableName = "enqiry_form";
 	protected static $columns = ['id','name','phone','email','restaurant','address','comment'];
-	// protected static $fakeColumns = ['rating'];
 	protected static $validationRules = [
 					"name"   => "minlength:1",
 					"phone" 	=> "minlength:4,maxlength:12,numeric",

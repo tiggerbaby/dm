@@ -11,6 +11,12 @@ class AboutView extends TemplateView
 		$page_title = "About Us";
 		include "templates/master.inc.php";
 	}
+	public function rendersuccess() {
+		extract($this->data);
+		$page = "enquiry";
+		$page_title = "Enquiry Form";
+		include "templates/enquiry.inc.php";
+	}
 	protected function content() {
 		extract($this->data);
 		include "templates/about.inc.php";

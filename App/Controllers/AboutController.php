@@ -32,11 +32,23 @@ class AboutController
 			header("Location: .\?page=enqiry.invalid");
 			exit();
 		}
+		$show_modal = false;
+		if(isset($_POST['modal'])){
+			 $activate = $_POST['modal'];
+			 if($activate == "active"){
+			 	$show_modal = true;
+			 }
+		}
 		
 		$enqiry -> save();
-        header("Location: .\?page=enqirystore");
-
+        header("Location: .\?page=enqirysuccess&show_modal=true");
 		
+	}
+
+	public function success()
+	{
+		$view = new AboutView();
+		$view->rendersuccess();
 	}
 	public function getFormData($id = null){
 		if(isset($_SESSION['enqiryform'])){
