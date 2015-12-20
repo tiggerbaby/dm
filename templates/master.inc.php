@@ -58,7 +58,7 @@ Sign Up</button></li> -->
       </div>
     </nav>
 
-
+<!-- Sign Up Form -->
 <div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="signUpFormLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -67,7 +67,7 @@ Sign Up</button></li> -->
         <h4 class="modal-title" id="signUpFormLabel">Welcome to Dining Mate!</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="POST" action=".\?page=registersuccess"> 
           <div class="form-group">
               <label for="registerName" class="control-label">Name*</label>
             <input type="text" class="form-control" id="registerName">
@@ -89,15 +89,17 @@ Sign Up</button></li> -->
             <input type="checkbox">I agree to the terms and conditions of Use and Privacy Policy.
            </label>
          </div>
+         <div class="modal-footer">
+        <button type="submit" class="btn btn-danger">Create Account</button>
+      </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Create Account</button>
-      </div>
+      
     </div>
   </div>
 </div>
 
+<!-- Sign In Form -->
 <div class="modal fade" id="signInForm" tabindex="-1" role="dialog" aria-labelledby="signInFormLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -115,11 +117,12 @@ Sign Up</button></li> -->
               <label for="password" class="control-label">Password*</label>
               <input type="password" class="form-control" id="password">
             </div>
+             <div class="modal-footer">
+        <button type="submit" class="btn btn-danger">Sign In</button>
+      </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Sign In</button>
-      </div>
+     
     </div>
   </div>
 </div>

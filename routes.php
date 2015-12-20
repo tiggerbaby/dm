@@ -13,6 +13,42 @@ try{
 		$controller -> show();
 		break;
 
+	 case "register":
+			
+			$controller = new AuthenticationController();
+			$controller->register();
+
+			break;
+
+	  case "registersuccess":
+	  $controller = new AuthenticationController();
+			$controller->register();
+
+			break;
+	  		
+		case "auth.store":
+			
+			$controller = new AuthenticationController();
+			$controller->store();
+
+			break;
+		case "login":
+			
+			$controller = new AuthenticationController();
+			$controller->login();
+
+			break;
+		case "auth.attempt":
+			$controller = new AuthenticationController();
+			$controller->attempt();
+			
+			break;
+		case "logout":
+			
+			$controller = new AuthenticationController();
+			$controller->logout();
+
+
 	case "restaurants":
 		$controller = new RestaurantsController();
 		$controller -> show();
@@ -42,6 +78,8 @@ try{
 			$controller->show();		
 			
 			break;
+
+      
 	
 	case "about":
 		$controller = new AboutController();

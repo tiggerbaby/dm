@@ -17,8 +17,8 @@ $errors=$enqiry->errors;
     </div>
 
      <div class="container">
-       
        <form class="form-horizontal"  method="POST" action="./?page=enqirystore">
+       <h2>Busniess Enquiry Form</h2>
    <div class="form-group <?php if($errors['name']): ?> has-error <?php endif; ?>">
     <label for="name" class="col-sm-2 control-label">Contact Name</label>
     <div class="col-sm-4">

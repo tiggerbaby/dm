@@ -3,11 +3,13 @@
 namespace App\Controllers;
 
 use App\Views\HomeView;
+use App\Models\UserModel;
 
 class HomeController
 {
 	public function show()
-	{
+	{ 
+        
 		$view = new HomeView();
 		$view->render();
 	}
