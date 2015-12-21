@@ -43,14 +43,18 @@
          
           </ul>
           <ul class="nav navbar-nav navbar-right">
+          <?php if(! static::$auth->check()): ?>
           <li class="bg-danger" <?php if($page==="register"): ?> <?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li>
           <li<?php if($page==="signin"): ?> <?php endif ;?>><a href=".\?page=login">Sign In</a></li> 
+            <?php else: ?>
+              <li><a href="#"><small><?= static::$auth->user()->email; ?></small></a></li> 
+              <li><a href=".\?page=logout"><small>Logout</small></a></li>
+            <?php endif; ?>
+
             <!--  <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo">
 Sign Up</button></li> --> 
             <!--  <li class="bg-danger" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo"><a href="#" > Sign Up</a> </li>
              <li data-toggle="modal" data-target="#signInForm" data-whatever="@mdo"><a href="#"> Sign In</a></li>  -->          
-
-
                    
          
           </ul>

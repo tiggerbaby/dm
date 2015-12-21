@@ -32,6 +32,7 @@ try{
 			$controller->login();
 
 			break;
+			
 		case "auth.attempt":
 			$controller = new AuthenticationController();
 			$controller->attempt();

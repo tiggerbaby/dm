@@ -1,7 +1,7 @@
 <?php 
 
 namespace App\Services;
-use App\Models\UserModel;
+use App\Models\User;
 use App\Services\Exceptions\InsufficientPrivilegesException;
 use App\Models\Exceptions\ModelNotFoundException;
 

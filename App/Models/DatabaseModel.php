@@ -257,7 +257,7 @@ abstract class DatabaseModel
 
 	public function __get($name)
 	{
-		if (in_array($name, static::$columns)) {
+		if (in_array($name, static::$columns) || in_array($name, static::$fakeColumns)) {
 			
            return $this->data[$name];
          }
@@ -265,7 +265,7 @@ abstract class DatabaseModel
     }
 	public function __set($name, $value)
 	{
-		if (! in_array($name, static::$columns)) {
+		if (! in_array($name, static::$columns) && ! in_array($name, static::$fakeColumns)){
             throw new UnexpectedValueException("Property '$name' not found in the data variable.");
           }
         $this->data[$name] = $value;

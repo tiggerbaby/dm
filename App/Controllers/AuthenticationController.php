@@ -39,7 +39,8 @@ class AuthenticationController extends Controller
 			header("Location: ./");
 			exit();
 		}
-		header("Location: .\?page=login&error=true");
+		header("Location: .\?page=login");
+		// header("Location: .\?page=login&error=true");
 		exit();
 	}
 	public function logout()
