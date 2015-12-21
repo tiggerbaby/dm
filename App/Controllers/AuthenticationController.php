@@ -2,12 +2,9 @@
 
 namespace App\Controllers;
 
-// use App\Views\RegisterFormView;
-// use App\Views\LoginFormView;
-use App\Views\HomeView;
-use App\Models\UserModel;
-
-
+use App\Views\RegisterFormView;
+use App\Views\LoginFormView;
+use App\Models\User;
 
 class AuthenticationController extends Controller
 {
@@ -22,11 +19,11 @@ class AuthenticationController extends Controller
 		$user = new User($_POST);
 		if(! $user->isValid()){
 			$_SESSION['user.form'] = $user;
-			header("Location: ./");
+			header("Location: .\?page=register");
 			exit();
 		}
 		$user->save();
-		header("Location:.\?page=registersuccess");
+		header("Location:.\?page=login");
 	}
 	public function login()
 	{
@@ -35,20 +32,20 @@ class AuthenticationController extends Controller
 		$view = new LoginFormView(compact('user', 'error'));
 		$view->render();
 	}
-	// public function attempt()
-	// {
-	// 	if(static::$auth->attempt($_POST['email'],$_POST['password'])){
-	// 		//login is successful
-	// 		header("Location: ./");
-	// 		exit();
-	// 	}
-	// 	header("Location: .\?page=login&error=true");
-	// 	exit();
-	// }
+	public function attempt()
+	{
+		if(static::$auth->attempt($_POST['email'],$_POST['password'])){
+			//login is successful
+			header("Location: ./");
+			exit();
+		}
+		header("Location: .\?page=login&error=true");
+		exit();
+	}
 	public function logout()
 	{
 		static::$auth->logout();
-		header("Location:./");
+		header("Location:.\?page=login");
 		exit();
 	}
 	protected function getUserFormData($id = null)
@@ -57,7 +54,6 @@ class AuthenticationController extends Controller
 			$user = $_SESSION['user.form'];
 			unset($_SESSION['user.form']);
 		} else {
-
 			$user =new User($id); 
 		}
 		return $user;

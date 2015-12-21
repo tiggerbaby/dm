@@ -43,12 +43,12 @@
          
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <!-- <li<?php if($page==="register"): ?> class="active"<?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li> -->
-          <!--  <li<?php if($page==="signin"): ?> class="active"<?php endif ;?>><a href=".\?page=signin">Sign In</a></li>    -->
+          <li class="bg-danger" <?php if($page==="register"): ?> <?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li>
+          <li<?php if($page==="signin"): ?> <?php endif ;?>><a href=".\?page=login">Sign In</a></li> 
             <!--  <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo">
 Sign Up</button></li> --> 
-             <li class="bg-danger" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo"><a href="#" > Sign Up</a> </li>
-             <li data-toggle="modal" data-target="#signInForm" data-whatever="@mdo"><a href="#"> Sign In</a></li>           
+            <!--  <li class="bg-danger" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo"><a href="#" > Sign Up</a> </li>
+             <li data-toggle="modal" data-target="#signInForm" data-whatever="@mdo"><a href="#"> Sign In</a></li>  -->          
 
 
                    
@@ -59,7 +59,7 @@ Sign Up</button></li> -->
     </nav>
 
 <!-- Sign Up Form -->
-<div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="signUpFormLabel">
+<!-- <div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="signUpFormLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -97,10 +97,10 @@ Sign Up</button></li> -->
       
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Sign In Form -->
-<div class="modal fade" id="signInForm" tabindex="-1" role="dialog" aria-labelledby="signInFormLabel">
+<!-- <div class="modal fade" id="signInForm" tabindex="-1" role="dialog" aria-labelledby="signInFormLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -125,7 +125,7 @@ Sign Up</button></li> -->
      
     </div>
   </div>
-</div>
+</div> -->
 
 
 

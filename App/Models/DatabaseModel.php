@@ -12,6 +12,7 @@ abstract class DatabaseModel
 	public $errors = [];
 
 	protected static $columns =[];
+	protected static $fakeColumns =[];
 	private static $db;
 
 	public function __construct($input = null)
@@ -22,12 +23,12 @@ abstract class DatabaseModel
 				$this->errors[$column] = null;
 			}
 		}
-		// if(static::$fakeColumns){
-		// 	foreach (static::$fakeColumns as $column) {
-		// 		$this->$column = null;
-		// 		$this->errors[$column] = null;
-		// 	}
-		// }
+		if(static::$fakeColumns){
+			foreach (static::$fakeColumns as $column) {
+				$this->$column = null;
+				$this->errors[$column] = null;
+			}
+		}
 		
 		if(is_numeric($input) && $input > 0 ){
 			//if input is a number, load that record from the db
@@ -39,17 +40,7 @@ abstract class DatabaseModel
 		}
 	}
     
-    public function processArray($input)
-	{
-		foreach(static::$columns as $column){
-			if(isset($input[$column]))
-				$this->$column = $input[$column];
-		}
-		// foreach (static::$fakeColumns as $column) {
-		// 	if(isset($input[$column]))
-		// 		$this->$column = $input[$column];
-		// }
-	}
+    
 
 	protected static function getDatabaseConnection() 
 	{
@@ -61,6 +52,88 @@ abstract class DatabaseModel
 			self::$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}
 		return self::$db;
+	}
+
+
+	public function processArray($input)
+	{
+		foreach(static::$columns as $column){
+			if(isset($input[$column]))
+				$this->$column = $input[$column];
+		}
+		foreach (static::$fakeColumns as $column) {
+			if(isset($input[$column]))
+				$this->$column = $input[$column];
+		}
+	}
+
+	public static function all($sortcolumn = "", $asc = true)
+	{
+		$models = [];
+
+		$db = static::getDatabaseConnection();
+
+		$query ="SELECT " .implode("," , static::$columns). " FROM " . static::$tableName;
+
+		if($sortcolumn){
+			if( ! array_search($sortcolumn, static::$columns)){
+				throw new UnexpectedValueException("Property $sortcolumn is not found in the columns array.");
+			}
+			$query .= " ORDER BY " .$sortcolumn;
+			if($asc){
+				$query .= " ASC";
+			} else {
+				$query .= " DESC";
+			}
+		}
+		$statement = $db->prepare($query);
+		$statement->execute();
+
+		while($record = $statement->fetch(PDO::FETCH_ASSOC)){
+			$model = new static();
+			$model->data = $record;
+			array_push($models, $model);
+
+		}
+		
+		return $models;
+		// var_dump($models);
+	}
+	public function find($id) 
+	{
+		$db = static::getDatabaseConnection();
+		$query ="SELECT " .implode("," , static::$columns). " FROM " . static::$tableName . 
+			" WHERE id = :id ";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":id", $id);
+		$statement->execute();
+
+		while($record = $statement->fetch(PDO::FETCH_ASSOC)) {
+			$this->data = $record;
+		}
+	}
+	public static function findBy($column, $value)
+	{
+		$db = static::getDatabaseConnection();
+
+		$query ="SELECT " . implode("," , static::$columns) . " FROM " . static::$tableName . 
+			" WHERE " . $column . " = :value";
+
+		$statement = $db->prepare($query);
+		var_dump($statement);
+		$statement->bindValue(':value', $value);
+		$statement->execute();
+
+		$record = $statement->fetch(PDO::FETCH_ASSOC);
+		
+		if(! $record){
+			throw new ModelNotFoundException();
+		}
+
+		$obj = new static;
+		$obj->data = $record;
+		return $obj;
+
 	}
     
     public function save()
@@ -109,21 +182,7 @@ abstract class DatabaseModel
 		
 	}
 
-	public function __get($name)
-	{
-		if (in_array($name, static::$columns)) {
-			
-           return $this->data[$name];
-         }
-        throw new UnexpectedValueException("Property '$name' not found in the data variable.");
-    }
-	public function __set($name, $value)
-	{
-		if (! in_array($name, static::$columns)) {
-            throw new UnexpectedValueException("Property '$name' not found in the data variable.");
-          }
-        $this->data[$name] = $value;
- 	}
+	
    
    public function isValid()
 	{
@@ -194,5 +253,22 @@ abstract class DatabaseModel
 		}
 		return $valid;
 	}
+
+
+	public function __get($name)
+	{
+		if (in_array($name, static::$columns)) {
+			
+           return $this->data[$name];
+         }
+        throw new UnexpectedValueException("Property '$name' not found in the data variable.");
+    }
+	public function __set($name, $value)
+	{
+		if (! in_array($name, static::$columns)) {
+            throw new UnexpectedValueException("Property '$name' not found in the data variable.");
+          }
+        $this->data[$name] = $value;
+ 	}
 }	
 		

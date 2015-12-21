@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class UserModel extends DatabaseModel
+class User extends DatabaseModel
 {
 	protected static $tableName = "users";
 	protected static $columns = ['id','username','email','password','role'];
@@ -21,18 +21,18 @@ class UserModel extends DatabaseModel
 			$this->role = 'user';
 		}
 	}
-	// public function gravatar( $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() )
-	// {
-	//     $url = 'http://www.gravatar.com/avatar/';
-	//     $url .= md5( strtolower( trim( $this->email ) ) );
-	//     $url .= "?s=$s&d=$d&r=$r";
-	//     if ( $img ) {
-	//         $url = '<img src="' . $url . '"';
-	//         foreach ( $atts as $key => $val )
-	//             $url .= ' ' . $key . '="' . $val . '"';
-	//         $url .= ' />';
-	//     }
-	//     return $url;
-	// }
+	public function gravatar( $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() )
+	{
+	    $url = 'http://www.gravatar.com/avatar/';
+	    $url .= md5( strtolower( trim( $this->email ) ) );
+	    $url .= "?s=$s&d=$d&r=$r";
+	    if ( $img ) {
+	        $url = '<img src="' . $url . '"';
+	        foreach ( $atts as $key => $val )
+	            $url .= ' ' . $key . '="' . $val . '"';
+	        $url .= ' />';
+	    }
+	    return $url;
+	}
 	
 }
