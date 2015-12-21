@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2015 at 10:38 AM
+-- Generation Time: Dec 21, 2015 at 08:33 PM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -45,6 +45,34 @@ INSERT INTO `enqiry_form` (`id`, `name`, `phone`, `email`, `restaurant`, `addres
 (2, 'Alice', 1234567, 'aaa@mail.com', 'Alice in Wonderland', 'Wellington', ''),
 (3, 'Alice', 1234567, 'aaa@mail.com', 'Alice in Wonderland', 'Wellington', ''),
 (4, 'rohin', 0, 'rohin@mail.com', 'rohin', 'Wellington', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE IF NOT EXISTS `rating` (
+  `id` int(11) NOT NULL,
+  `restaurant_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurants`
+--
+
+CREATE TABLE IF NOT EXISTS `restaurants` (
+  `id` smallint(5) unsigned NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `discount` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `address` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `promote` tinyint(1) NOT NULL,
+  `poster` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -104,6 +132,12 @@ ALTER TABLE `enqiry_form`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `restaurant_suggest`
 --
 ALTER TABLE `restaurant_suggest`
@@ -124,6 +158,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `enqiry_form`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `restaurant_suggest`
 --
