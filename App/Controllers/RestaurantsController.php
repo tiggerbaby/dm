@@ -3,14 +3,15 @@
 namespace App\Controllers;
 
 use App\Views\RestaurantsView;
+use App\Models\RestaurantModel;
 
 class RestaurantsController 
 {
 	public function show()
 	{ 
-	
-		$page = "restaurantsuggest";
-		$view = new RestaurantsView(compact('page'));
+	    $restaurants = RestaurantsModel::all();
+		$view = new RestaurantsView();
 		$view-> render();
 	}
+
 }

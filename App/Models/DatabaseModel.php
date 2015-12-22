@@ -236,8 +236,9 @@ abstract class DatabaseModel
 							break;
 						}
 						$valid = false;
-						$this->errors[$column] = "This email is already in use";
+						$this->errors[$column] = "This " . $column .  " is already in use";
 						break;
+
 					case 'exists':
 						try {
 							$record = new $value($this->$column);

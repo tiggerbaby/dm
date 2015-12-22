@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.11
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 21, 2015 at 08:33 PM
--- Server version: 5.6.25
--- PHP Version: 5.6.11
+-- Host: localhost
+-- Generation Time: Dec 22, 2015 at 03:27 am
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `dm`
@@ -27,14 +27,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `enqiry_form` (
-  `id` int(5) NOT NULL,
+`id` int(5) NOT NULL,
   `name` varchar(50) CHARACTER SET utf8 NOT NULL,
   `phone` int(20) NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 NOT NULL,
   `restaurant` varchar(50) CHARACTER SET utf8 NOT NULL,
   `address` text CHARACTER SET utf8 NOT NULL,
   `comment` text CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `enqiry_form`
@@ -54,8 +54,8 @@ INSERT INTO `enqiry_form` (`id`, `name`, `phone`, `email`, `restaurant`, `addres
 
 CREATE TABLE IF NOT EXISTS `rating` (
   `id` int(11) NOT NULL,
-  `restaurant_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `restaurant_id` smallint(11) unsigned NOT NULL,
+  `user_id` int(5) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -65,14 +65,22 @@ CREATE TABLE IF NOT EXISTS `rating` (
 --
 
 CREATE TABLE IF NOT EXISTS `restaurants` (
-  `id` smallint(5) unsigned NOT NULL,
+`id` smallint(5) unsigned NOT NULL,
   `title` varchar(100) CHARACTER SET utf8 NOT NULL,
   `discount` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `address` varchar(100) CHARACTER SET utf8 NOT NULL,
   `phone` varchar(12) NOT NULL,
-  `promote` tinyint(1) NOT NULL,
+  `promote` tinyint(1) DEFAULT NULL,
   `poster` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`id`, `title`, `discount`, `address`, `phone`, `promote`, `poster`) VALUES
+(1, 'Foxglove Bar & Kitchen', 'not available', '33 Queens Wharf, Wellington', '04-460 9410', 0, NULL),
+(2, 'Miyabi Sushi Japanese Cafe', '10%', 'C/O Willis Street Village, Shop 13 142 Willis St, Te Aro, Wellington', '04-801 9688', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -81,12 +89,12 @@ CREATE TABLE IF NOT EXISTS `restaurants` (
 --
 
 CREATE TABLE IF NOT EXISTS `restaurant_suggest` (
-  `id` int(5) NOT NULL,
+`id` int(5) NOT NULL,
   `restaurant_name` varchar(50) NOT NULL,
   `restaurant_address` text NOT NULL,
   `restaurant_phone` int(12) NOT NULL,
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `restaurant_suggest`
@@ -98,7 +106,8 @@ INSERT INTO `restaurant_suggest` (`id`, `restaurant_name`, `restaurant_address`,
 (4, 'yum', 'chazfvzfz', 2147483647, 's@m.COM'),
 (5, 'yum', 'chazfvzfz', 2147483647, 's@m.COM'),
 (6, 'yum', 'chazfvzfz', 2147483647, 's@m.COM'),
-(7, 'Dragon', 'Wellington', 412345, '');
+(7, 'Dragon', 'Wellington', 412345, ''),
+(8, 'Miles', 'Auckland', 2147483647, '');
 
 -- --------------------------------------------------------
 
@@ -107,19 +116,20 @@ INSERT INTO `restaurant_suggest` (`id`, `restaurant_name`, `restaurant_address`,
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(5) unsigned NOT NULL,
+`id` int(5) unsigned NOT NULL,
   `username` varchar(100) CHARACTER SET utf8 NOT NULL,
   `email` varchar(100) CHARACTER SET utf8 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8 NOT NULL,
   `role` enum('user','admin') CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-(1, 'rohin', 'rohin@mail.com', '$2y$10$Bs.tfsgafbT4cHVBoBd7JOY7so2E9BvOrMmnSvI7pX0Rq7zFEEApm', 'user');
+(1, 'rohin', 'rohin@mail.com', '$2y$10$Bs.tfsgafbT4cHVBoBd7JOY7so2E9BvOrMmnSvI7pX0Rq7zFEEApm', 'user'),
+(2, 'sara', 'sara@mail.com', '$2y$10$DFUXI2qDEQGmbN8BytsuM.cvRsNyPqd71D69VyNeZ/jc2R55VsDaK', 'user');
 
 --
 -- Indexes for dumped tables
@@ -129,25 +139,31 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 -- Indexes for table `enqiry_form`
 --
 ALTER TABLE `enqiry_form`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+ ADD KEY `restaurant_id` (`restaurant_id`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `restaurant_suggest`
 --
 ALTER TABLE `restaurant_suggest`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -157,22 +173,33 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `enqiry_form`
 --
 ALTER TABLE `enqiry_form`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `restaurant_suggest`
 --
 ALTER TABLE `restaurant_suggest`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `rating`
+--
+ALTER TABLE `rating`
+ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

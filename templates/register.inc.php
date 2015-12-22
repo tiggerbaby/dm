@@ -59,13 +59,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
         <h4 class="modal-title" id="signUpFormLabel">Welcome to Dining Mate!</h4>
       </div>
       <div class="modal-body">
         <form id="registerNewUser" action=".\?page=auth.store" method="POST"> 
           <div class="form-group <?php if($errors['username']): ?> has-error <?php endif; ?>">
-              <label for="username" class="control-label">Name*</label>
+              <label for="username" class="control-label">User Name*</label>
              <input class="form-control" id="username" name="username" 
                       value="<?php echo $user->username; ?>">
                       <div class="help-block"><?php echo $errors['username']; ?></div>

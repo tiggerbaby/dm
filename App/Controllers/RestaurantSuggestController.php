@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Views\RestaurantSuggestView;
-use App\Models\RestaurantModel;
+use App\Models\RestaurantSuggestModel;
 // use App\Views\SuggesterEmailView;
 // use App\Views\HostEmailView;
 // use App\Views\RestaurantSuggestSuccessView;
@@ -12,7 +12,7 @@ class RestaurantSuggestController extends Controller
 {  
 	public function show()
 	{
-		$restaurants = new RestaurantModel();
+		$restaurants = new RestaurantSuggestModel();
 		$view = new RestaurantSuggestView(compact('restaurants'));
 		$view-> render();
 	}
@@ -27,7 +27,7 @@ class RestaurantSuggestController extends Controller
 	public function store()
 	{
 		var_dump($_POST);
-		$restaurants = new RestaurantModel($_POST);
+		$restaurants = new RestaurantSuggestModel($_POST);
         
 		if(! $restaurants->isValid()){
 			var_dump($restaurants);

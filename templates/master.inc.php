@@ -47,7 +47,7 @@
           <li class="bg-danger" <?php if($page==="register"): ?> <?php endif ;?>><a href=".\?page=register">Sign Up<span class="sr-only">(current)</span></a></li>
           <li<?php if($page==="signin"): ?> <?php endif ;?>><a href=".\?page=login">Sign In</a></li> 
             <?php else: ?>
-              <li><a href="#"><small><?= static::$auth->user()->email; ?></small></a></li> 
+              <li><a href="#"><small>Hello <?= static::$auth->user()->username; ?></small></a></li> 
               <li><a href=".\?page=logout"><small>Logout</small></a></li>
             <?php endif; ?>
 
@@ -147,11 +147,12 @@ Sign Up</button></li> -->
                   <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
                 </a>
                  <a href="https://www.facebook.com/">
-                 <!-- <div class="footerlink">
+                <!--  <div class="footerlink">
                    <object data="img/fblogo.svg" type="img/svg+xml"></object>
-                 </div> -->
+                 </div>
+                 -->
                 
-                    <img src="img/fb.svg" alt="facebook logo" class="footerlink">
+                    <img src="img/fb.svg" alt="facebook logo" class="footerlink" onerror="this.src='img/fb.png'">
                   </a>
                 <a href="https://www.twitter.com/">
               <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
