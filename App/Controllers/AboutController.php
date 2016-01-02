@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Views\AboutView;
 use App\Models\AboutModel;
 
+
 class AboutController 
 {
 	public function show()
@@ -45,11 +46,11 @@ class AboutController
 		
 	}
 
-	public function success()
-	{
-		$view = new AboutView();
-		$view->rendersuccess();
-	}
+	// public function success()
+	// {
+	// 	$view = new AboutView();
+	// 	$view->rendersuccess();
+	// }
 	public function getFormData($id = null){
 		if(isset($_SESSION['enqiryform'])){
 			$enqiry = $_SESSION['enqiryform'];

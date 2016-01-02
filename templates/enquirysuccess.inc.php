@@ -1,8 +1,8 @@
-<?php if (($_GET['show_modal'])) : ?>
+<!--<?php if (($_GET['show_modal'])) : ?>
     <script type="text/javascript"> $('#enqiryform').modal('show'); </script>
-<?php endif; ?>
+<?php endif; ?> -->
 
-<div class="modal fade" id="enqiryform" tabindex="-1" role="dialog" aria-labelledby="enqiryformLabel">
+<!-- <div class="modal fade" id="enqiryform" tabindex="-1" role="dialog" aria-labelledby="enqiryformLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,5 +16,13 @@
         <button type="button" class="btn btn-info" data-dismiss="modal">Got it</button>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Thanks for contacting us!</h1>
+    <p>We will be contact you soon.</p>
+  
   </div>
 </div>

@@ -2,7 +2,6 @@
 
 namespace App\Views;
 
-
 class RestaurantsView extends TemplateView
 {
 	public function render() {

@@ -78,7 +78,7 @@ $errors=$enqiry->errors;
      </div>
        	 
 
-    <div class="modal fade" id="enqiryform" tabindex="-1" role="dialog" aria-labelledby="enqiryformLabel">
+    <!-- <div class="modal fade" id="enqiryform" tabindex="-1" role="dialog" aria-labelledby="enqiryformLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -93,6 +93,6 @@ $errors=$enqiry->errors;
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 

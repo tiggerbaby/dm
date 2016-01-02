@@ -129,11 +129,18 @@ try{
         $controller = new AboutController();
 	    $controller-> store();		
 		break;
-   case "enqirysuccess":
+  //  case "enqirysuccess":
     
-        $controller = new AboutController();
-	    $controller-> success();		
-		break;
+  //       $controller = new AboutController();
+	 //    $controller-> success();		
+		// break;
+
+		case "enquirysuccess":
+
+			$controller = new EnquirySuccessController();
+			$controller->show();		
+			
+			break;
 
 
 	default:

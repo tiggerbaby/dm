@@ -9,8 +9,8 @@ class RestaurantsController
 {
 	public function show()
 	{ 
-	    $restaurants = RestaurantsModel::all();
-		$view = new RestaurantsView();
+	    $restaurants = RestaurantModel::all();
+		$view = new RestaurantsView(['products' => $products]);
 		$view-> render();
 	}
 

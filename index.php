@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 
 require "vendor/autoload.php";
 
+
 session_start();
 session_regenerate_id(true);
 

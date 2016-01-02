@@ -90,6 +90,7 @@
            <label>
             <input type="checkbox">I agree to the terms and conditions of Use and Privacy Policy.
            </label>
+          <!--  In order to use our services, you must agree to Dm's Terms of Service. -->
          </div>
          <div class="modal-footer">
         <button type="submit" class="btn btn-danger">Create Account</button>
