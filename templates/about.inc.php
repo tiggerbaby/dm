@@ -5,12 +5,8 @@ $errors=$enqiry->errors;
  <div class="jumbotron" id="aboutBackgroundColor">
       <div class="container">
         <h1>Who we are?</h1>
-        <p>We pactionated with focus on food, we focus on restaurants! team aim for Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <p>
+        <p>Dining Mate is a team passionate with focus on food and restaurants！We are the bridge between customers and restaurants.
+        Form helping customer to find and book restaurants, we also help restaurant to grow and run their businesses.</p>
         <h3>Restauranteurs Join Us</h3>
        <p><a class="btn btn-danger btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>

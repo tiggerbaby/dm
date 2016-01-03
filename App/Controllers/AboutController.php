@@ -42,6 +42,7 @@ class AboutController
 		}
 		
 		$enqiry -> save();
+        // header("Location: .\?page=enqirysuccess&show_modal=true");
         header("Location: .\?page=enqirysuccess&show_modal=true");
 		
 	}

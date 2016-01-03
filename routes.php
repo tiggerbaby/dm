@@ -83,8 +83,14 @@ try{
 
 	case "restaurants":
 		$controller = new RestaurantsController();
+		$controller -> index();
+		break;
+    
+    case "restaurant":
+        $controller = new RestaurantsController();
 		$controller -> show();
 		break;
+
 	
 	case "restaurantsuggest":
     
@@ -129,13 +135,9 @@ try{
         $controller = new AboutController();
 	    $controller-> store();		
 		break;
-  //  case "enqirysuccess":
-    
-  //       $controller = new AboutController();
-	 //    $controller-> success();		
-		// break;
 
-		case "enquirysuccess":
+
+		case "enqirysuccess":
 
 			$controller = new EnquirySuccessController();
 			$controller->show();		
