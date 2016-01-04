@@ -14,14 +14,18 @@
 </div>
 
 
+
 <div class="container">
+  <p>
+    <a href=".\?page=restaurant.create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Restaurant</a>
+  </p>
   <?php if(count($restaurants) > 0): ?>
     <ul class="media-list col-sm-4 col-md-4">
       <?php foreach($restaurants as $restaurant): ?>
         <li class="media">
   <div class="media-left">
       <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
-        <img class="media-object restaurantImg" src="img/foxglove.jpg" alt="restaurant view">
+        <img class="media-object thumbnailImg" src="img/foxglove.jpg" alt="restaurant view">
       </a>
     </div>
   <div class="media-body">

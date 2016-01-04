@@ -45,42 +45,6 @@ try{
 
 			break;
 
-	 // case "register":
-			
-		// 	$controller = new AuthenticationController();
-		// 	$controller->register();
-
-		// 	break;
-
-	 //  case "registersuccess":
-	 //  $controller = new AuthenticationController();
-		// 	$controller->store();
-
-		// 	break;
-	  		
-		// case "auth.store":
-			
-		// 	$controller = new AuthenticationController();
-		// 	$controller->store();
-
-		// 	break;
-		// case "login":
-			
-		// 	$controller = new AuthenticationController();
-		// 	$controller->login();
-
-		// 	break;
-		// case "auth.attempt":
-		// 	$controller = new AuthenticationController();
-		// 	$controller->attempt();
-			
-		// 	break;
-		// case "logout":
-			
-		// 	$controller = new AuthenticationController();
-		// 	$controller->logout();
-
-
 	case "restaurants":
 		$controller = new RestaurantsController();
 		$controller -> index();
@@ -91,57 +55,63 @@ try{
 		$controller -> show();
 		break;
 
-	
+    case "restaurant.create":
+		$controller = new RestaurantsController();
+		$controller->create();
+		break;
+
+    case "restaurant.edit":
+		$controller = new RestaurantsController();
+		$controller->edit();
+		break;
+
+	case "restaurant.destroy":
+		$controller = new RestaurantsController();
+		$controller->destroy();
+		break;
+
 	case "restaurantsuggest":
-    
         $controller = new RestaurantSuggestController();
 	    $controller-> show();		
 		break;
 		
 	case "restaurantsuggest.invalid":
-    
         $controller = new RestaurantSuggestController();
 	    $controller-> displayerror();		
 		break;
 
+     
+
     case "restaurantsuggeststore":
-    
         $controller = new RestaurantSuggestController();
 	    $controller-> store();		
 		break;
      
      	case "restaurantsuggestsuccess":
-
 			$controller = new RestaurantSuggestSuccessController();
-			$controller->show();		
-			
+			$controller->show();			
 			break;
-
-      
+   
 	
 	case "about":
 		$controller = new AboutController();
 		$controller -> show();
 		break;
 
-	 case "enqiry.invalid":
-    
+	 case "enqiry.invalid":   
         $controller = new AboutController();
 	    $controller-> displayerror();		
 		break;
 
     case "enqirystore":
-    
         $controller = new AboutController();
 	    $controller-> store();		
 		break;
 
 
 		case "enqirysuccess":
-
 			$controller = new EnquirySuccessController();
-			$controller->show();		
-			
+			$controller->show();					
 			break;
 
 

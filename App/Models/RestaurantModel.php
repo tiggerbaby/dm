@@ -13,6 +13,12 @@ class RestaurantModel extends DatabaseModel
 
     protected static $tableName = "restaurants";
 	protected static $columns = ['id','title','discount','address','phone'];
+    protected static $validationRules = [
+					"title"   => "minlength:1,unique",
+					"discount"=> "minlength:2",
+					"address" => "minlength:4",
+					"phone"=>"minlength:5,numeric"
+					];
 
 	// private static function getDatabaseConnection() 
 	// {
