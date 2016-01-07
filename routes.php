@@ -25,9 +25,9 @@ try{
 			$controller = new AuthenticationController();
 			$controller->store();
 
+
 			break;
 		case "login":
-			
 			$controller = new AuthenticationController();
 			$controller->login();
 
@@ -65,10 +65,22 @@ try{
 		$controller->edit();
 		break;
 
+	case "restaurant.store":
+		$controller = new RestaurantsController();
+		$controller->store();
+		break;
+
 	case "restaurant.destroy":
 		$controller = new RestaurantsController();
 		$controller->destroy();
 		break;
+
+	case "comment.create":
+
+            $controller = new CommentController();
+            $controller->create();
+
+            break;	
 
 	case "restaurantsuggest":
         $controller = new RestaurantSuggestController();
@@ -80,8 +92,6 @@ try{
 	    $controller-> displayerror();		
 		break;
 
-     
-
     case "restaurantsuggeststore":
         $controller = new RestaurantSuggestController();
 	    $controller-> store();		
@@ -90,8 +100,11 @@ try{
      	case "restaurantsuggestsuccess":
 			$controller = new RestaurantSuggestSuccessController();
 			$controller->show();			
-			break;
-   
+			break;		
+
+    case "booking":
+         $controller = new BookingController();
+         $controller->show();
 	
 	case "about":
 		$controller = new AboutController();

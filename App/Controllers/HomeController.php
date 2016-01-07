@@ -4,31 +4,20 @@ namespace App\Controllers;
 
 use App\Views\HomeView;
 use App\Models\UserModel;
+// use App\Controllers\RestaurntsController;
+use App\Models\RestaurantModel;
 
-class HomeController
+
+
+class HomeController 
 {
 	public function show()
 	{ 
-        
-		$view = new HomeView();
+        $restaurants = RestaurantModel::all("", true, true);
+		$view = new HomeView(['restaurants' => $restaurants]);
 		$view->render();
 	}
-	// public function getMovieSuggestFormData() could be use for Restaurants View->Restaurant Suggest
-	// {
-	// 	if(isset($_SESSION['moviesuggest'])){
-	// 		$moviesuggest = $_SESSION['moviesuggest'];
-	// 	} else {
-	// 		$moviesuggest = [
-	// 			'title' => "",
-	// 			'email' => "",
-	// 			'newsletter' => "",
-	// 			'errors' => [
-	// 				'title' =>"",
-	// 				'email' =>"",
-	// 				'newsletter' =>""
-	// 			]
-	// 		];
-	// 	}
-	// 	return $moviesuggest;
-	// }
+ 
+	 
+
 }

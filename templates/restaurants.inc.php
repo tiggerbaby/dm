@@ -16,9 +16,11 @@
 
 
 <div class="container">
+<?php if(static::$auth->isAdmin()): ?>
   <p>
     <a href=".\?page=restaurant.create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Restaurant</a>
   </p>
+<?php endif; ?>
   <?php if(count($restaurants) > 0): ?>
     <ul class="media-list col-sm-4 col-md-4">
       <?php foreach($restaurants as $restaurant): ?>

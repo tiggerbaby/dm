@@ -67,13 +67,20 @@ abstract class DatabaseModel
 		}
 	}
 
-	public static function all($sortcolumn = "", $asc = true)
+	public static function all($sortcolumn = "", $asc = true, $promoted = false)
 	{
 		$models = [];
 
 		$db = static::getDatabaseConnection();
 
 		$query ="SELECT " .implode("," , static::$columns). " FROM " . static::$tableName;
+
+		// If promoted bool is set, then add a WHERE clause to the sql
+		//  query string to filter by promoted resturants
+		if ($promoted)
+		{
+			$query .= " WHERE promote=1";
+		}
 
 		if($sortcolumn){
 			if( ! array_search($sortcolumn, static::$columns)){

@@ -16,7 +16,28 @@
 
 <div class="container">
 
-<div class="row">
+  <?php if(count($restaurants) > 0): ?>
+    <!-- <ul class="media-list col-sm-4 col-md-4"> -->
+      <?php foreach($restaurants as $restaurant): ?>
+        <!-- <li class="media"> -->
+  <div class="media-left">
+      <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
+        <img class="media-object thumbnailImg" src="img/foxglove.jpg" alt="restaurant view">
+      </a>
+    </div>
+  <div class="media-body">
+    <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
+     <p>Rating:*****</p>
+      <p>Discount: <?= $restaurant->discount; ?></p>
+      <p>Address: <?= $restaurant->address; ?></p>
+      <p>Phone: <?= $restaurant->phone; ?></p>
+</div>
+    
+     <?php endforeach; ?>
+<?php endif; ?>
+
+
+<!-- <div class="row">
   <div class="col-xs-6 col-md-4">
     <a href="#" class="thumbnail">
       <img src="http://placehold.it/350x200" alt="restaurant view">
@@ -34,7 +55,7 @@
       <img src="http://placehold.it/350x200" alt="restaurant view">
     </a>
   </div>	
- </div>
+ </div> -->
 </div>
 
             

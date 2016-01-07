@@ -78,7 +78,7 @@ class AuthenticationService
 		unset($_SESSION['AuthenticationService']);
 		static::$currentUser = null;
 	}
-	
+
 	public function isAdmin()
 	{
 		if($this->check()){
