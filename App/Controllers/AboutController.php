@@ -24,11 +24,9 @@ class AboutController
 
 	public function store()
 	{
-		var_dump($_POST);
 		$enqiry = new AboutModel($_POST);
         
 		if(! $enqiry->isValid()){
-			var_dump($enqiry);
 			$_SESSION['enqiryform'] = $enqiry;
 			header("Location: .\?page=enqiry.invalid");
 			exit();

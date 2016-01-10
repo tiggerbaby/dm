@@ -5,13 +5,14 @@ namespace App\Models;
 class CommentModel extends DatabaseModel
 {
 
-    protected static $columns = ['id', 'user_id', 'restaurant_id', 'created', 'comment'];
+    protected static $columns = ['id', 'user_id', 'restaurant_id', 'created', 'rating','comment'];
 
     protected static $tableName = "comments";
 
     protected static $validationRules = [
     			'user_id' => 'numeric,exists:\App\Models\User',
-    			'restaurant'=> 'numeric,exists:\App\Models\RestaurantModel',
+    			'restaurant_id'=> 'numeric,exists:\App\Models\RestaurantModel',
+                'rating'=>'isempty',
     			'comment' => 'minlength:10,maxlength:1600'
     ];
 
@@ -19,6 +20,4 @@ class CommentModel extends DatabaseModel
     {
     	return new User($this->user_id);
     }
-
-    
 }

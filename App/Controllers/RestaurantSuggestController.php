@@ -26,7 +26,6 @@ class RestaurantSuggestController extends Controller
 
 	public function store()
 	{
-		var_dump($_POST);
 		$restaurants = new RestaurantSuggestModel($_POST);
         
 		if(! $restaurants->isValid()){

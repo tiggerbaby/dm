@@ -11,7 +11,12 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="css/bootstrap-rating.css" rel="stylesheet">  -->
+    <link href="rateit/src/rateit.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+   
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -173,9 +178,18 @@ Sign Up</button></li> -->
 </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+<!-- <script src="js/bootstrap-rating.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/taggle.min.js"></script>
+    
+<!--  <script src="jRate-master/jRate.js"></script> -->
+
+
+    <!-- <script src="js/taggle.min.js"></script> -->
+    <script src="rateit/src/jquery.rateit.js"></script>
     <script src="js/main.js"></script>
 
   </body>

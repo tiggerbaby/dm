@@ -21,40 +21,25 @@ class RestaurantModel extends DatabaseModel
 					"phone"=>"minlength:5,numeric"
 					];
 
+	public function averageRating()
+	{
+		$comments = $this->comments();
 
+		// Calculate average rating
+		$sum = 0;
+		$num_comments = count($comments);
 
-	// private static function getDatabaseConnection() 
-	// {
-	// 	if (! self::$db) {
-	// 		$dsn = 'mysql:host=localhost;dbname=dm;charset=utf8';
-	// 		self::$db = new PDO($dsn, 'root', '');
+		foreach ($comments as $comment)
+		{
+			$sum = $sum + $comment->rating;
+		}
 
-	// 		self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	// 		self::$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-	// 	}
-	// 	return self::$db;
-
-		
-	// }
-	// public static function all()
-	// {
-	// 	$models = [];
-
-	// 	$db = self::getDatabaseConnection();
-
-	// 	$statement = $db->prepare("SELECT id, title, discount, address, phone, FROM restaurants;");
-	// 	$statement->execute();
-
-	// 	$record = $statement->fetch(PDO::FETCH_ASSOC);
-
-	// 	while($record = $statement->fetch(PDO::FETCH_ASSOC)){
-	// 		$model = new Restaurants();
-	// 		$model->data = $record;
-	// 		array_push($models, $model);
-
-	// 	}
-		
-	// 	return $models;
-	// 	// var_dump($models);
-	// }
+		return $sum / $num_comments;
+	}
+	
+    public function comments()
+	{
+		$result = CommentModel::allBy('restaurant_id', $this->id);
+		return $result;
+	}
 }

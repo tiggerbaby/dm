@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Views\RestaurantsView;
+use App\Models\CommentModel;
 use App\Models\RestaurantModel;
+use App\Views\RestaurantsView;
 use App\Views\SingleRestaurantView;
 use App\Views\RestaurantCreateView;
 
@@ -12,35 +13,24 @@ class RestaurantsController extends Controller
 {   
 	public function index()
 	{ 
-		//
-		// These two lines are exactly the same.
-		// We do not pass any values to the function on the first line, so the default values are used. 
-		// We do pass values to the function on the second line, but the values we pass are the same as teh default values.
-		// Therefore the two lines are exactly the same
+		$pageNumber= isset($_GET['p']) ? $_GET['p'] : 1;
+		$pageSize = 6;
+		$recordCount = RestaurantModel::count();
 
-		// $restaurants = RestaurantModel::all(); 
-	    // $restaurants = RestaurantModel::all("", true, false);
-		//
-
-
-	    $restaurants = RestaurantModel::all();
-
-		$view = new RestaurantsView(['restaurants' => $restaurants]);
+		$restaurants = RestaurantModel::all("title", true, $pageNumber, $pageSize);
+		$view = new RestaurantsView(compact('restaurants', 'pageNumber', 'pageSize', 'recordCount'));
 		$view-> render();
-	}
-
-	public function promoted()
-	{  
-	    $restaurants = RestaurantModel::all("", true, true);
-	    return $restaurants;
-		//$view = new RestaurantsView(['restaurants' => $restaurants]);
-		//$view-> render();
 	}
 
 	public function show()
 	{
 		$restaurant = new RestaurantModel((int)$_GET['id']);
-		$view = new SingleRestaurantView(['restaurant' => $restaurant]);
+		$newcomment = $this->getCommentFormData();
+		$comments = $restaurant->comments();
+		$average_rating = $restaurant->averageRating();
+
+		// $view = new SingleRestaurantView(['restaurant' => $restaurant]);
+		$view = new SingleRestaurantView(compact('restaurant', 'newcomment', 'comments', 'average_rating'));
 		$view->render();
 	}
 	public function create()
@@ -83,6 +73,15 @@ class RestaurantsController extends Controller
 			$restaurant = new RestaurantModel((int)$id);
 		}
 		return $restaurant;
+	}
+	public function getCommentFormData($id = null){
+		if(isset($_SESSION['comment.form'])){
+			$newcomment = $_SESSION['comment.form'];
+			unset($_SESSION['comment.form']);
+		} else {
+			$newcomment = new CommentModel((int)$id);
+		}
+		return $newcomment;
 	}
 }
 

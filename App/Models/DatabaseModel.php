@@ -67,7 +67,7 @@ abstract class DatabaseModel
 		}
 	}
 
-	public static function all($sortcolumn = "", $asc = true, $promoted = false)
+	public static function all($sortcolumn = "", $asc = true, $promoted = false,  $pageNumber=null, $pageSize=null)
 	{
 		$models = [];
 
@@ -93,6 +93,12 @@ abstract class DatabaseModel
 				$query .= " DESC";
 			}
 		}
+
+		if($pageSize > 0  && $pageNumber > 0){
+			$firstRecord = ($pageSize * $pageNumber) - $pageSize;
+			$query .= " LIMIT " .$firstRecord." , ".$pageSize;
+		}
+
 		$statement = $db->prepare($query);
 		$statement->execute();
 
@@ -106,6 +112,64 @@ abstract class DatabaseModel
 		return $models;
 		// var_dump($models);
 	}
+    
+    public static function allBy($column, $value, $sortcolumn = "", $asc = true, $pageNumber=null, $pageSize=null)
+	{
+		$models = [];
+
+		$db = static::getDatabaseConnection();
+
+		$query ="SELECT " .implode("," , static::$columns). " FROM " . static::$tableName;
+
+		if( ! array_search($column, static::$columns)){
+			throw new UnexpectedValueException("Property $column is not found in the column.");
+		}
+
+		$query .= " WHERE $column =:value";
+
+		if($sortcolumn){
+			if( ! array_search($sortcolumn, static::$columns)){
+				throw new UnexpectedValueException("Property $sortcolumn is not found in the columns array.");
+			}
+			$query .= " ORDER BY " .$sortcolumn;
+			if($asc){
+				$query .= " ASC";
+			} else {
+				$query .= " DESC";
+			}
+		}
+
+		if($pageSize > 0  && $pageNumber > 0){
+			$firstRecord = ($pageSize * $pageNumber) - $pageSize;
+			$query .= " LIMIT " .$firstRecord." , ".$pageSize;
+		}
+		$statement = $db->prepare($query);
+		$statement->bindValue(":value" , $value);
+		$statement->execute();
+
+		while($record = $statement->fetch(PDO::FETCH_ASSOC)){
+			$model = new static();
+			$model->data = $record;
+			array_push($models, $model);
+
+		}
+
+		return $models;
+		// var_dump($models);
+	}
+
+	public static function count()
+	{
+		$db = static::getDatabaseConnection();
+		$query = "SELECT count(id) FROM " . static::$tableName;
+
+		$statement = $db->prepare($query);
+		$statement->execute();
+		$result = $statement->fetchColumn();
+		return $result;
+
+	}
+	
 	public function find($id) 
 	{
 		$db = static::getDatabaseConnection();
@@ -192,10 +256,12 @@ abstract class DatabaseModel
 	
    
    public function isValid()
-	{
+	{   
 
 		$valid = true;
 		foreach (static::$validationRules as $column => $rules) {
+
+
 			$this->errors[$column] = null;
 			$rules = explode(",", $rules);
 			foreach ($rules as $rule) {
@@ -204,39 +270,55 @@ abstract class DatabaseModel
 					$value = $rule[1];
 					$rule = $rule[0];
 				}
+
 				switch ($rule) {
+
+					// case 'isempty':
+     //                  if(empty($this->column)){
+     //                  	$valid = false;
+					// 		$this->errors[$column] = "This can not be empty.";
+     //                  }
+
 					case 'minlength':
-						// var_dump($this->$column);
+
 						if(strlen($this->$column) < $value){
 							$valid = false;
 							$this->errors[$column] = "Must be at least $value characters long.";
 						}
 						break;
 					case 'maxlength':
+
 						if(strlen($this->$column) > $value){
 							$valid = false;
 							$this->errors[$column] = "Must be no more than $value characters long.";
 						}
 						break;
+
 					case 'numeric':
+
+
 						if(! is_numeric($this->$column)){
 							$valid = false;
+
 							$this->errors[$column] = "Must be a number.";
 						}
 						break;
 					case 'email':
+
 						if(! filter_var($this->$column, FILTER_VALIDATE_EMAIL)){
 							$valid = false;
 							$this->errors[$column] = "Must be a valid email address.";
 						}
 						break;
 					case 'match':
+
 						if( $this->$column !== $this->$value){
 							$valid = false;
 							$this->errors[$column] = "Must match with the $value field.";
 						}
 						break;
 					case 'unique':
+
 						try {
 							$record = $value::findBy($column, $this->$column);
 						} catch (ModelNotFoundException $e) {
@@ -247,6 +329,7 @@ abstract class DatabaseModel
 						break;
 
 					case 'exists':
+
 						try {
 							$record = new $value($this->$column);
 						} catch (ModelNotFoundException $e) {
@@ -259,10 +342,20 @@ abstract class DatabaseModel
 			}
 			
 		}
+
+		print '<br />DatabaseModel.isValid() - end of function';
 		return $valid;
 	}
-
-
+    
+    public static function destroy($id)
+	{
+		$db = static::getDatabaseConnection();
+		$query = "DELETE FROM " . static::$tableName . " WHERE id= :id";
+		$statement = $db->prepare($query);
+		$statement->bindValue(':id', $id);
+		$statement->execute();
+	}
+	
 	public function __get($name)
 	{
 		if (in_array($name, static::$columns) || in_array($name, static::$fakeColumns)) {

@@ -19,6 +19,7 @@
   <?php if(count($restaurants) > 0): ?>
     <!-- <ul class="media-list col-sm-4 col-md-4"> -->
       <?php foreach($restaurants as $restaurant): ?>
+        <?php $averageRating = $restaurant->averageRating(); ?>
         <!-- <li class="media"> -->
   <div class="media-left">
       <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
@@ -27,7 +28,7 @@
     </div>
   <div class="media-body">
     <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
-     <p>Rating:*****</p>
+     <div class="rateit" data-rateit-value="<?= $averageRating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
       <p>Discount: <?= $restaurant->discount; ?></p>
       <p>Address: <?= $restaurant->address; ?></p>
       <p>Phone: <?= $restaurant->phone; ?></p>

@@ -22,9 +22,10 @@
   </p>
 <?php endif; ?>
   <?php if(count($restaurants) > 0): ?>
-    <ul class="media-list col-sm-4 col-md-4">
-      <?php foreach($restaurants as $restaurant): ?>
-        <li class="media">
+    <!-- <ul class="media-list col-sm-4 col-md-4"> -->
+      <?php foreach($restaurants as $restaurant): ?>      
+      <?php $averageRating = $restaurant->averageRating(); ?>
+      <!--   <li class="media"> -->
   <div class="media-left">
       <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
         <img class="media-object thumbnailImg" src="img/foxglove.jpg" alt="restaurant view">
@@ -32,7 +33,7 @@
     </div>
   <div class="media-body">
     <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
-     <p>Rating:*****</p>
+      <div class="rateit" data-rateit-value="<?= $averageRating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
       <p>Discount: <?= $restaurant->discount; ?></p>
       <p>Address: <?= $restaurant->address; ?></p>
       <p>Phone: <?= $restaurant->phone; ?></p>
@@ -42,15 +43,16 @@
      <?php endforeach; ?>
 </ul>
 <?php endif; ?>
+
+<?php $this->paginate(".\?page=restaurants", $pageNumber, $pageSize, $recordCount); ?>
  <p class="col-sm-12"> 
       <a href=".\?page=restaurantsuggest" class="text-danger">
       Are we missing any restaurant? Suggest a place to include in Dining Mate here.
   </a></p>
+  
 </div>
-  </div>  
-  </div>
 
-  </div>
+ 
 
 
 
