@@ -29,7 +29,15 @@
 </div>
 <div class="media-right">
       <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
-        <img class="media-object restaurantImg" src="img/foxglove.jpg" alt="restaurant view">
+      
+          <?php if($restaurant->poster !=""):?>
+      <a href="./?page=downloadposter&amp;filename=<?= $restaurant->poster ?>">
+        <img src="./images/poster/300h/<?= $restaurant->poster ?>" alt="<?= $restaurant->title ?> image">
+      </a>
+    <?php else: ?>
+      <p><small>No poster found</small></p>
+    <?php endif; ?>
+        <!-- <img class="media-object restaurantImg" src="img/foxglove.jpg" alt="restaurant view"> -->
       </a>
     </div>  
 
@@ -41,7 +49,7 @@
         <input name="rating" type="range" value="0" step="0.5" id="backing4" <?php if ($errors['rating']): ?> has-error <?php endif; ?>>
          <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false"  data-rateit-ispreset="true"
            data-rateit-min="0" data-rateit-max="5">
-           <div class="help-block"><?= $errors['rating']; ?></div>
+           <!-- <div class="help-block"><?= $errors['rating']; ?></div> -->
         </div>
 
         <input type="hidden" name="restaurant_id" value="<?= $restaurant->id ?>">

@@ -17,7 +17,7 @@ class RestaurantModel extends DatabaseModel
 	protected static $columns = ['id','title','discount','address','phone','poster'];
 	protected static $fakeColumns = ['tags'];
     protected static $validationRules = [
-					"title"   => "minlength:1,unique:App\Models\RestaurantModel",   //,unique",
+					"title"   => "minlength:1",   
 					"discount"=> "minlength:2",
 					"address" => "minlength:4",
 					"phone"=>"minlength:5"
