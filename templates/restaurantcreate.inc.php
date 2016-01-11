@@ -4,7 +4,7 @@
     ?>
     <div class="container">
           <div class="col-xs-12">  
-              <form id="restaurantcreate" action=".\?page=restaurant.store" method="POST" class="form-horizontal">
+              <form id="restaurantcreate" action=".\?page=restaurant.store" method="POST" class="form-horizontal" enctype="multipart/form-data">
                <h3><?= $verb; ?> restaurant</h3>
 
                 <div class="form-group <?php if($errors['title']): ?> has-error <?php endif; ?>">
@@ -39,6 +39,30 @@
                     <div class="help-block"><?php echo $errors['phone']; ?></div>
                   </div>
                 </div> 
+
+                <div class="form-group <?php if($errors['poster']): ?> has-error <?php endif; ?>">
+                  <label for="poster" class="col-sm-4 col-md-2 control-label">Poster Image </label>
+                  <div class="col-sm-5 col-md-5">
+                    <input type="file" class="form-control" id="poster" name="poster">
+                  </div>
+                  <?php if($restaurant->poster != ""): ?>
+                    <div class="col-sm-1 col-md-1">
+                      <img src="./img/poster/100h/<?= $restaurant->poster ?>" alt="image">
+                    </div>
+                    <div class="col-sm-2 col-md-2">
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="removeImage" value="true">Remove Image</label>
+                      </div>
+                    </div>
+
+                  <?php else: ?>
+                    <div class="col-sm-2 col-md-2">
+                      <p><small>No poster found for this restaurant</small></p>
+                    </div>
+
+                  <?php endif; ?>
+                </div>
+
                  <div class="form-group <?php if($errors['tags']): ?> has-error <?php endif; ?>">
                   <label for="tags" class="col-sm-4 col-md-2 control-label">Cuisines</label>
                   <div class="col-sm-8 col-md-10">
@@ -47,7 +71,6 @@
                    var inputTags = "<?= $restaurant->tags; ?>";
                    </script>
                    </div>
-                    <div class="help-block"><?php echo $errors['tags']; ?></div>
                   </div>
                 </div> 
                 </div>      

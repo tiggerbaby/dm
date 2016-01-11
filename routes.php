@@ -121,12 +121,18 @@ try{
 	    $controller-> store();		
 		break;
 
-
 		case "enqirysuccess":
 			$controller = new EnquirySuccessController();
 			$controller->show();					
 			break;
 
+        case "downloadposter":
+			$file = "./img/poster/originals/" . $_GET['filename'];
+			header('Content-Type: application/octet-stream');
+			header('Content-Transfer-Encoding: Binary');
+			header('Content-disposition: attachment; filename="' . basename($file) . '"');
+			readfile($file);
+			break;
 
 	default:
 		echo "404";
@@ -148,20 +154,3 @@ try{
 }
 
 
-
-// switch ($page) {
-// 	case 'home':
-// 		include "templates/index.inc.php";
-// 		break;
-
-// 	case 'restaurants':
-// 		include "templates/restaurants.inc.php";
-// 		break;
-
-// 	case 'about':
-// 		include "templates/about.inc.php";
-// 		break;
-	
-// 	default:
-// 		echo "404";
-// 		break;

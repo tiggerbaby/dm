@@ -50,11 +50,16 @@ class RestaurantsController extends Controller
 			$restaurant->tags = implode(",", $restaurant->tags);
 
 		}
-		// if(! $restaurant->isValid()){
-		// 	$_SESSION['restaurant.create'] = $restaurant;
-		// 	header("Location: .\?page=restaurant.create");
-		// 	exit();
-		// }
+		if(! $restaurant->isValid()){
+			$_SESSION['restaurant.create'] = $restaurant;
+			header("Location: .\?page=restaurant.create");
+			exit();
+		}
+
+		if($_FILES['poster']['error'] === UPLOAD_ERR_OK){
+			$restaurant->savePoster($_FILES['poster']['tmp_name']);
+		}
+
 		$restaurant->save();
 		$restaurant->saveTags();
 		header("Location: .\?page=restaurant&id=" . $restaurant->id);
@@ -84,9 +89,16 @@ class RestaurantsController extends Controller
 			header("Location: .\?page=restaurant.edit&id=".$_POST['id']);
 			exit();
 		}
+
+		if($_FILES['poster']['error'] === UPLOAD_ERR_OK){
+			$movie->savePoster($_FILES['poster']['tmp_name']);
+		} else if(isset($_POST['removeImage']) && $_POST['removeImage'] === "true") {
+			$movie->poster = null;
+		}
+
 		$restaurant->save();
 		$restaurant->saveTags();
-		// header("Location: .\?page=movie&id=" . $movie->id);
+		header("Location: .\?page=restaurant&id=" . $restaurant->id);
 	}
 	public function destroy()
 	{   

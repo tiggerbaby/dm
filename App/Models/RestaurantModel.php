@@ -4,6 +4,7 @@ namespace App\Models;
 
 use PDO;
 use finfo;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class RestaurantModel extends DatabaseModel
@@ -13,7 +14,7 @@ class RestaurantModel extends DatabaseModel
 	// private static $db;
 
     protected static $tableName = "restaurants";
-	protected static $columns = ['id','title','discount','address','phone'];
+	protected static $columns = ['id','title','discount','address','phone','poster'];
 	protected static $fakeColumns = ['tags'];
     protected static $validationRules = [
 					"title"   => "minlength:1,unique:App\Models\RestaurantModel",   //,unique",
@@ -168,5 +169,53 @@ class RestaurantModel extends DatabaseModel
 		$statement = $db->prepare($query);
 		$statement->bindValue(":restaurant_id", $this->id);
 		$statement->execute();
+	}
+	public function savePoster($filename)
+	{
+		$finfo = new finfo(FILEINFO_MIME_TYPE);
+		$mime = $finfo->file($filename);
+		
+		$extensions = [
+			'image/jpg'	=> '.jpg',
+			'image/jpeg'=> '.jpg',
+			'image/png'	=> '.png',
+			'image/gif'	=> '.gif'
+		];
+
+		if(isset($extensions[$mime])){
+			$extension = $extensions[$mime];
+		} else {
+			$extension = '.jpg';
+		}
+
+		$newFileName = uniqid() . $extension;
+		
+		$folder = "./img/poster/originals";
+		if( ! is_dir($folder)){
+			mkdir($folder, 0777, true);
+		}
+		$destination = $folder . "/" . $newFileName;
+		move_uploaded_file($filename, $destination);
+
+		$this->poster = $newFileName;
+
+		//240X300 image file size
+		if( ! is_dir("./img/poster/300h")){
+			mkdir("./img/poster/300h/", 0777, true);
+		}
+		$img = Image::make($destination);
+		$img->fit(240,300);
+		$img->save("./img/poster/300h/" . $newFileName);
+
+		// 80X100 image file size
+		if( ! is_dir("./img/poster/100h")){
+			mkdir("./img/poster/100h/", 0777, true);
+		}
+
+		$img = Image::make($destination);
+		$img->fit(80,100);
+		$img->save("./img/poster/100h/" . $newFileName);
+
+
 	}
 	}
