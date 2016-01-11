@@ -75,8 +75,7 @@ abstract class DatabaseModel
 
 		$query ="SELECT " .implode("," , static::$columns). " FROM " . static::$tableName;
 
-		// If promoted bool is set, then add a WHERE clause to the sql
-		//  query string to filter by promoted resturants
+		
 		if ($promoted)
 		{
 			$query .= " WHERE promote=1";

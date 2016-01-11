@@ -39,12 +39,8 @@ class RestaurantsView extends TemplateView
 		if($low == 2){ $high = $maxLinks;}
 		if($high == $totalPages - 1){ $low = $totalPages - $maxLinks + 1 ;}
 
-		if ($low < 2) {
-			$low = 2;
-		}
-		if ($high > $totalPages - 1) {
-			$high = $totalPages - $maxLinks + 1;
-		}
+		if ($low < 2) {$low = 2;}
+		if ($high > $totalPages - 1) {$high = $totalPages - 1;}
 		
 		include "templates/paginate.inc.php";
 	}
