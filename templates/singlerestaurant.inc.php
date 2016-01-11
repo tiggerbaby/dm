@@ -19,6 +19,12 @@
       <p>Discount: <?= $restaurant->discount; ?></p>
       <p>Address: <?= $restaurant->address; ?></p>
       <p>Phone: <?= $restaurant->phone; ?></p>
+      <ul class="list-inline">
+       <li>Cuisine:</li>
+    <?php foreach ($tags as $tag): ?>
+      <li><span class="label label-default"><?= $tag->tag; ?></span></li>
+    <?php endforeach; ?>
+    </ul>
       <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">Book Now</button>
 </div>
 <div class="media-right">

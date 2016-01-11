@@ -17,7 +17,7 @@ class RestaurantsController extends Controller
 		$pageSize = 6;
 		$recordCount = RestaurantModel::count();
 
-		$restaurants = RestaurantModel::all("title", true, $pageNumber, $pageSize);
+		$restaurants = RestaurantModel::all("title", true,false, $pageNumber, $pageSize);
 		$view = new RestaurantsView(compact('restaurants', 'pageNumber', 'pageSize', 'recordCount'));
 		$view-> render();
 	}
@@ -28,9 +28,10 @@ class RestaurantsController extends Controller
 		$newcomment = $this->getCommentFormData();
 		$comments = $restaurant->comments();
 		$average_rating = $restaurant->averageRating();
+		$tags = $restaurant -> getTags();
 
-		// $view = new SingleRestaurantView(['restaurant' => $restaurant]);
-		$view = new SingleRestaurantView(compact('restaurant', 'newcomment', 'comments', 'average_rating'));
+		
+		$view = new SingleRestaurantView(compact('restaurant', 'newcomment', 'comments', 'average_rating','tags'));
 		$view->render();
 	}
 	public function create()
@@ -44,20 +45,48 @@ class RestaurantsController extends Controller
 	{   
 		static::$auth->mustBeAdmin();
 		$restaurant = new RestaurantModel($_POST);
-		if(! $restaurant->isValid()){
-			$_SESSION['restaurant.create'] = $restaurant;
-			header("Location: .\?page=restaurant.create");
-			exit();
+		
+		if(is_array($restaurant->tags)){
+			$restaurant->tags = implode(",", $restaurant->tags);
+
 		}
+		// if(! $restaurant->isValid()){
+		// 	$_SESSION['restaurant.create'] = $restaurant;
+		// 	header("Location: .\?page=restaurant.create");
+		// 	exit();
+		// }
 		$restaurant->save();
+		$restaurant->saveTags();
 		header("Location: .\?page=restaurant&id=" . $restaurant->id);
 	}
 	public function edit()
 	{   
 		static::$auth->mustBeAdmin();
 		$restaurant = $this->getFormData($_GET['id']);
-		$view = new RestaurantCreateView(['restaurant' => $restaurant]);
+		$restaurant->loadTags();
+		$view = new RestaurantCreateView(compact('restaurant','tags'));
 		$view->render();
+	}
+
+	public function update()
+	{
+		static::$auth->mustBeAdmin();
+
+		$restaurant = new RestaurantModel($_POST['id']);
+		$restaurant->processArray($_POST);
+
+		if(is_array($movie->tags)){
+			$restaurant->tags = implode(",", $restaurant->tags);
+		}
+		
+		if(! $restaurant->isValid()){
+			$_SESSION['restaurant.create'] = $movie;
+			header("Location: .\?page=restaurant.edit&id=".$_POST['id']);
+			exit();
+		}
+		$restaurant->save();
+		$restaurant->saveTags();
+		// header("Location: .\?page=movie&id=" . $movie->id);
 	}
 	public function destroy()
 	{   

@@ -8,3 +8,17 @@ $('#enqiryform').on('show.bs.modal', function (event) {
   // modal.find('.modal-body input').val(recipient)
 })
 
+$(function(){
+
+	var newTags = [];
+
+	if(inputTags !== ""){
+		newTags = inputTags.split(',');
+	}
+	new Taggle("tags",{
+		tags : newTags,
+		hiddenInputName: 'tags[]'
+
+	});
+
+});

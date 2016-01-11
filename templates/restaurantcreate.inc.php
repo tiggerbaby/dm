@@ -38,6 +38,18 @@
                     <input class="form-control" id="phone" name="phone" value="<?php echo $restaurant->phone; ?>">
                     <div class="help-block"><?php echo $errors['phone']; ?></div>
                   </div>
+                </div> 
+                 <div class="form-group <?php if($errors['tags']): ?> has-error <?php endif; ?>">
+                  <label for="tags" class="col-sm-4 col-md-2 control-label">Cuisines</label>
+                  <div class="col-sm-8 col-md-10">
+                  <div id="tags" class="form-control">
+                  <script type="text/javascript">
+                   var inputTags = "<?= $restaurant->tags; ?>";
+                   </script>
+                   </div>
+                    <div class="help-block"><?php echo $errors['tags']; ?></div>
+                  </div>
+                </div> 
                 </div>      
                 <div class="form-group">
                   <div class="col-sm-offset-4 col-sm-10 col-md-offset-2 col-md-10">

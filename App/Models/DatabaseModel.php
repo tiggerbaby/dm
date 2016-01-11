@@ -191,7 +191,7 @@ abstract class DatabaseModel
 			" WHERE " . $column . " = :value";
 
 		$statement = $db->prepare($query);
-		var_dump($statement);
+		// var_dump($statement);
 		$statement->bindValue(':value', $value);
 		$statement->execute();
 
@@ -243,7 +243,7 @@ abstract class DatabaseModel
 			if ($column === "password") {
 				$this->$column = password_hash($this->$column, PASSWORD_DEFAULT);
 			}
-			var_dump($this->$column);
+			// var_dump($this->$column);
 			$statement->bindValue(":" . $column, $this->$column);
 		}
 		
@@ -273,11 +273,11 @@ abstract class DatabaseModel
 
 				switch ($rule) {
 
-					// case 'isempty':
-     //                  if(empty($this->column)){
-     //                  	$valid = false;
-					// 		$this->errors[$column] = "This can not be empty.";
-     //                  }
+					case 'isempty':
+                      if(empty($this->column)){
+                      	$valid = false;
+							$this->errors[$column] = "This can not be empty.";
+                      }
 
 					case 'minlength':
 

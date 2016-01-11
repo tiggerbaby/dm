@@ -149,7 +149,7 @@ Sign Up</button></li> -->
             <img src="img/ing.svg" alt="instagram logo" class="footerlink">
               </a>
                 <a href="https://www.plus.google.com/">
-                  <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink">
+                  <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink" onerror="this.src='img/googleplus.png'">
                 </a>
                  <a href="https://www.facebook.com/">
                 <!--  <div class="footerlink">
@@ -190,6 +190,7 @@ Sign Up</button></li> -->
 
     <!-- <script src="js/taggle.min.js"></script> -->
     <script src="rateit/src/jquery.rateit.js"></script>
+     <script src="js/taggle.min.js"></script>
     <script src="js/main.js"></script>
 
   </body>
