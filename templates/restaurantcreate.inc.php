@@ -1,10 +1,18 @@
 <?php  
      $errors = $restaurant->errors; 
      $verb = ( $restaurant->id ? "Edit" : "Add");
+      if($restaurant->id){
+      $submitAction = ".\?page=restaurant.update";
+     } else {
+      $submitAction = ".\?page=restaurant.store";
+     }
     ?>
     <div class="container">
           <div class="col-xs-12">  
-              <form id="restaurantcreate" action=".\?page=restaurant.store" method="POST" class="form-horizontal" enctype="multipart/form-data">
+              <form id="restaurantcreate" action="<?= $submitAction; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                <?php if($restaurant->id): ?>
+                 <input type="hidden" name='id' value="<?= $restaurant->id?>">
+              <?php endif; ?>
                <h3><?= $verb; ?> restaurant</h3>
 
                 <div class="form-group <?php if($errors['title']): ?> has-error <?php endif; ?>">

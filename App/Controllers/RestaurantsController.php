@@ -80,7 +80,7 @@ class RestaurantsController extends Controller
 		$restaurant = new RestaurantModel($_POST['id']);
 		$restaurant->processArray($_POST);
 
-		if(is_array($movie->tags)){
+		if(is_array($restaurant->tags)){
 			$restaurant->tags = implode(",", $restaurant->tags);
 		}
 		

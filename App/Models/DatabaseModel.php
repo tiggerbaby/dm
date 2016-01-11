@@ -252,7 +252,35 @@ abstract class DatabaseModel
 		
 	}
 
-	
+	public function update()
+	{
+		$db = static::getDatabaseConnection();
+
+		$columns = static::$columns;
+
+		unset($columns[array_search('id', $columns)]);
+
+		$query = "UPDATE " . static::$tableName . " SET ";
+
+		$updatecols = [];
+
+		foreach ($columns as $column) {
+			array_push($updatecols, $column . "=:" . $column);
+		}
+		$query .= implode(", ", $updatecols);
+
+		$query .= " WHERE id =:id";
+
+		$statement = $db->prepare($query);
+		// var_dump($statement);
+		foreach (static::$columns as $column) {
+			if ($column === "password") {
+				$this->$column = password_hash($this->$column, PASSWORD_DEFAULT);
+			}
+			$statement->bindValue(":".$column, $this->$column);
+		}
+		$statement->execute();
+	}
    
    public function isValid()
 	{   

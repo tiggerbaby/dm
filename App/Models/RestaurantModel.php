@@ -20,7 +20,7 @@ class RestaurantModel extends DatabaseModel
 					"title"   => "minlength:1",   
 					"discount"=> "minlength:2",
 					"address" => "minlength:4",
-					"phone"=>"minlength:5"
+					"phone"=>"minlength:5,maxlength:12"
 					];
 
 	public function averageRating()

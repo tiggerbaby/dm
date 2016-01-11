@@ -69,6 +69,13 @@ try{
 		$controller = new RestaurantsController();
 		$controller->store();
 		break;
+    
+    case "restaurant.update":
+
+		$controller = new RestaurantsController();
+		$controller->update();
+
+		break;
 
 	case "restaurant.destroy":
 		$controller = new RestaurantsController();
