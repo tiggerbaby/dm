@@ -204,7 +204,7 @@ class RestaurantModel extends DatabaseModel
 			mkdir("./img/poster/300h/", 0777, true);
 		}
 		$img = Image::make($destination);
-		$img->fit(240,300);
+		$img->fit(180,220);
 		$img->save("./img/poster/300h/" . $newFileName);
 
 		// 80X100 image file size
@@ -213,7 +213,7 @@ class RestaurantModel extends DatabaseModel
 		}
 
 		$img = Image::make($destination);
-		$img->fit(80,100);
+		$img->fit(104,136);
 		$img->save("./img/poster/100h/" . $newFileName);
 
 

@@ -85,15 +85,15 @@ class RestaurantsController extends Controller
 		}
 		
 		if(! $restaurant->isValid()){
-			$_SESSION['restaurant.create'] = $movie;
+			$_SESSION['restaurant.create'] = $restaurant;
 			header("Location: .\?page=restaurant.edit&id=".$_POST['id']);
 			exit();
 		}
 
 		if($_FILES['poster']['error'] === UPLOAD_ERR_OK){
-			$movie->savePoster($_FILES['poster']['tmp_name']);
+			$restaurant->savePoster($_FILES['poster']['tmp_name']);
 		} else if(isset($_POST['removeImage']) && $_POST['removeImage'] === "true") {
-			$movie->poster = null;
+			$restaurant->poster = null;
 		}
 
 		$restaurant->save();

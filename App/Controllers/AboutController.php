@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Views\AboutView;
 use App\Models\AboutModel;
+use App\Views\BusinessEmailView;
+use App\Views\HostEmailView;
 
 
 class AboutController 
@@ -20,6 +22,14 @@ class AboutController
 		$enqiry = $this->getFormData();
 		$view = new AboutView(compact('enqiry'));
 		$view->render();
+
+		//send email to the suggester
+		$businessEmail = new BusinessEmailView($this->eniryform);
+		$businessEmail->render();
+         
+         //send email to the hoster
+		$hostEmail = new HostEmailView($this->eniryform);
+		$hostEmail->render();
 	}
 
 	public function store()
@@ -40,23 +50,19 @@ class AboutController
 		}
 		
 		$enqiry -> save();
-        // header("Location: .\?page=enqirysuccess&show_modal=true");
-        header("Location: .\?page=enqirysuccess&show_modal=true");
-		
+      
+        header("Location: .\?page=enqirysuccess&show_modal=true");        	
 	}
 
-	// public function success()
-	// {
-	// 	$view = new AboutView();
-	// 	$view->rendersuccess();
-	// }
 	public function getFormData($id = null){
 		if(isset($_SESSION['enqiryform'])){
 			$enqiry = $_SESSION['enqiryform'];
 			unset($_SESSION['enqiryform']);
 		} else {
-			$renqiry = new AboutModel((int)$id);
+			$enqiry = new AboutModel((int)$id);
 		}
 		return $enqiry;
 	}
-}
+}	
+
+	

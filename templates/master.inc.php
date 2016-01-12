@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <img src="img/dm.svg" id="logo">
+          <img src="img/dm.svg" id="logo" onerror="this.src='img/dmlogo.png'">
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -120,7 +120,7 @@ Sign Up</button></li> -->
         <form>
             <div class="form-group">
               <label for="loginEmail" class="control-label">Email*</label>
-              <input type="email" class="form-control" id="loginEmail">
+              <input type="email" class="form-control" id="loginEmail">i
             </div>
             <div class="form-group">
               <label for="password" class="control-label">Password*</label>
@@ -146,7 +146,7 @@ Sign Up</button></li> -->
       <div class="text-center">
           <p>Join us on</p>    
           <a href="https://www.instagram.com/">
-            <img src="img/ing.svg" alt="instagram logo" class="footerlink">
+            <img src="img/ing.svg" alt="instagram logo" class="footerlink" onerror="this.src='img/ing.png'">
               </a>
                 <a href="https://www.plus.google.com/">
                   <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink" onerror="this.src='img/googleplus.png'">
@@ -160,7 +160,7 @@ Sign Up</button></li> -->
                     <img src="img/fb.svg" alt="facebook logo" class="footerlink" onerror="this.src='img/fb.png'">
                   </a>
                 <a href="https://www.twitter.com/">
-              <img src="img/twitter.svg" alt="twitter logo" class="footerlink">
+              <img src="img/twitter.svg" alt="twitter logo" class="footerlink" onerror="this.src='img/twitter.png'">
             </a>
         </div>
 

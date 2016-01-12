@@ -17,3 +17,7 @@ $auth = new App\Services\AuthenticationService();
 App\Views\View::registerAuthenticationService($auth);
 App\Controllers\Controller::registerAuthenticationService($auth);
 require "routes.php";
+
+
+
+

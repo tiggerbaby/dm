@@ -14,17 +14,13 @@ class CommentController extends Controller
         
         $input['rating'] = $input['rating'] * 2;
 
-        //var_dump($input);
-
         $newcomment = new CommentModel($input);
         
-        //var_dump($newcomment);
 
         if( ! $newcomment->isValid()){
 
         	$_SESSION['comment.form'] = $newcomment;
 
-            //var_dump($newcomment->errors);
 
         	header("Location:./?page=restaurant&id=" . $newcomment->restaurant_id);
             exit();

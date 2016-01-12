@@ -22,9 +22,14 @@
         <?php $averageRating = $restaurant->averageRating(); ?>
         <!-- <li class="media"> -->
   <div class="media-left">
-      <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
-        <img class="media-object thumbnailImg" src="img/foxglove.jpg" alt="restaurant view">
+     <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
+          <?php if($restaurant->poster !=""):?>
+        <img src="./img/poster/100h/<?= $restaurant->poster ?>" alt="<?= $restaurant->title ?> image">
       </a>
+    <?php else: ?>
+      <img class="media-object thumbnailImg" src="img/dmlogo.png" alt="defalut restaurant view">
+    <?php endif; ?>
+      </a>    
     </div>
   <div class="media-body">
     <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
