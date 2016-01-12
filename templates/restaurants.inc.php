@@ -15,24 +15,23 @@
 
 
 
-<div class="container">
-<div class="media"></div>
-<?php if(static::$auth->isAdmin()): ?>
-  <p>
-    <a href=".\?page=restaurant.create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Restaurant</a>
-  </p>
-<?php endif; ?>
+ <div class="container restaurantContainer">
+   <?php if(static::$auth->isAdmin()): ?>
+     <p>
+       <a href=".\?page=restaurant.create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Restaurant</a>
+     </p>
+ <?php endif; ?>
+  
+<div class="row">
   <?php if(count($restaurants) > 0): ?>
-    <!-- <ul class="media-list col-sm-4 col-md-4"> -->
+    <ul class="media-list col-sm-4 col-md-4">
+   
       <?php foreach($restaurants as $restaurant): ?>      
       <?php $averageRating = $restaurant->averageRating(); ?>
-      <!--   <li class="media"> -->
+        <li class="media">
+      
   <div class="media-left">
-   <!--    <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
-        <img class="media-object thumbnailImg" src="img/foxglove.jpg" alt="restaurant view">
-      </a> -->
-
- <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
+      <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
           <?php if($restaurant->poster !=""):?>
         <img src="./img/poster/100h/<?= $restaurant->poster ?>" alt="<?= $restaurant->title ?> image">
       </a>
@@ -40,25 +39,30 @@
       <img class="media-object thumbnailImg" src="img/dmlogo.png" alt="defalut restaurant view">
     <?php endif; ?>
       </a>      
-    </div>
+  </div>
   <div class="media-body">
     <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
       <div class="rateit" data-rateit-value="<?= $averageRating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
       <p>Discount: <?= $restaurant->discount; ?></p>
       <p>Address: <?= $restaurant->address; ?></p>
       <p>Phone: <?= $restaurant->phone; ?></p>
-</div>
-    
-  </li>
+  </div>
+   </li> 
      <?php endforeach; ?>
-</ul>
-<?php endif; ?>
+     <?php endif; ?>
+     </ul>
+ </div>
+  <?php $this->paginate(".\?page=restaurants", $pageNumber, $pageSize, $recordCount); ?>
+     <p class="col-sm-12"> 
+          <a href=".\?page=restaurantsuggest" class="text-danger">
+          Are we missing any restaurant? Suggest a place to include in Dining Mate here.
+      </a></p>
+</div>
 
-<?php $this->paginate(".\?page=restaurants", $pageNumber, $pageSize, $recordCount); ?>
- <p class="col-sm-12"> 
-      <a href=".\?page=restaurantsuggest" class="text-danger">
-      Are we missing any restaurant? Suggest a place to include in Dining Mate here.
-  </a></p>
+
+  
+
+   
   
 </div>
 

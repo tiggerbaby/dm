@@ -15,6 +15,7 @@
 </div>
 
 <div class="container">
+ <h3>Recommended Restaurants</h3>
 
   <?php if(count($restaurants) > 0): ?>
     <!-- <ul class="media-list col-sm-4 col-md-4"> -->

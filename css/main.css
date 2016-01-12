@@ -23,13 +23,22 @@ body{
     padding: 100px 0;
 }
 
-/*.media{
+/*.restaurantContainer{
+  position: relative;
+}*/
+
+.media{
 	height: 160px;
 	border: 1px solid;
 	border-color: #a3acb0;
 	padding: 8px 8px 5px 8px;
 	font-family: Source Sans Pro;
-}*/
+}
+
+
+
+
+
 .thumbnailImg{
 	width: 104px;
 	height: 136px;
