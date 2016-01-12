@@ -14,34 +14,37 @@
  </div>
 </div>
 
+
 <div class="container">
  <h3>Recommended Restaurants</h3>
-
+ <div class="row">
   <?php if(count($restaurants) > 0): ?>
-    <!-- <ul class="media-list col-sm-4 col-md-4"> -->
       <?php foreach($restaurants as $restaurant): ?>
         <?php $averageRating = $restaurant->averageRating(); ?>
-        <!-- <li class="media"> -->
-  <div class="media-left">
-     <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
-          <?php if($restaurant->poster !=""):?>
-        <img src="./img/poster/100h/<?= $restaurant->poster ?>" alt="<?= $restaurant->title ?> image">
+  <div class="col-sm-6 col-md-4">
+   <div class="thumbnail"> 
+    <div class="media-left">
+      <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
+         <?php if($restaurant->poster !=""):?>
+           <img src="./img/poster/100h/<?= $restaurant->poster ?>" alt="<?= $restaurant->title ?> image">
       </a>
-    <?php else: ?>
-      <img class="media-object thumbnailImg" src="img/dmlogo.png" alt="defalut restaurant view">
-    <?php endif; ?>
-      </a>    
+         <?php else: ?>
+            <img class="media-object thumbnailImg" src="img/dmlogo.png" alt="defalut restaurant view">
+          <?php endif; ?>
+     </a>      
+  </div>
+    <div class="media-body">
+      <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
+         <div class="rateit" data-rateit-value="<?= $averageRating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+          <p>Discount: <?= $restaurant->discount; ?></p>
+          <p>Address: <?= $restaurant->address; ?></p>
+        <p>Phone: <?= $restaurant->phone; ?></p>
     </div>
-  <div class="media-body">
-    <h5 class="media-heading"><strong><?= $restaurant->title; ?></strong></h5>
-     <div class="rateit" data-rateit-value="<?= $averageRating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-      <p>Discount: <?= $restaurant->discount; ?></p>
-      <p>Address: <?= $restaurant->address; ?></p>
-      <p>Phone: <?= $restaurant->phone; ?></p>
-</div>
-    
+ </div>
+</div> 
      <?php endforeach; ?>
-<?php endif; ?>
+     <?php endif; ?>
+ </div>
 
 
 <!-- <div class="row">
