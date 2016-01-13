@@ -387,8 +387,11 @@ abstract class DatabaseModel
 	{
 		if (in_array($name, static::$columns) || in_array($name, static::$fakeColumns)) {
 			
-           return $this->data[$name];
-         }
+			if (!array_key_exists($name, $this->data))
+				return '';
+
+           	return $this->data[$name];
+        }
         throw new UnexpectedValueException("Property '$name' not found in the data variable.");
     }
 	public function __set($name, $value)

@@ -256,6 +256,8 @@ class RestaurantModel extends DatabaseModel
 							MATCH(address) AGAINST(@searchterm) OR
 							MATCH(taglist) AGAINST(@searchterm IN BOOLEAN MODE)
 							ORDER BY (score_title + score_address + score_tag) DESC";
+            
+          
 
 			$statement = $db->prepare($query);
 			// var_dump($statement);

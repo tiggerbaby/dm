@@ -9,9 +9,14 @@ class Booking extends DatabaseModel
 
     protected static $tableName = "booking";
 
-    // protected static $validationRules = [
-    			
-    // ];
+    protected static $validationRules = [
+    			"date" => "isempty",
+    			"time" => "isempty",
+    			"people" => "isempty",
+    			"name" => "isempty",
+    			"email" => "email",
+    			"phone" 	=> "minlength:4,maxlength:12,numeric",
+    ];
 
     public function user()
     {

@@ -13,17 +13,10 @@ class SearchController extends Controller
 		} else {
 			$q = $_GET['q'];
 		}
-	// 	$restaurants = RestaurantModel::search($q);
+		$restaurants = RestaurantModel::search($q);
 
-	// 	$view = new SearchResultsView(compact('restaurants', 'q'));
-	// 	$view->render();
-	}
-   
-	 function show()
-	{   
-
-        $restaurants = RestaurantModel::search($q);
 		$view = new SearchResultsView(compact('restaurants', 'q'));
 		$view->render();
 	}
+   
 }

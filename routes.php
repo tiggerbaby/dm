@@ -118,7 +118,7 @@ try{
 
     case "booking":
          $controller = new BookingController();
-         $controller->show();
+         $controller->create();
 	
 	case "about":
 		$controller = new AboutController();
