@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2016 at 02:51 am
+-- Generation Time: Jan 13, 2016 at 04:49 am
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -23,6 +23,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `booking`
+--
+
+CREATE TABLE IF NOT EXISTS `booking` (
+`id` int(5) NOT NULL,
+  `user_id` int(5) unsigned NOT NULL,
+  `restaurant_id` smallint(5) unsigned NOT NULL,
+  `date` date NOT NULL,
+  `time` time(6) NOT NULL,
+  `people` varchar(11) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `email` int(100) NOT NULL,
+  `phone` varchar(12) CHARACTER SET utf8 NOT NULL,
+  `comment` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `comments`
 --
 
@@ -33,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `rating` int(5) NOT NULL,
   `comment` text CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `comments`
@@ -49,7 +68,8 @@ INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `
 (7, 5, 6, '0000-00-00 00:00:00', 9, 'Tigger baby is awesome'),
 (8, 5, 5, '0000-00-00 00:00:00', 8, 'Good food and good view.'),
 (9, 3, 2, '0000-00-00 00:00:00', 8, '11111111111111'),
-(10, 5, 3, '0000-00-00 00:00:00', 7, 'The seafood is awesome.');
+(10, 5, 3, '0000-00-00 00:00:00', 7, 'The seafood is awesome.'),
+(11, 3, 1, '0000-00-00 00:00:00', 8, 'very lovely restaurant.');
 
 -- --------------------------------------------------------
 
@@ -118,8 +138,7 @@ INSERT INTO `restaurants` (`id`, `title`, `discount`, `address`, `phone`, `promo
 (5, 'Maranui Cafe ', '5%', '7A Lyall Parade, Lyall Bay, Wellington', '04-387 4539', 1, '56945097835b2.jpg'),
 (6, 'Chilli Masala', '10%', '458 High Street, Lower Hutt', '04-586 4820', 1, NULL),
 (7, 'The Bangalore Polo Club Wellington', '2%', '63 Courtenay Pl, Te Aro, Wellington', '04-384 6416', 0, NULL),
-(8, 'Riddiford Hotel & Restaurant', '2%', '21-29 Knights Rd, Lower Hutt ', '04-586 6318', 0, '56945a4849cf9.jpg'),
-(45, 'ffffffffff', '0%', 'Lower Hutt', '0987654321', NULL, NULL);
+(8, 'Riddiford Hotel & Restaurant', '2%', '21-29 Knights Rd, Lower Hutt ', '04-586 6318', 0, '56945a4849cf9.jpg');
 
 -- --------------------------------------------------------
 
@@ -137,54 +156,6 @@ CREATE TABLE IF NOT EXISTS `restaurants_tags` (
 --
 
 INSERT INTO `restaurants_tags` (`restaurant_id`, `tag_id`) VALUES
-(45, 1),
-(45, 56),
-(45, 57),
-(45, 59),
-(45, 60),
-(45, 1),
-(45, 56),
-(45, 57),
-(45, 59),
-(45, 60),
-(45, 61),
-(45, 62),
-(45, 63),
-(45, 64),
-(45, 65),
-(45, 66),
-(45, 67),
-(45, 1),
-(45, 56),
-(45, 57),
-(45, 59),
-(45, 60),
-(45, 61),
-(45, 62),
-(45, 63),
-(45, 64),
-(45, 65),
-(45, 66),
-(45, 67),
-(45, 68),
-(45, 69),
-(45, 70),
-(45, 71),
-(45, 72),
-(45, 73),
-(45, 74),
-(45, 75),
-(45, 76),
-(45, 77),
-(45, 78),
-(45, 79),
-(45, 80),
-(45, 81),
-(45, 82),
-(45, 83),
-(45, 84),
-(45, 85),
-(45, 86),
 (4, 54),
 (4, 87),
 (4, 54),
@@ -2520,7 +2491,7 @@ INSERT INTO `restaurant_suggest` (`id`, `restaurant_name`, `restaurant_address`,
 CREATE TABLE IF NOT EXISTS `tags` (
 `id` int(5) unsigned NOT NULL,
   `tag` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=810 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=858 ;
 
 --
 -- Dumping data for table `tags`
@@ -3304,7 +3275,55 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 (806, ''),
 (807, ''),
 (808, ''),
-(809, '');
+(809, ''),
+(810, 'asian'),
+(811, 'asian'),
+(812, 'asian'),
+(813, 'asian'),
+(814, 'asian'),
+(815, 'asian'),
+(816, 'asian'),
+(817, 'asian'),
+(818, 'asian'),
+(819, 'asian'),
+(820, 'asian'),
+(821, 'asian'),
+(822, 'asian'),
+(823, 'asian'),
+(824, 'asian'),
+(825, 'asian'),
+(826, 'asian'),
+(827, 'asian'),
+(828, 'asian'),
+(829, 'asian'),
+(830, 'asian'),
+(831, 'asian'),
+(832, 'asian'),
+(833, 'asian'),
+(834, 'asian'),
+(835, 'asian'),
+(836, 'asian'),
+(837, 'asian'),
+(838, 'asian'),
+(839, 'asian'),
+(840, 'asian'),
+(841, 'asian'),
+(842, 'asian'),
+(843, 'asian'),
+(844, 'asian'),
+(845, 'asian'),
+(846, 'asian'),
+(847, 'asian'),
+(848, 'asian'),
+(849, 'asian'),
+(850, 'asian'),
+(851, 'asian'),
+(852, 'asian'),
+(853, 'asian'),
+(854, 'asian'),
+(855, 'asian'),
+(856, 'asian'),
+(857, 'asian');
 
 -- --------------------------------------------------------
 
@@ -3335,6 +3354,12 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+ ADD PRIMARY KEY (`id`), ADD KEY `restaurant_id` (`restaurant_id`), ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
@@ -3350,7 +3375,7 @@ ALTER TABLE `enqiry_form`
 -- Indexes for table `restaurants`
 --
 ALTER TABLE `restaurants`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `title` (`title`), ADD FULLTEXT KEY `address` (`address`);
 
 --
 -- Indexes for table `restaurants_tags`
@@ -3368,7 +3393,7 @@ ALTER TABLE `restaurant_suggest`
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `tag` (`tag`);
 
 --
 -- Indexes for table `users`
@@ -3381,10 +3406,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `enqiry_form`
 --
@@ -3404,7 +3434,7 @@ MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=810;
+MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=858;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -3413,6 +3443,13 @@ MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `restaurants_tags`

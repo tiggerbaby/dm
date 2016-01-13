@@ -97,7 +97,9 @@
     </div>
 
 
+<!-- Booking Form -->
 
+ 
 <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -106,7 +108,10 @@
         <h4 class="modal-title" id="myModalLabel">Booking Form</h4>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal">
+      <?php if (static::$auth->check()): ?>
+         <form method="POST" action="./?page=booking.create" class="form-horizontal">
+              
+              <input type="hidden" name="restaurant_id" value="<?= $restaurant->id ?>">
   <div class="form-group">
     <label for="date" class="col-sm-2 control-label"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
     <div class="col-sm-10">
@@ -122,7 +127,7 @@
    <div class="form-group">
     <label for="people" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
     <div class="col-sm-3">
-      <select class="form-control">
+      <select class="form-control" name="people">
       <option value="1">1 person</option>
       <option value="2">2 people</option>
       <option value="3">3 people</option>
@@ -176,8 +181,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Book Now</button>
+        <button type="submit" class="btn btn-primary">Book Now</button>
+          <?php else: ?>
+            <p>You need to be <a href="./?page=login">Sign in</a> to make a booking.</p>
+          <?php endif; ?>
       </div>
+
     </div>
   </div>
+
 </div>
+

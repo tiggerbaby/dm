@@ -81,6 +81,13 @@ try{
 		$controller = new RestaurantsController();
 		$controller->destroy();
 		break;
+    
+    case "booking.create":
+
+            $controller = new BookingController();
+            $controller->create();
+
+            break;
 
 	case "comment.create":
 
@@ -133,6 +140,12 @@ try{
 			$controller->show();					
 			break;
 
+        case "search":
+
+			$controller = new SearchController();
+			$controller->search();
+			break;
+			
         case "downloadposter":
 			$file = "./img/poster/originals/" . $_GET['filename'];
 			header('Content-Type: application/octet-stream');

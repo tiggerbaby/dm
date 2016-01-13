@@ -2,19 +2,19 @@
 <div class="container">
 <!--  <h1>Restaurants</h1> -->
 	<div class="col-lg-8" id="searchBar">
+   <form method="GET" action="./" role="search">
         <div class="input-group input-group-lg">
        <!--   <span class="glyphicon glyphicon-search form-control-feedback"></span> -->
-          <input type="text" class="form-control" placeholder="Restaurant name, location"/>
+          <input type="hidden" name="page" value="search">
+          <input name="q" type="text" class="form-control" placeholder="Restaurant name, location or cuisine"/>
           <span class="input-group-btn">
             <button class="btn btn-info" type="button" id="searchButton">Search</button>
           </span>  
         </div>
+        </form>
       </div>     
 </div>
 </div>
-
-
-
 
  <div class="container">
    <?php if(static::$auth->isAdmin()): ?>
@@ -56,7 +56,8 @@
      <p class="col-sm-12"> 
           <a href=".\?page=restaurantsuggest" class="text-danger">
           Are we missing any restaurant? Suggest a place to include in Dining Mate here.
-      </a></p>
+         </a>
+     </p>
 </div>
 
 

@@ -4,9 +4,11 @@ namespace App\Controllers;
 
 use App\Models\CommentModel;
 use App\Models\RestaurantModel;
+use App\Models\Booking;
 use App\Views\RestaurantsView;
 use App\Views\SingleRestaurantView;
 use App\Views\RestaurantCreateView;
+
 
 
 class RestaurantsController extends Controller
@@ -27,6 +29,7 @@ class RestaurantsController extends Controller
 		$restaurant = new RestaurantModel((int)$_GET['id']);
 		$newcomment = $this->getCommentFormData();
 		$comments = $restaurant->comments();
+		// $newbooking = $this->getCommentFormData();
 		$average_rating = $restaurant->averageRating();
 		$tags = $restaurant -> getTags();
 
@@ -123,6 +126,16 @@ class RestaurantsController extends Controller
 			$newcomment = new CommentModel((int)$id);
 		}
 		return $newcomment;
+	}
+
+	public function getBookingFormData($id = null){
+		if(isset($_SESSION['booking.form'])){
+			$newbooking = $_SESSION['booking.form'];
+			unset($_SESSION['booking.form']);
+		} else {
+			$newbooking = new Booking((int)$id);
+		}
+		return $newbooking;
 	}
 }
 

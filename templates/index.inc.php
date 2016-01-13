@@ -3,6 +3,7 @@
 <div class="jumbotron" id="searchbarBackground">
 <div class="container">
 <div class="cext-center" id="searchBar">
+     <form method="GET" action="./" role="search">
         <div class="input-group input-group-lg">
           <!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
           <input type="text" class="form-control" placeholder="Restaurant name, location"/>
@@ -10,10 +11,15 @@
             <button class="btn btn-info" type="button" id="searchButton">Search</button>
           </span>
         </div>
+        </form>
       </div>
  </div>
+
 </div>
 
+<div class="container">
+ <h1>Make a reservation on our website to get discount!</h1>
+</div>
 
 <div class="container">
  <h3>Recommended Restaurants</h3>

@@ -44,6 +44,7 @@ class RestaurantModel extends DatabaseModel
 		$result = CommentModel::allBy('restaurant_id', $this->id);
 		return $result;
 	}
+    
 
 	public function getTags()
 	{
@@ -215,7 +216,59 @@ class RestaurantModel extends DatabaseModel
 		$img = Image::make($destination);
 		$img->fit(104,136);
 		$img->save("./img/poster/100h/" . $newFileName);
+	}	
 
+	public static function search($searchQuery)
+		{
+			$models =[];
+
+			$db = static::getDatabaseConnection();
+			
+			$query = "SET @searchterm = :searchQuery ";
+			$statement = $db->prepare($query);
+			$statement->bindValue(":searchQuery", $searchQuery);
+			$result = $statement->execute();
+			// var_dump($result);
+
+
+			// $query = "
+			// 			SELECT restaurants.id, title, description, taglist, 
+			// 				MATCH(title) AGAINST(@searchterm) * 2 AS score_title, 
+			// 			FROM restaurants
+			// 			WHERE 
+			// 				MATCH(title) AGAINST(@searchterm) OR
+			// 				MATCH(address) AGAINST(@searchterm) OR
+			// 				MATCH(taglist) AGAINST(@searchterm IN BOOLEAN MODE)
+			// 				ORDER BY (score_title + score_address + score_tag) DESC";
+
+			$query = "
+						SELECT restaurants.id, title, address, taglist, 
+							MATCH(title) AGAINST(@searchterm) * 2 AS score_title, 
+							MATCH(address) AGAINST(@searchterm) AS score_address,
+							MATCH(taglist) AGAINST(@searchterm IN BOOLEAN MODE) * 1.5 AS score_tag
+						FROM restaurants
+						LEFT JOIN (
+							SELECT restaurant_id, GROUP_CONCAT(tag SEPARATOR ' ') AS taglist FROM tags
+							RIGHT JOIN restaurants_tags ON restaurants_tags.tag_id = id
+							GROUP BY restaurant_id) AS tags ON restaurants.id = restaurant_id
+						WHERE 
+							MATCH(title) AGAINST(@searchterm) OR
+							MATCH(address) AGAINST(@searchterm) OR
+							MATCH(taglist) AGAINST(@searchterm IN BOOLEAN MODE)
+							ORDER BY (score_title + score_address + score_tag) DESC";
+
+			$statement = $db->prepare($query);
+			// var_dump($statement);
+			$record = $statement->execute();
+			// var_dump($record);
+			while ($record = $statement->fetch(PDO::FETCH_ASSOC)) {
+				$model = new RestaurantModel();
+				$model->data = $record;
+				array_push($models, $model);
+			}
+			// var_dump($models);
+			// die();
+			return $models;
 
 	}
 	}
