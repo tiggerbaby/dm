@@ -18,11 +18,11 @@
 </div>
 
 <div class="container">
- <h1>Make a reservation on our website to get discount!</h1>
+ <h2  class="text-muted">Make a reservation on our website to get discount!</h2>
 </div>
 
 <div class="container">
- <h3>Recommended Restaurants</h3>
+ <h3 class="text-danger">Recommended Restaurants</h3>
  <div class="row">
   <?php if(count($restaurants) > 0): ?>
       <?php foreach($restaurants as $restaurant): ?>

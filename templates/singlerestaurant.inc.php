@@ -1,6 +1,6 @@
 <?php
      $errors = $newcomment->errors;
-     $errors =$newbooking->errors;
+     $bookingerrors =$newbooking->errors;
 ?>
 <div class="container">
 <ul class="nav nav-pills">
@@ -27,7 +27,7 @@
       <li><span class="label label-default"><?= $tag->tag; ?></span></li>
     <?php endforeach; ?>
     </ul>
-      <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">Book Now</button>
+      <button class="btn btn-danger" data-toggle="modal" data-target="#popup">Book Now</button>
 </div>
 <div class="media-right">
       <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
@@ -102,7 +102,7 @@
 <!-- Booking Form -->
 
  
-<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade bs-example-modal-lg" id="popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -111,22 +111,22 @@
       </div>
       <div class="modal-body">
       <?php if (static::$auth->check()): ?>
-         <form method="POST" action="./?page=booking.create" class="form-horizontal">
+         <form id="form" method="POST" action="./?page=booking.create" class="form-horizontal">
               <!-- <input type="hidden" name="user_id" value="<?= $user->id ?>"> -->
               <input type="hidden" name="restaurant_id" value="<?= $restaurant->id ?>">
 
   <div class="form-group">
     <label for="date" class="col-sm-2 control-label"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
     <div class="col-sm-10">
-      <input type="date" class="form-control <?php if ($errors['date']): ?> has-error <?php endif; ?>" id="date" name="date">
-        <div class="help-block"><?= $errors['date']; ?></div>
+      <input type="date" class="form-control <?php if ($bookingerrors['date']): ?> has-error <?php endif; ?>" id="date" name="date">
+        <div class="help-block"><?= $bookingerrors['date']; ?></div>
     </div>
   </div>
   <div class="form-group">
     <label for="time" class="col-sm-2 control-label"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></label>
     <div class="col-sm-10">
-      <input type="time" class="form-control <?php if ($errors['time']): ?> has-error <?php endif; ?>" id="time" name="time">
-       <div class="help-block"><?= $errors['time']; ?></div>
+      <input type="time" class="form-control <?php if ($bookingerrors['time']): ?> has-error <?php endif; ?>" id="time" name="time">
+       <div class="help-block"><?= $bookingerrors['time']; ?></div>
     </div>
   </div>
    <div class="form-group">
@@ -160,22 +160,22 @@
    <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Contact Name*</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control <?php if ($errors['name']): ?> has-error <?php endif; ?>" id="name" name="name">
-        <div class="help-block"><?= $errors['name']; ?></div>    
+      <input type="text" class="form-control <?php if ($bookingerrors['name']): ?> has-error <?php endif; ?>" id="name" name="name">
+        <div class="help-block"><?= $bookingerrors['name']; ?></div>    
     </div>
   </div>
    <div class="form-group">
     <label for="email" class="col-sm-2 control-label">Email*</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com">
-       <div class="help-block"><?= $errors['email']; ?></div>   
+      <input type="email" class="form-control <?php if ($bookingerrors['email']): ?> has-error <?php endif; ?>" id="email" name="email" placeholder="example@example.com">
+       <div class="help-block"><?= $bookingerrors['email']; ?></div>   
     </div>
   </div>
    <div class="form-group">
     <label for="phone" class="col-sm-2 control-label">Phone*</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control  <?php if ($errors['phone']): ?> has-error <?php endif; ?>" id="phone" name="phone">
-       <div class="help-block"><?= $errors['phone']; ?></div>   
+      <input type="text" class="form-control  <?php if ($bookingerrors['phone']): ?> has-error <?php endif; ?>" id="phone" name="phone">
+       <div class="help-block"><?= $bookingerrors['phone']; ?></div>   
     </div>
   </div>
    <div class="form-group">

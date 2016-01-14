@@ -84,8 +84,8 @@ try{
     
     case "booking.create":
 
-            $controller = new BookingController();
-            $controller->create();
+            $controller = new RestaurantsController();
+            $controller->bookingcreate();
 
             break;
 

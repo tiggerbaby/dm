@@ -247,7 +247,7 @@ abstract class DatabaseModel
 		}
 		
 		$result = $statement->execute();
-		// var_dump($result);
+		
 		$this->id =$db->lastInsertId();
 		
 	}
@@ -300,6 +300,11 @@ abstract class DatabaseModel
 
 				switch ($rule) {
 
+                    // case 'js':
+                    // if(isset($this->column)){
+                    // 	$valid = false;
+                    // 	  $this->errors[$column] = 'This can not be '
+                    // }
 					case 'isempty':
                       if(empty($this->column)){
                       	$valid = false;

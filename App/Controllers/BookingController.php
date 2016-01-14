@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 // use App\Views\BookingSuccessView;
 use App\Models\Booking;
+use App\Modles\RestaurantsController;
 
 
 class BookingController extends Controller
@@ -11,13 +12,14 @@ class BookingController extends Controller
 	public function create()
     {   
         $input = $_POST;
-        var_dump($input);
+       
         
         $input['user_id'] = static::$auth->user()->id;
 
-
+        
 
         $newbooking = new Booking($_POST);
+
         
         
         if( ! $newbooking->isValid()){
@@ -27,7 +29,10 @@ class BookingController extends Controller
         }
 
         $newbooking->save();
-        header("Location: ./?page=booking&id=" . $newbooking->restaurant_id . "#booking-" . $newbooking->id);
+
+        $view = new SingleRestaurantView(compact('newbooking'));
+        $view->render();
+        // header("Location: ./?page=booking&id=" . $newbooking->restaurant_id . "#booking-" . $newbooking->id);
     }
   // public function displayerror()
   //   {

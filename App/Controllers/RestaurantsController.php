@@ -41,6 +41,8 @@ class RestaurantsController extends Controller
 	{   
 		static::$auth->mustBeAdmin();
 		$restaurant = $this->getFormData();
+		// $newbooking = $this->getBookingFormData();
+
 		$view = new RestaurantCreateView(['restaurant' => $restaurant]);
 		$view->render();
 	}
@@ -109,6 +111,29 @@ class RestaurantsController extends Controller
 		RestaurantModel::destroy($_POST['id']);
 		header("Location: .\?page=restaurants");
 	}
+
+	public function bookingcreate()
+    {   
+        $input = $_POST;
+
+        $input['user_id'] = static::$auth->user()->id;
+ 
+        $newbooking = new Booking($input);
+      
+        
+        if( ! $newbooking->isValid()){
+        	$_SESSION['booking.form'] = $newbooking;
+        	header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id);
+        	exit();
+        }
+
+        $newbooking->save();
+
+        // $view = new SingleRestaurantView(compact('newbooking'));
+        // $view->render();
+        header("Location: .\?page=restaurant&id=" . $newbooking->id);
+        die();
+    }
 	public function getFormData($id = null){
 		if(isset($_SESSION['restaurant.create'])){
 			$restaurant = $_SESSION['restaurant.create'];
@@ -128,12 +153,12 @@ class RestaurantsController extends Controller
 		return $newcomment;
 	}
 
-	public function getBookingFormData($id = null){
+	public function getBookingFormData(){
 		if(isset($_SESSION['booking.form'])){
 			$newbooking = $_SESSION['booking.form'];
 			unset($_SESSION['booking.form']);
 		} else {
-			$newbooking = new Booking((int)$id);
+			$newbooking = new Booking();
 		}
 		return $newbooking;
 	}
