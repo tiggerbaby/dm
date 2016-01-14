@@ -22,7 +22,7 @@
 </div>
 
 <div class="container">
- <h3 class="text-danger">Recommended Restaurants</h3>
+ <h3 class="red">Recommended Restaurants</h3>
  <div class="row">
   <?php if(count($restaurants) > 0): ?>
       <?php foreach($restaurants as $restaurant): ?>

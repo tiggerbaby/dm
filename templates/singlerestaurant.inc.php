@@ -111,7 +111,7 @@
       </div>
       <div class="modal-body">
       <?php if (static::$auth->check()): ?>
-         <form id="form" method="POST" action="./?page=booking.create" class="form-horizontal">
+         <form id="bookingform" method="POST" action="./?page=booking.create" class="form-horizontal">
               <!-- <input type="hidden" name="user_id" value="<?= $user->id ?>"> -->
               <input type="hidden" name="restaurant_id" value="<?= $restaurant->id ?>">
 

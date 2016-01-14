@@ -287,7 +287,7 @@ abstract class DatabaseModel
 
 		$valid = true;
 		foreach (static::$validationRules as $column => $rules) {
-
+			
 
 			$this->errors[$column] = null;
 			$rules = explode(",", $rules);
@@ -306,11 +306,12 @@ abstract class DatabaseModel
                     // 	  $this->errors[$column] = 'This can not be '
                     // }
 					case 'isempty':
-                      if(empty($this->column)){
-                      	$valid = false;
-							$this->errors[$column] = "This can not be empty.";
-                      }
-
+					
+	                      if(empty($this->$column)){
+	                      	$valid = false;
+								$this->errors[$column] = "This can not be empty.";
+	                      }            
+						break;
 					case 'minlength':
 
 						if(strlen($this->$column) < $value){
@@ -374,8 +375,7 @@ abstract class DatabaseModel
 			}
 			
 		}
-
-		print '<br />DatabaseModel.isValid() - end of function';
+		
 		return $valid;
 	}
     

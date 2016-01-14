@@ -15,7 +15,7 @@ class Booking extends DatabaseModel
     			"people" => "isempty",
     			"name" => "isempty",
     			"email" => "email",
-    			"phone" 	=> "minlength:4,maxlength:12,numeric",
+    			"phone" 	=> "minlength:4,maxlength:12,numeric"
     ];
 
     public function user()

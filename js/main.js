@@ -27,7 +27,7 @@ $(function(){
 
 $(document).ready(function(){
 
-    var form = document.getElementById("form");
+    var form = document.getElementById("bookingform");
     form.noValidate = true;
     console.log(form);
     

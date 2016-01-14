@@ -123,10 +123,20 @@ class RestaurantsController extends Controller
         
         if( ! $newbooking->isValid()){
         	$_SESSION['booking.form'] = $newbooking;
-        	header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id);
+        	// header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id);
+        	if(isset($newbooking->errors)) : ?> 
+        		<script type="text/javascript">
+				    $(document).ready(function() {
+				    	window.location.href='singlerestaurant.inc.php';
+				        $('#popup').modal('show');  
+				        
+				    });
+				</script>
+
+        	<?php endif;
         	exit();
         }
-
+        die();
         $newbooking->save();
 
         // $view = new SingleRestaurantView(compact('newbooking'));
