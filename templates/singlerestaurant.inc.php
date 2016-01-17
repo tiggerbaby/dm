@@ -48,6 +48,7 @@
 
     	<form method="POST" action="./?page=comment.create" class="form-horizontal">
         <!-- <input name="rating" type="range" value="0" step="0.5" id="backing4" <?php if ($errors['rating']): ?> has-error <?php endif; ?>> -->
+         
          <input name="rating" type="range" value="0" step="0.5" id="backing4">
          <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false"  data-rateit-ispreset="true"
            data-rateit-min="0" data-rateit-max="5">
@@ -61,8 +62,8 @@
                 </div>
             </div>
               <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-10 col-md-offset-2 col-md-10">
-                  <button type="submit" class="btn btn-success">
+                <div class="col-sm-10  col-md-10">
+                  <button type="submit" class="btn btn-danger">
                     <span class="glyphicon glyphicon-ok"></span> Add Comment
                   </button>
                 </div>
@@ -87,8 +88,9 @@
             <h4 class="media-heading"># <?= $count;?> <?= $comment->user()->username;?></h4>
             <div class="rateit" data-rateit-value="<?= $comment->rating / 2.0 ;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div> 
             <p><?= $comment->comment;?></p>
-
+        
           </div>
+          <p><?= $comment->created;?></p>
         </div>
         
       <?php endforeach; ?>
@@ -115,17 +117,17 @@
               <!-- <input type="hidden" name="user_id" value="<?= $user->id ?>"> -->
               <input type="hidden" name="restaurant_id" value="<?= $restaurant->id ?>">
 
-  <div class="form-group">
+  <div class="form-group <?php if ($bookingerrors['date']): ?> has-error <?php endif; ?>">
     <label for="date" class="col-sm-2 control-label"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
     <div class="col-sm-10">
-      <input type="date" class="form-control <?php if ($bookingerrors['date']): ?> has-error <?php endif; ?>" id="date" name="date">
+      <input type="date" class="form-control" id="date" name="date">
         <div class="help-block"><?= $bookingerrors['date']; ?></div>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group <?php if ($bookingerrors['time']): ?> has-error <?php endif; ?>">
     <label for="time" class="col-sm-2 control-label"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></label>
     <div class="col-sm-10">
-      <input type="time" class="form-control <?php if ($bookingerrors['time']): ?> has-error <?php endif; ?>" id="time" name="time">
+      <input type="time" class="form-control" id="time" name="time">
        <div class="help-block"><?= $bookingerrors['time']; ?></div>
     </div>
   </div>
@@ -157,24 +159,24 @@
    </select>
     </div>
   </div>
-   <div class="form-group">
+   <div class="form-group <?php if ($bookingerrors['name']): ?> has-error <?php endif; ?>">
     <label for="name" class="col-sm-2 control-label">Contact Name*</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control <?php if ($bookingerrors['name']): ?> has-error <?php endif; ?>" id="name" name="name">
+      <input type="text" class="form-control" id="name" name="name">
         <div class="help-block"><?= $bookingerrors['name']; ?></div>    
     </div>
   </div>
-   <div class="form-group">
+   <div class="form-group  <?php if ($bookingerrors['email']): ?> has-error <?php endif; ?>">
     <label for="email" class="col-sm-2 control-label">Email*</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control <?php if ($bookingerrors['email']): ?> has-error <?php endif; ?>" id="email" name="email" placeholder="example@example.com">
+      <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com">
        <div class="help-block"><?= $bookingerrors['email']; ?></div>   
     </div>
   </div>
-   <div class="form-group">
+   <div class="form-group <?php if ($bookingerrors['phone']): ?> has-error <?php endif; ?>">
     <label for="phone" class="col-sm-2 control-label">Phone*</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control  <?php if ($bookingerrors['phone']): ?> has-error <?php endif; ?>" id="phone" name="phone">
+      <input type="text" class="form-control" id="phone" name="phone">
        <div class="help-block"><?= $bookingerrors['phone']; ?></div>   
     </div>
   </div>

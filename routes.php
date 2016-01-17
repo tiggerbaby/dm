@@ -32,6 +32,11 @@ try{
 			$controller->login();
 
 			break;
+
+		case "registersuccess":
+			$controller = new RegisterSuccessController();
+			$controller->show();			
+			break;		
 			
 		case "auth.attempt":
 			$controller = new AuthenticationController();

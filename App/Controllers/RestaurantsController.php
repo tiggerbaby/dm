@@ -29,12 +29,12 @@ class RestaurantsController extends Controller
 		$restaurant = new RestaurantModel((int)$_GET['id']);
 		$newcomment = $this->getCommentFormData();
 		$comments = $restaurant->comments();
-		// $newbooking = $this->getCommentFormData();
+		$newbooking = $this->getBookingFormData();
 		$average_rating = $restaurant->averageRating();
 		$tags = $restaurant -> getTags();
 
 		
-		$view = new SingleRestaurantView(compact('restaurant', 'newcomment', 'comments', 'average_rating','tags'));
+		$view = new SingleRestaurantView(compact('restaurant', 'newcomment', 'comments', 'average_rating','newbooking','tags'));
 		$view->render();
 	}
 	public function create()
@@ -46,6 +46,7 @@ class RestaurantsController extends Controller
 		$view = new RestaurantCreateView(['restaurant' => $restaurant]);
 		$view->render();
 	}
+
 	public function store()
 	{   
 		static::$auth->mustBeAdmin();
@@ -118,13 +119,15 @@ class RestaurantsController extends Controller
 
         $input['user_id'] = static::$auth->user()->id;
  
+
         $newbooking = new Booking($input);
-      
-        
+
+       
         if( ! $newbooking->isValid()){
         	$_SESSION['booking.form'] = $newbooking;
-        	// header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id);
+        	header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id);
         	if(isset($newbooking->errors)) : ?> 
+
         		<script type="text/javascript">
 				    $(document).ready(function() {
 				    	window.location.href='singlerestaurant.inc.php';

@@ -309,7 +309,7 @@ abstract class DatabaseModel
 					
 	                      if(empty($this->$column)){
 	                      	$valid = false;
-								$this->errors[$column] = "This can not be empty.";
+								$this->errors[$column] = "This field is required.";
 	                      }            
 						break;
 					case 'minlength':

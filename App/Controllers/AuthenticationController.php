@@ -23,7 +23,7 @@ class AuthenticationController extends Controller
 			exit();
 		}
 		$user->save();
-		header("Location:.\?page=login");
+		header("Location:.\?page=registersuccess");
 	}
 	public function login()
 	{
@@ -40,7 +40,6 @@ class AuthenticationController extends Controller
 			exit();
 		}
 		header("Location: .\?page=login&error=true");
-		// header("Location: .\?page=login&error=true");
 		exit();
 	}
 	public function logout()

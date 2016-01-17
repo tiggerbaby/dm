@@ -1,5 +1,7 @@
  <?php  
      $errors = $user->errors; 
+
+     
  ?>
     <!-- <div class="row">
           <div class="col-xs-12">  
