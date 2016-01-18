@@ -118,24 +118,25 @@ class RestaurantsController extends Controller
         $input = $_POST;
 
         $input['user_id'] = static::$auth->user()->id;
- 
+		
 
         $newbooking = new Booking($input);
 
        
         if( ! $newbooking->isValid()){
         	$_SESSION['booking.form'] = $newbooking;
+
         	header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id. "&error=true");
         	
         	exit();
         }
-        die();
+
+
         $newbooking->save();
 
         // $view = new SingleRestaurantView(compact('newbooking'));
         // $view->render();
         header("Location: .\?page=restaurant&id=" . $newbooking->id);
-        die();
     }
 	public function getFormData($id = null){
 		if(isset($_SESSION['restaurant.create'])){

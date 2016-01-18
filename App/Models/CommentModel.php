@@ -12,7 +12,7 @@ class CommentModel extends DatabaseModel
     protected static $validationRules = [
     			'user_id' => 'numeric,exists:\App\Models\User',
     			'restaurant_id'=> 'numeric,exists:\App\Models\RestaurantModel',
-                // 'rating'=>'isempty',
+                'rating'=>'isempty',
     			'comment' => 'minlength:10,maxlength:1600'
     ];
 

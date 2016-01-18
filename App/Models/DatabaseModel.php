@@ -243,7 +243,7 @@ abstract class DatabaseModel
 			if ($column === "password") {
 				$this->$column = password_hash($this->$column, PASSWORD_DEFAULT);
 			}
-			var_dump($this->$column);
+			// var_dump($this->$column);
 			$statement->bindValue(":" . $column, $this->$column);
 		}
 		
@@ -299,6 +299,13 @@ abstract class DatabaseModel
 					$rule = $rule[0];
 				}
 
+				$fieldValue = '';
+				if (isset($this->$column))
+					$fieldValue = $this->$column;
+				else
+					$fieldValue = $this->data[$column];			
+
+
 				switch ($rule) {
 
                     // case 'js':
@@ -306,23 +313,24 @@ abstract class DatabaseModel
                     // 	$valid = false;
                     // 	  $this->errors[$column] = 'This can not be '
                     // }
-					case 'isempty':
-					
-	                      if(empty($this->$column)){
-	                      	$valid = false;
-								$this->errors[$column] = "This field is required.";
+					case 'isempty':					
+
+	                      if(empty($fieldValue))
+	                      {
+	                      	 $valid = false;
+							 $this->errors[$column] = "This field is required.";
 	                      }            
 						break;
 					case 'minlength':
 
-						if(strlen($this->$column) < $value){
+						if(strlen($fieldValue) < $value){
 							$valid = false;
 							$this->errors[$column] = "Must be at least $value characters long.";
 						}
 						break;
 					case 'maxlength':
 
-						if(strlen($this->$column) > $value){
+						if(strlen($fieldValue) > $value){
 							$valid = false;
 							$this->errors[$column] = "Must be no more than $value characters long.";
 						}
@@ -331,7 +339,7 @@ abstract class DatabaseModel
 					case 'numeric':
 
 
-						if(! is_numeric($this->$column)){
+						if(! is_numeric($fieldValue)){
 							$valid = false;
 
 							$this->errors[$column] = "Must be a number.";
@@ -339,14 +347,14 @@ abstract class DatabaseModel
 						break;
 					case 'email':
 
-						if(! filter_var($this->$column, FILTER_VALIDATE_EMAIL)){
+						if(! filter_var($fieldValue, FILTER_VALIDATE_EMAIL)){
 							$valid = false;
 							$this->errors[$column] = "Must be a valid email address.";
 						}
 						break;
 					case 'match':
 
-						if( $this->$column !== $this->$value){
+						if( $fieldValue !== $this->$value){
 							$valid = false;
 							$this->errors[$column] = "Must match with the $value field.";
 						}
@@ -354,7 +362,7 @@ abstract class DatabaseModel
 					case 'unique':
 
 						try {
-							$record = $value::findBy($column, $this->$column);
+							$record = $value::findBy($column, $fieldValue);
 						} catch (ModelNotFoundException $e) {
 							break;
 						}
@@ -365,7 +373,7 @@ abstract class DatabaseModel
 					case 'exists':
 
 						try {
-							$record = new $value($this->$column);
+							$record = new $value($fieldValue);
 						} catch (ModelNotFoundException $e) {
 							$valid = false;
 							$this->errors[$column] = "This value does not exist.";

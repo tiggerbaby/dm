@@ -9,12 +9,12 @@ class CommentController extends Controller
     public function create()
     {   
         $input = $_POST;
+
         $input['user_id'] = static::$auth->user()->id;
         
         $input['rating'] = $input['rating'] * 2;
 
         $newcomment = new CommentModel($input);
-        
 
         if( ! $newcomment->isValid()){
 
