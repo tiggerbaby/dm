@@ -146,7 +146,7 @@ try{
 			break;
 
         case "search":
-
+       
 			$controller = new SearchController();
 			$controller->search();
 			break;

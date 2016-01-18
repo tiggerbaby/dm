@@ -179,17 +179,9 @@ Sign Up</button></li> -->
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  
-  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    
-<!-- <script src="js/bootstrap-rating.js"></script> -->
+  s
     <script src="js/bootstrap.min.js"></script>
     
-<!--  <script src="jRate-master/jRate.js"></script> -->
-
-
-    <!-- <script src="js/taggle.min.js"></script> -->
     <script src="rateit/src/jquery.rateit.js"></script>         
     <script src="js/taggle.min.js"></script>
     <script src="js/main.js"></script>

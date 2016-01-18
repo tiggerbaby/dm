@@ -13,7 +13,7 @@ class Booking extends DatabaseModel
     			"date" => "isempty",
     			"time" => "isempty",
     			"people" => "isempty",
-    			"name" => "isempty",
+    			"name" => "minlength:3",
     			"email" => "email",
     			"phone" => "minlength:4,maxlength:12,numeric"
     ];

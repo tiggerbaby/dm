@@ -300,9 +300,7 @@ abstract class DatabaseModel
 				}
 
 				$fieldValue = '';
-				if (isset($this->$column))
-					$fieldValue = $this->$column;
-				else
+				if (! isset($this->$column))
 					$fieldValue = $this->data[$column];			
 
 
@@ -318,7 +316,7 @@ abstract class DatabaseModel
 	                      if(empty($fieldValue))
 	                      {
 	                      	 $valid = false;
-							 $this->errors[$column] = "This field is required.";
+							 $this->errors[$column] = "This field cannot be empty.";
 	                      }            
 						break;
 					case 'minlength':

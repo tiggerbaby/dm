@@ -8,7 +8,7 @@ $errors=$enqiry->errors;
         <p>Dining Mate is a team passionate with focus on food and restaurants！We are the bridge between customers and restaurants.
         Form helping customer to find and book restaurants, we also help restaurant to grow and run their businesses.</p>
         <h3>Restauranteurs Join Us</h3>
-       <p><a class="btn btn-danger btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+       <p><a class="btn btn-danger btn-lg" href=".\?page=learmore role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 

@@ -32,7 +32,7 @@ class BookingController extends Controller
 
         $view = new SingleRestaurantView(compact('newbooking'));
         $view->render();
-        // header("Location: ./?page=booking&id=" . $newbooking->restaurant_id . "#booking-" . $newbooking->id);
+        header("Location: ./?page=booking&id=" . $newbooking->restaurant_id . "#booking-" . $newbooking->id);
     }
   // public function displayerror()
   //   {
