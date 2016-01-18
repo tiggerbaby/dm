@@ -87,7 +87,7 @@
           <div class="media-body">
             <h4 class="media-heading"># <?= $count;?> <?= $comment->user()->username;?></h4>
             <div class="rateit" data-rateit-value="<?= $comment->rating / 2.0 ;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div> 
-            <p><?= $comment->comment;?></p>
+            <p><?= htmlspecialchars($comment->comment);?></p>
         
           </div>
           <p><?= $comment->created;?></p>
@@ -162,34 +162,34 @@
    <div class="form-group <?php if ($bookingerrors['name']): ?> has-error <?php endif; ?>">
     <label for="name" class="col-sm-2 control-label">Contact Name*</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" name="name">
+      <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($newbooking->name); ?>">
         <div class="help-block"><?= $bookingerrors['name']; ?></div>    
     </div>
   </div>
    <div class="form-group  <?php if ($bookingerrors['email']): ?> has-error <?php endif; ?>">
     <label for="email" class="col-sm-2 control-label">Email*</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com">
+      <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" value="<?php echo htmlspecialchars($newbooking->email); ?>">
        <div class="help-block"><?= $bookingerrors['email']; ?></div>   
     </div>
   </div>
    <div class="form-group <?php if ($bookingerrors['phone']): ?> has-error <?php endif; ?>">
     <label for="phone" class="col-sm-2 control-label">Phone*</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="phone" name="phone">
+      <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($newbooking->phone); ?>">
        <div class="help-block"><?= $bookingerrors['phone']; ?></div>   
     </div>
   </div>
    <div class="form-group">
     <label for="comment" class="col-sm-2 control-label">Comment</label>
     <div class="col-sm-10">
-      <textarea class="form-control" id="comment" name="comment" rows="5" placeholder="Any special request?"></textarea>
+      <textarea class="form-control" id="comment" name="comment" rows="5" placeholder="Any special request?" value="<?php echo htmlspecialchars($newbooking->comment); ?>"></textarea>
     </div>
   </div>
    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#bookingform" data-whatever="@mdo">Book Now</button>
+          <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#bookingform" data-whatever="@mdo" data-show="true">Book Now</button>
           <?php else: ?>
             <p>You need to be <a href=".\?page=login">Sign in</a> to make a booking.</p>
              <button type="button" class="btn btn-primary" data-dismiss="modal">Got it</button>

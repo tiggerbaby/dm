@@ -2,10 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Views\HomeView;
+
 use App\Models\UserModel;
-// use App\Controllers\RestaurntsController;
 use App\Models\RestaurantModel;
+use App\Views\HomeView;
+use App\Views\SearchResultsView;
 
 
 

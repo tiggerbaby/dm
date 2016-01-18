@@ -16,5 +16,6 @@ class SingleRestaurantView extends TemplateView
 	{
 		extract($this->data);
 		include "templates/singlerestaurant.inc.php";
+		
 	}
 }

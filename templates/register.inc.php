@@ -69,13 +69,13 @@
           <div class="form-group <?php if($errors['username']): ?> has-error <?php endif; ?>">
               <label for="username" class="control-label">User Name*</label>
              <input class="form-control" id="username" name="username" 
-                      value="<?php echo $user->username; ?>">
+                      value="<?php echo htmlspecialchars($user->username); ?>">
                       <div class="help-block"><?php echo $errors['username']; ?></div>
            </div>
             <div class="form-group <?php if($errors['email']): ?> has-error <?php endif; ?>">
               <label for="email" class="control-label">Email*</label>
               <input class="form-control" id="email" name="email" placeholder="example@example.com"
-                      value="<?php echo $user->email; ?>">
+                      value="<?php echo htmlspecialchars($user->email); ?>">
                       <div class="help-block"><?php echo $errors['email']; ?></div>
             </div>
             <div class="form-group <?php if($errors['password']): ?> has-error <?php endif; ?>">

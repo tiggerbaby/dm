@@ -58,13 +58,13 @@
             <div class="form-group <?php if($errors['email']): ?> has-error <?php endif; ?>">
               <label for="email" class="control-label">Email*</label>
                <input class="form-control" id="email" name="email" 
-                      value="<?php echo $user->email; ?>">
+                      value="<?php echo htmlspecialchars($user->email); ?>">
                       <div class="help-block"><?php echo $errors['email']; ?></div>
             </div>
             <div class="form-group <?php if($errors['password']): ?> has-error <?php endif; ?>">
               <label for="password" class="control-label">Password*</label>
                <input type="password" class="form-control" id="password" name="password">
-                    <div class="help-block"><?php echo $errors['password']; ?></div>
+                    <div class="help-block"><?php echo htmlspecialchars($errors['password']); ?></div>
                   </div>
             </div>
              <div class="modal-footer">

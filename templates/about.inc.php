@@ -18,7 +18,7 @@ $errors=$enqiry->errors;
    <div class="form-group <?php if($errors['name']): ?> has-error <?php endif; ?>">
     <label for="name" class="col-sm-2 control-label">Contact Name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="name" id="name" value="<?php echo $enqiry->name; ?>">
+      <input type="text" class="form-control" name="name" id="name" value="<?php echo htmlspecialchars($enqiry->name); ?>">
       <div class="help-block"><?php echo $errors['name']; ?></div> 
     </div>
   </div>
@@ -26,7 +26,7 @@ $errors=$enqiry->errors;
  <div  class="form-group <?php if($errors['phone']): ?> has-error <?php endif; ?>">
       <label for="phone" class="col-sm-2 control-label">Contact Phone</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $enqiry->phone; ?>">
+        <input type="text" class="form-control" name="phone" id="phone" value="<?php echo htmlspecialchars($enqiry->phone); ?>">
         <div class="help-block"><?php echo $errors['phone']; ?></div>
       </div>
     </div>
@@ -34,7 +34,7 @@ $errors=$enqiry->errors;
   <div class="form-group <?php if($errors['email']): ?> has-error <?php endif; ?>">
     <label for="email" class="col-sm-2 control-label">Contact Email</label>
     <div class="col-sm-4">
-      <input type="email" class="form-control" name="email" id="email" value="<?php echo $enqiry->email; ?>">
+      <input type="email" class="form-control" name="email" id="email" value="<?php echo htmlspecialchars($enqiry->email); ?>">
        <div class="help-block"><?php echo $errors['email']; ?></div> 
     </div>
   </div>
@@ -43,7 +43,7 @@ $errors=$enqiry->errors;
   <div class="form-group <?php if($errors['restaurant']): ?> has-error <?php endif; ?>">
     <label for="restaurant" class="col-sm-2 control-label">Restaurant Name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="restaurant" id="restaurant" value="<?php echo $enqiry->restaurant; ?>">
+      <input type="text" class="form-control" name="restaurant" id="restaurant" value="<?php echo htmlspecialchars($enqiry->restaurant); ?>">
        <div class="help-block"><?php echo $errors['restaurant']; ?></div>     
     </div>
   </div>
@@ -51,7 +51,7 @@ $errors=$enqiry->errors;
   <div class="form-group <?php if($errors['address']): ?> has-error <?php endif; ?>">
     <label for="address" class="col-sm-2 control-label">Restaurant Address</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="address" id="address" value="<?php echo $enqiry->address; ?>">
+      <input type="text" class="form-control" name="address" id="address" value="<?php echo htmlspecialchars($enqiry->address); ?>">
       <div class="help-block"><?php echo $errors['address']; ?></div>
     </div>
   </div>
@@ -60,7 +60,7 @@ $errors=$enqiry->errors;
    <div class="form-group">
     <label for="comment" class="col-sm-2 control-label">Comment</label>
     <div class="col-sm-4">
-     <textarea class="form-control" name="comment" id="comment" rows="5" placeholder="Write us an optional message. Comments, questions..."></textarea>
+     <textarea class="form-control" name="comment" id="comment" rows="5" value="<?php echo htmlspecialchars($enqiry->comment); ?>placeholder="Write us an optional message. Comments, questions..."></textarea>
     </div>
   </div>
   

@@ -10,7 +10,6 @@ class CommentController extends Controller
     {   
         $input = $_POST;
         $input['user_id'] = static::$auth->user()->id;
-        $input['created'] = date("h:i:sa");
         
         $input['rating'] = $input['rating'] * 2;
 

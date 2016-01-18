@@ -6,7 +6,8 @@
      <form method="GET" action="./" role="search">
         <div class="input-group input-group-lg">
           <!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
-          <input type="text" class="form-control" placeholder="Restaurant name, location"/>
+           <input type="hidden" name="page" value="search">
+          <input name="q" type="text" class="form-control" placeholder="Restaurant name, location or cuisine"/>
           <span class="input-group-btn">
             <button class="btn btn-info" type="button" id="searchButton">Search</button>
           </span>

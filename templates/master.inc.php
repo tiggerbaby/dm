@@ -138,7 +138,7 @@ Sign Up</button></li> -->
 
 
 
-<?php $this->content();?>
+<?php $this->content(); ?>
 
 <footer class="footer">
   <div class="container">
@@ -177,6 +177,7 @@ Sign Up</button></li> -->
   </div> 
 </footer>
 
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   
   <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
@@ -189,9 +190,15 @@ Sign Up</button></li> -->
 
 
     <!-- <script src="js/taggle.min.js"></script> -->
-    <script src="rateit/src/jquery.rateit.js"></script>
-     <script src="js/taggle.min.js"></script>
+    <script src="rateit/src/jquery.rateit.js"></script>         
+    <script src="js/taggle.min.js"></script>
     <script src="js/main.js"></script>
+   
+    <?php if(isset($_GET['error'])):?>
+         <script> $('#popup').modal('show'); </script>
+    <?php endif; ?>
+
+   
 
   </body>
 </html>

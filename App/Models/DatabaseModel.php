@@ -217,6 +217,7 @@ abstract class DatabaseModel
 
 	public function insert()
 	{
+		
 		$db = static::getDatabaseConnection();
 
 		$columns = static::$columns;
@@ -242,7 +243,7 @@ abstract class DatabaseModel
 			if ($column === "password") {
 				$this->$column = password_hash($this->$column, PASSWORD_DEFAULT);
 			}
-			// var_dump($this->$column);
+			var_dump($this->$column);
 			$statement->bindValue(":" . $column, $this->$column);
 		}
 		
