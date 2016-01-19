@@ -125,9 +125,7 @@ class RestaurantsController extends Controller
        
         if( ! $newbooking->isValid()){
         	$_SESSION['booking.form'] = $newbooking;
-
-        	header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id. "&error=true");
-        	
+        	header("Location:.\?page=restaurant&id=" . $newbooking->restaurant_id. "&error=true"); 	
         	exit();
         }
 
