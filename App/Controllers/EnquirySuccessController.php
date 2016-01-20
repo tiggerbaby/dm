@@ -13,5 +13,8 @@ class EnquirySuccessController
 		$view->render();
 	}
 
-
+		
+		//send email to the host
+		$hostEmail = new HostBusinessEmailView();
+		$hostEmail->render();
 }
