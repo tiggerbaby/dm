@@ -2,7 +2,7 @@
 
 $emailHeader = [
 	'from' => 'Dining Mate Team < mailgun@' .$domain. '>',
-	'to' => '<'.$email.'>',
+	'to' => '<'.$suggesteremail.'>',
 	'subject' => 'Thanks for sending us an enquiry form'
 	];
 ?>

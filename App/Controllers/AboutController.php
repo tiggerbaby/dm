@@ -51,7 +51,7 @@ class AboutController
 		
 		$enqiry -> save();
       
-        header("Location: .\?page=enqirysuccess&show_modal=true");        	
+        header("Location: .\?page=enqirysuccess&id=$enqiry->id");        	
 	}
 
 	public function getFormData($id = null){
