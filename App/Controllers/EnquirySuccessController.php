@@ -15,6 +15,8 @@ class EnquirySuccessController
 		$id = $_GET['id'];
 		$aboutbusiness = AboutModel::findBy('id', $id);
 		$suggesteremail = $aboutbusiness->email;
+
+
 		
 		$view = new EnquirySuccessView();
 		$view->render();

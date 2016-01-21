@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron backgroundColorGreen">
 <div class="container">
 	
 		<div class="col-xs-12 text-center">

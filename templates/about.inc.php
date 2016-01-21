@@ -2,7 +2,7 @@
 $errors=$enqiry->errors;
 ?>
 
- <div class="jumbotron" id="aboutBackgroundColor">
+ <div class="jumbotron backgroundColorGreen">
       <div class="container">
         <h1>Who we are?</h1>
         <p>Dining Mate is a team passionate with focus on food and restaurants！We are the bridge between customers and restaurants.

@@ -82,7 +82,7 @@ body{
 }
 
 /*About*/
-#aboutBackgroundColor{
+.backgroundColorGreen{
 	background-color: rgba(165,199,127,.8);
 }
 
