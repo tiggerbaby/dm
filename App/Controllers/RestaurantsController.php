@@ -134,7 +134,8 @@ class RestaurantsController extends Controller
 
         // $view = new SingleRestaurantView(compact('newbooking'));
         // $view->render();
-        header("Location: .\?page=restaurant&id=" . $newbooking->id);
+        // header("Location: .\?page=restaurant&id=" . $newbooking->id);
+        header("Location: .\?page=booking.success");
     }
 	public function getFormData($id = null){
 		if(isset($_SESSION['restaurant.create'])){

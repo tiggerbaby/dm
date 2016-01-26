@@ -12,9 +12,6 @@ $errors=$restaurants->errors;
       </div>
     </div>
 
-
-
-    
     <div class="form-group <?php if($errors['restuanrt_address']): ?> has-error <?php endif; ?>">
       <label for="address" class="col-sm-2 control-label">Restaurant Address</label>
       <div class="col-sm-4">

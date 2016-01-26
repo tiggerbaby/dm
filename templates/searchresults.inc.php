@@ -29,6 +29,11 @@
     <?php endforeach; ?>
      <?php else: ?>
       <p>Sorry, there is 0 reslut. </p>
+       <p> 
+          <a href=".\?page=restaurantsuggest" class="red">
+          Are we missing any restaurant? Suggest a place to include in Dining Mate here.
+         </a>
+     </p>
     <?php endif; ?> 
   </div>
 </div>

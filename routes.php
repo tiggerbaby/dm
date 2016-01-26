@@ -93,13 +93,18 @@ try{
             $controller->bookingcreate();
 
             break;
+     
+     case "booking.success":
+			$controller = new BookingSuccessController();
+			$controller->show();			
+			break;		
 
 	case "comment.create":
 
             $controller = new CommentController();
             $controller->create();
 
-            break;	
+           break;	
 
 	case "restaurantsuggest":
         $controller = new RestaurantSuggestController();
@@ -116,7 +121,7 @@ try{
 	    $controller-> store();		
 		break;
      
-     	case "restaurantsuggestsuccess":
+     case "restaurantsuggestsuccess":
 			$controller = new RestaurantSuggestSuccessController();
 			$controller->show();			
 			break;		
