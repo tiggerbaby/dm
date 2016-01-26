@@ -6,11 +6,11 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\RestaurantModel;
 use App\Views\HomeView;
-use App\Views\SearchResultsView;
+use App\Views\RestaurantsView;
 
 
 
-class HomeController 
+class HomeController extends Controller
 {
 	public function show()
 	{ 
@@ -18,18 +18,6 @@ class HomeController
 		$view = new HomeView(['restaurants' => $restaurants]);
 		$view->render();
 	}
- 
-	 function search() 
-	{
-		if(! isset($_GET['q'])){
-			$q = "";
-		} else {
-			$q = $_GET['q'];
-		}
-		$restaurants = RestaurantModel::search($q);
-
-		$view = new SearchResultsView(compact('restaurants', 'q'));
-		$view->render();
-	}
-
+    
+    
 }

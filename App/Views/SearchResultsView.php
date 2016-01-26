@@ -9,7 +9,7 @@ class SearchResultsView extends TemplateView
 	{
 		extract($this->data);
 		$page = "searchrestaurants";
-		$page_title = "Restaurants";
+		$page_title = "Search Result";
 		include "templates/master.inc.php";
 	}
 	protected function content()
