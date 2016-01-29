@@ -14,7 +14,7 @@
    <?php endif; ?> 
 
 <!-- Display restaurant information -->
-
+<div class="divwrapper">
   <div class="media-left">
     <h4 class="media-heading"><strong><?= $restaurant->title; ?></strong></h4>
        <div class="rateit" data-rateit-value="<?= $average_rating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>   
@@ -99,7 +99,7 @@
       <p>Be the first one to write a review!</p>
     <?php endif; ?>
     </div>
-
+</div>
 
 <!-- Booking Form -->
 
