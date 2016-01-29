@@ -4,7 +4,9 @@ namespace App\Controllers;
 
 use App\Views\RegisterFormView;
 use App\Views\LoginFormView;
+use App\Views\UserAccountView;
 use App\Models\User;
+use App\Models\Booking;
 
 class AuthenticationController extends Controller
 {
@@ -57,5 +59,12 @@ class AuthenticationController extends Controller
 			$user =new User($id); 
 		}
 		return $user;
+	}
+
+	public function index()
+	{   
+		// $account = new User((int)$_GET['id']);
+		$view = new UserAccountView();
+		$view->render();
 	}
 }

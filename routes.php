@@ -49,6 +49,9 @@ try{
 			$controller->logout();
 
 			break;
+        case "user.account":
+            $controller = new AuthenticationController();
+            $controller ->index();
 
 	case "restaurants":
 		$controller = new RestaurantsController();
