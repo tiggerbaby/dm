@@ -31,8 +31,13 @@ class RestaurantModel extends DatabaseModel
 		$sum = 0;
 		$num_comments = count($comments);
 
-		foreach ($comments as $comment)
+		if ( $num_comments == 0 )
 		{
+			return 0;
+		}
+
+		foreach ($comments as $comment)
+		{  
 			$sum = $sum + $comment->rating;
 		}
 
