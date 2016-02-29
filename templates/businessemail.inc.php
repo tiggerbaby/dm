@@ -2,12 +2,12 @@
 
 $emailHeader = [
 	'from' => 'Dining Mate Team < mailgun@' .$domain. '>',
-	'to' => '<'.$suggesteremail.'>',
+	'to' => '<'.$aboutbusiness->email.'>',
 	'subject' => 'Thanks for sending us an enquiry form'
 	];
 ?>
 
-Hi <?php echo $name; ?>",
+Hi <?php echo $aboutbusiness->name; ?>",
 
 Thank you for sending us an enquiry form. We will contact you within 48 hours. 
 

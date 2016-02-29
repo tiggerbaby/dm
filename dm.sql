@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2016 at 12:33 am
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Feb 29, 2016 at 11:34 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `dm`
@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `booking`
 --
 
-CREATE TABLE IF NOT EXISTS `booking` (
-`id` int(5) NOT NULL,
-  `user_id` int(5) unsigned NOT NULL,
-  `restaurant_id` smallint(5) unsigned NOT NULL,
+CREATE TABLE `booking` (
+  `id` int(5) NOT NULL,
+  `user_id` int(5) UNSIGNED NOT NULL,
+  `restaurant_id` smallint(5) UNSIGNED NOT NULL,
   `date` date NOT NULL,
   `time` time(6) NOT NULL,
   `people` varchar(11) CHARACTER SET utf8 NOT NULL,
@@ -37,13 +37,14 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `email` varchar(100) NOT NULL,
   `phone` varchar(12) CHARACTER SET utf8 NOT NULL,
   `comment` text CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
 INSERT INTO `booking` (`id`, `user_id`, `restaurant_id`, `date`, `time`, `people`, `name`, `email`, `phone`, `comment`) VALUES
+(0, 3, 3, '2016-03-26', '22:00:00.000000', '5', 'Big Bang', 'testinguse.aw@gmail.com', '098772222', ''),
 (1, 5, 5, '2016-01-12', '11:11:00.000000', '2', '123', '321', '000', ''),
 (2, 5, 5, '2016-01-20', '00:12:00.000000', '3', 'oioi', '0', '09887', ''),
 (3, 5, 5, '2016-01-20', '00:12:00.000000', '3', 'oioi', '0', '09887', ''),
@@ -75,20 +76,21 @@ INSERT INTO `booking` (`id`, `user_id`, `restaurant_id`, `date`, `time`, `people
 -- Table structure for table `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
-`id` int(5) NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `restaurant_id` smallint(11) unsigned NOT NULL,
+CREATE TABLE `comments` (
+  `id` int(5) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `restaurant_id` smallint(11) UNSIGNED NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `rating` int(5) NOT NULL,
   `comment` text CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `comment`) VALUES
+(0, 3, 3, '2016-02-29 21:17:46', 9, 'The chilli crab is awesome'),
 (1, 5, 4, '0000-00-00 00:00:00', 5, 'Nice nice nice'),
 (2, 5, 4, '0000-00-00 00:00:00', 3, 'dsfsdfsd'),
 (3, 5, 4, '0000-00-00 00:00:00', 5, 'hahahahahahaha'),
@@ -121,15 +123,15 @@ INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `
 -- Table structure for table `enqiry_form`
 --
 
-CREATE TABLE IF NOT EXISTS `enqiry_form` (
-`id` int(5) NOT NULL,
+CREATE TABLE `enqiry_form` (
+  `id` int(5) NOT NULL,
   `name` varchar(50) CHARACTER SET utf8 NOT NULL,
   `phone` int(20) NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 NOT NULL,
   `restaurant` varchar(50) CHARACTER SET utf8 NOT NULL,
   `address` text CHARACTER SET utf8 NOT NULL,
   `comment` text CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enqiry_form`
@@ -165,7 +167,9 @@ INSERT INTO `enqiry_form` (`id`, `name`, `phone`, `email`, `restaurant`, `addres
 (27, 'df', 342325, 's@m.com', 'sgskg`', 'dsjgsfjsfgf', ''),
 (28, 'gfjfj', 543535535, 'gf@m.com', 'fhdh', 'dfhdhdh', ''),
 (29, 'gfjfj', 543535535, 'gf@m.com', 'fhdh', 'dfhdhdh', ''),
-(30, 'Alice', 111111, 'alice.wu.nz@gmail.com', '123444', 'wellington', '');
+(30, 'Alice', 111111, 'alice.wu.nz@gmail.com', '123444', 'wellington', ''),
+(31, 'Testing2', 2147483647, 'testinguse.aw@gmail.com', 'Ice cream', 'petone', ''),
+(32, 'Alice', 837402847, 'testinguse.aw@gmail.com', 'wagamama', 'petone', '');
 
 -- --------------------------------------------------------
 
@@ -173,15 +177,15 @@ INSERT INTO `enqiry_form` (`id`, `name`, `phone`, `email`, `restaurant`, `addres
 -- Table structure for table `restaurants`
 --
 
-CREATE TABLE IF NOT EXISTS `restaurants` (
-`id` smallint(5) unsigned NOT NULL,
+CREATE TABLE `restaurants` (
+  `id` smallint(5) UNSIGNED NOT NULL,
   `title` varchar(100) CHARACTER SET utf8 NOT NULL,
   `discount` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `address` varchar(100) CHARACTER SET utf8 NOT NULL,
   `phone` varchar(12) CHARACTER SET utf8 NOT NULL,
   `promote` tinyint(1) DEFAULT NULL,
   `poster` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `restaurants`
@@ -204,9 +208,9 @@ INSERT INTO `restaurants` (`id`, `title`, `discount`, `address`, `phone`, `promo
 -- Table structure for table `restaurants_tags`
 --
 
-CREATE TABLE IF NOT EXISTS `restaurants_tags` (
-  `restaurant_id` smallint(5) unsigned NOT NULL,
-  `tag_id` int(5) unsigned NOT NULL
+CREATE TABLE `restaurants_tags` (
+  `restaurant_id` smallint(5) UNSIGNED NOT NULL,
+  `tag_id` int(5) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -222,13 +226,13 @@ INSERT INTO `restaurants_tags` (`restaurant_id`, `tag_id`) VALUES
 -- Table structure for table `restaurant_suggest`
 --
 
-CREATE TABLE IF NOT EXISTS `restaurant_suggest` (
-`id` int(5) NOT NULL,
+CREATE TABLE `restaurant_suggest` (
+  `id` int(5) NOT NULL,
   `restaurant_name` varchar(50) NOT NULL,
   `restaurant_address` text NOT NULL,
   `restaurant_phone` int(12) NOT NULL,
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `restaurant_suggest`
@@ -254,10 +258,10 @@ INSERT INTO `restaurant_suggest` (`id`, `restaurant_name`, `restaurant_address`,
 -- Table structure for table `tags`
 --
 
-CREATE TABLE IF NOT EXISTS `tags` (
-`id` int(5) unsigned NOT NULL,
+CREATE TABLE `tags` (
+  `id` int(5) UNSIGNED NOT NULL,
   `tag` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tags`
@@ -272,13 +276,13 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id` int(5) unsigned NOT NULL,
+CREATE TABLE `users` (
+  `id` int(5) UNSIGNED NOT NULL,
   `username` varchar(100) CHARACTER SET utf8 NOT NULL,
   `email` varchar(100) CHARACTER SET utf8 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8 NOT NULL,
   `role` enum('user','admin') CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -302,107 +306,39 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
- ADD PRIMARY KEY (`id`), ADD KEY `restaurant_id` (`restaurant_id`), ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `restaurant_id` (`restaurant_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
- ADD PRIMARY KEY (`id`), ADD KEY `user_id` (`user_id`), ADD KEY `restaurant_id` (`restaurant_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `restaurant_id` (`restaurant_id`);
 
 --
 -- Indexes for table `enqiry_form`
 --
 ALTER TABLE `enqiry_form`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `restaurants`
 --
-ALTER TABLE `restaurants`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `title` (`title`), ADD FULLTEXT KEY `address` (`address`);
-
---
--- Indexes for table `restaurants_tags`
---
-ALTER TABLE `restaurants_tags`
- ADD KEY `restaurant_id` (`restaurant_id`), ADD KEY `tag_id` (`tag_id`);
-
---
--- Indexes for table `restaurant_suggest`
---
-ALTER TABLE `restaurant_suggest`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tags`
---
-ALTER TABLE `tags`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tag` (`tag`), ADD FULLTEXT KEY `tag_2` (`tag`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
+ALTER TABLE `restaurants` ADD FULLTEXT KEY `title` (`title`);
+ALTER TABLE `restaurants` ADD FULLTEXT KEY `address` (`address`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `booking`
---
-ALTER TABLE `booking`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
---
--- AUTO_INCREMENT for table `comments`
---
-ALTER TABLE `comments`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
---
 -- AUTO_INCREMENT for table `enqiry_form`
 --
 ALTER TABLE `enqiry_form`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
---
--- AUTO_INCREMENT for table `restaurants`
---
-ALTER TABLE `restaurants`
-MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
---
--- AUTO_INCREMENT for table `restaurant_suggest`
---
-ALTER TABLE `restaurant_suggest`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT for table `tags`
---
-ALTER TABLE `tags`
-MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `booking`
---
-ALTER TABLE `booking`
-ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `restaurants_tags`
---
-ALTER TABLE `restaurants_tags`
-ADD CONSTRAINT `restaurants_tags_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `restaurants_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -13,9 +13,9 @@ class EnquirySuccessController
 	public function show()
 	{
 		$id = $_GET['id'];
+
 		$aboutbusiness = AboutModel::findBy('id', $id);
 		$suggesteremail = $aboutbusiness->email;
-
 
 		
 		$view = new EnquirySuccessView();
@@ -24,12 +24,12 @@ class EnquirySuccessController
 
 
         //send email to the suggester
-		$suggesterEmail = new BusinessEmailView(compact('suggesteremail'));
+		$suggesterEmail = new BusinessEmailView(compact('aboutbusiness'));
 		$suggesterEmail->render();
 
 		//send email to the host
-		$hostEmail = new HostBusinessEmailView();
-		$hostEmail->render();
+		// $hostEmail = new HostBusinessEmailView();
+		// $hostEmail->render();
 	}
 
 }

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Views\AboutView;
 use App\Models\AboutModel;
 use App\Views\BusinessEmailView;
-use App\Views\HostEmailView;
+// use App\Views\HostEmailView;
 
 
 class AboutController 
@@ -24,12 +24,11 @@ class AboutController
 		$view->render();
 
 		//send email to the suggester
-		$businessEmail = new BusinessEmailView($this->eniryform);
+		$businessEmail = new BusinessEmailView($this->enqiryform);
 		$businessEmail->render();
          
          //send email to the hoster
-		$hostEmail = new HostEmailView($this->eniryform);
-		$hostEmail->render();
+		// q
 	}
 
 	public function store()
