@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 29, 2016 at 11:34 PM
+-- Generation Time: Mar 08, 2016 at 12:35 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -90,7 +90,6 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `comment`) VALUES
-(0, 3, 3, '2016-02-29 21:17:46', 9, 'The chilli crab is awesome'),
 (1, 5, 4, '0000-00-00 00:00:00', 5, 'Nice nice nice'),
 (2, 5, 4, '0000-00-00 00:00:00', 3, 'dsfsdfsd'),
 (3, 5, 4, '0000-00-00 00:00:00', 5, 'hahahahahahaha'),
@@ -115,7 +114,8 @@ INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `
 (23, 3, 2, '2016-01-17 21:43:01', 10, '<script>alert(''hacked'')</script>'),
 (24, 3, 4, '2016-01-18 21:15:34', 10, 'qqqqqqqqqqqqqq'),
 (25, 3, 4, '2016-01-18 21:15:51', 8, '22323232323232323'),
-(26, 3, 1, '2016-01-25 20:57:19', 10, 'Hello Hello Hello');
+(26, 3, 1, '2016-01-25 20:57:19', 10, 'Hello Hello Hello'),
+(27, 5, 4, '2016-03-07 23:09:51', 9, 'I love Cafe Thyme so much!');
 
 -- --------------------------------------------------------
 
@@ -169,7 +169,9 @@ INSERT INTO `enqiry_form` (`id`, `name`, `phone`, `email`, `restaurant`, `addres
 (29, 'gfjfj', 543535535, 'gf@m.com', 'fhdh', 'dfhdhdh', ''),
 (30, 'Alice', 111111, 'alice.wu.nz@gmail.com', '123444', 'wellington', ''),
 (31, 'Testing2', 2147483647, 'testinguse.aw@gmail.com', 'Ice cream', 'petone', ''),
-(32, 'Alice', 837402847, 'testinguse.aw@gmail.com', 'wagamama', 'petone', '');
+(32, 'Alice', 837402847, 'testinguse.aw@gmail.com', 'wagamama', 'petone', ''),
+(33, 'Szilard Ozorak', 43243242, 'ozoszil@gmail.com', 'Alice''s Kitchen', '21B Oakleigh Street, Maungaraki', ''),
+(34, 'Szilard Ozorak', 43243242, 'ozoszil@gmail.com', 'sdafasdfsdafsda', 'asdfdsafsad', 'sdafsadfsda');
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,7 @@ INSERT INTO `restaurants` (`id`, `title`, `discount`, `address`, `phone`, `promo
 (3, 'Crab Shack', '0%', 'Shed 5, Queens Wharf, Wellington', '04-916 4250', 0, '569459e47e09a.jpg'),
 (4, 'Cafe Thyme', '5%', '238 Middleton Rd, Glenside, Wellington', '04-478 1810', 1, '569458043c10a.jpg'),
 (5, 'Maranui Cafe ', '5%', '7A Lyall Parade, Lyall Bay, Wellington', '04-387 4539', 1, '56945097835b2.jpg'),
-(6, 'Chilli Masala', '10%', '458 High Street, Lower Hutt', '04-586 4820', 1, NULL),
+(6, 'Chilli Masala', '10%', '458 High Street, Lower Hutt', '04-586 4820', 1, '56de0ce78c421.jpg'),
 (7, 'The Bangalore Polo Club Wellington', '2%', '63 Courtenay Pl, Te Aro, Wellington', '04-384 6416', 0, NULL),
 (8, 'Riddiford Hotel & Restaurant', '2%', '21-29 Knights Rd, Lower Hutt ', '04-586 6318', 0, '56945a4849cf9.jpg'),
 (47, 'Wagamama', '0%', 'Wellington', '321456789', NULL, NULL);
@@ -218,7 +220,12 @@ CREATE TABLE `restaurants_tags` (
 --
 
 INSERT INTO `restaurants_tags` (`restaurant_id`, `tag_id`) VALUES
-(4, 1);
+(4, 1),
+(6, 0),
+(6, 0),
+(6, 0),
+(6, 0),
+(6, 1);
 
 -- --------------------------------------------------------
 
@@ -259,7 +266,7 @@ INSERT INTO `restaurant_suggest` (`id`, `restaurant_name`, `restaurant_address`,
 --
 
 CREATE TABLE `tags` (
-  `id` int(5) UNSIGNED NOT NULL,
+  `id` smallint(5) UNSIGNED NOT NULL,
   `tag` varchar(255) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -268,7 +275,7 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `tag`) VALUES
-(1, 'kiwi');
+(1, 'india');
 
 -- --------------------------------------------------------
 
@@ -327,18 +334,37 @@ ALTER TABLE `enqiry_form`
 --
 -- Indexes for table `restaurants`
 --
+ALTER TABLE `restaurants`
+  ADD PRIMARY KEY (`id`);
 ALTER TABLE `restaurants` ADD FULLTEXT KEY `title` (`title`);
 ALTER TABLE `restaurants` ADD FULLTEXT KEY `address` (`address`);
+
+--
+-- Indexes for table `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `tag` (`tag`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
 -- AUTO_INCREMENT for table `enqiry_form`
 --
 ALTER TABLE `enqiry_form`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
