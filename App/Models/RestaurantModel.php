@@ -69,6 +69,7 @@ class RestaurantModel extends DatabaseModel
 			$model->data = $record;
 			array_push($models, $model);
 		}
+		// var_dump($models);
 		return $models;
 	}
 	public function loadTags()
@@ -100,7 +101,7 @@ class RestaurantModel extends DatabaseModel
 			$this->addNewTags($db, $tags);
 			$tagIds = $this->getTagIds($db, $tags);
 
-			// $this->deleteAllTagsFromRestaurant($db);
+			$this->deleteAllTagsFromRestaurant($db);
 			$this->insertTagsForRestaurant($db, $tagIds);
 	
 			$db->commit();
@@ -171,7 +172,7 @@ class RestaurantModel extends DatabaseModel
 	}
 	private function deleteAllTagsFromRestaurant($db)
 	{
-		$query = "DELETE FROM restaurants_tag WHERE restaurant_id= :restaurant_id";
+		$query = "DELETE FROM restaurants_tags WHERE restaurant_id= :restaurant_id";
 		$statement = $db->prepare($query);
 		$statement->bindValue(":restaurant_id", $this->id);
 		$statement->execute();

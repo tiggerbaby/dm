@@ -47,10 +47,7 @@ body{
 	/*font-family: Source Sans Pro;*/
 }
 
-.media-right{
-  float: right;
-  margin-top: -200px;
-}
+
 
 .media-body{
   width: 200px;
@@ -59,15 +56,13 @@ body{
 
 .thumbnailImg{
 	width: 104px;
-	height: 136px;
+	height: 250px;
 }
 .restaurantImg{
 	width:130px;
 	height:170px;
 }
-/*.restaurantThumnail{
-	float: left; 
-}*/
+
 
 /*.active {
 	color: white;

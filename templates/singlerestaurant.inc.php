@@ -14,7 +14,7 @@
    <?php endif; ?> 
    <!-- Display restaurant information -->
    <div class="divwrapper">
-      <div class="media-left">
+      <div class="media-left col-md-8">
          <h4 class="media-heading"><strong><?= $restaurant->title; ?></strong></h4>
          <div class="rateit" data-rateit-value="<?= $average_rating / 2;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
          <p>Discount: <?= $restaurant->discount; ?></p>
@@ -28,7 +28,7 @@
          </ul>
          <button class="btn btn-danger" data-toggle="modal" data-target="#popup">Book Now</button>
       </div>
-      <div class="media-right">
+      <div class="media-right col-md-4">
          <a href=".\?page=restaurant&amp;id=<?= $restaurant->id?>">
          <?php if($restaurant->poster !=""):?>
          <a href="./?page=downloadposter&amp;filename=<?= $restaurant->poster ?>">
@@ -40,7 +40,8 @@
          </a>
       </div>
       <!-- Comment form -->
-      <h3>Write a review for <?= $restaurant->title; ?></h3>
+      <div> 
+        <h3>Write a review for <?= $restaurant->title; ?></h3>
       <?php if (static::$auth->check()): ?>
       <form method="POST" action="./?page=comment.create" class="form-horizontal">
          <!-- <input name="rating" type="range" value="0" step="0.5" id="backing4" <?php if ($errors['rating']): ?> has-error <?php endif; ?>> -->
@@ -66,6 +67,10 @@
       <?php else: ?>
       <p>You need to be <a href="./?page=login">logged in</a> to add a comment.</p>
       <?php endif; ?>
+
+
+      </div>
+      
       <!-- Display comment -->
       <h3>Comments</h3>
       <?php if(count($comments) > 0) : ?>
@@ -76,8 +81,9 @@
          <div class="media-left">
             <img class="media-object" src="<?= $comment->user()->gravatar(48, 'identicon') ; ?>" alt="avatar">
          </div>
-         <div class="media-body">
-            <h4 class="media-heading"># <?= $count;?> <?= $comment->user()->username;?></h4>
+      
+         <div class="media-right">
+           <h4 class="media-heading"># <?= $count;?> <?= $comment->user()->username;?></h4>
             <div class="rateit" data-rateit-value="<?= $comment->rating / 2.0 ;?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
             <p><?= htmlspecialchars($comment->comment);?></p>
          </div>
