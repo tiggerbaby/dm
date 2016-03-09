@@ -47,6 +47,10 @@ body{
 	/*font-family: Source Sans Pro;*/
 }
 
+.media-right{
+  float: right;
+  margin-top: -200px;
+}
 
 .media-body{
   width: 200px;
