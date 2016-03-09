@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 08, 2016 at 12:35 AM
+-- Generation Time: Mar 09, 2016 at 08:39 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -90,15 +90,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `comment`) VALUES
-(1, 5, 4, '0000-00-00 00:00:00', 5, 'Nice nice nice'),
-(2, 5, 4, '0000-00-00 00:00:00', 3, 'dsfsdfsd'),
-(3, 5, 4, '0000-00-00 00:00:00', 5, 'hahahahahahaha'),
-(4, 5, 4, '0000-00-00 00:00:00', 5, 'hahahahahahaha'),
-(5, 5, 6, '0000-00-00 00:00:00', 4, 'hahahahahahhahaha'),
-(6, 5, 6, '0000-00-00 00:00:00', 7, 'dafasdfsdafsda'),
-(7, 5, 6, '0000-00-00 00:00:00', 9, 'Tigger baby is awesome'),
 (8, 5, 5, '0000-00-00 00:00:00', 8, 'Good food and good view.'),
-(9, 3, 2, '0000-00-00 00:00:00', 8, '11111111111111'),
 (10, 5, 3, '0000-00-00 00:00:00', 7, 'The seafood is awesome.'),
 (11, 3, 1, '0000-00-00 00:00:00', 8, 'very lovely restaurant.'),
 (12, 6, 4, '0000-00-00 00:00:00', 10, 'Nice view, tasty food.'),
@@ -106,15 +98,8 @@ INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `
 (14, 6, 7, '0000-00-00 00:00:00', 8, 'Good good good.'),
 (15, 7, 5, '0000-00-00 00:00:00', 9, 'absolutely lovely'),
 (16, 3, 4, '0000-00-00 00:00:00', 9, 'nice nice nice nice nice '),
-(17, 3, 4, '2016-01-17 20:52:10', 3, 'not really worth it'),
 (19, 3, 6, '2016-01-17 21:30:34', 9, 'Hello Hello Hello Hello'),
 (20, 3, 2, '2016-01-17 21:39:56', 8, 'The sushi is awesome.'),
-(21, 3, 2, '2016-01-17 21:40:19', 10, '<script>alert(''hacked'')</script>'),
-(22, 3, 2, '2016-01-17 21:42:08', 9, '<script>alert(''hacked'')</script>'),
-(23, 3, 2, '2016-01-17 21:43:01', 10, '<script>alert(''hacked'')</script>'),
-(24, 3, 4, '2016-01-18 21:15:34', 10, 'qqqqqqqqqqqqqq'),
-(25, 3, 4, '2016-01-18 21:15:51', 8, '22323232323232323'),
-(26, 3, 1, '2016-01-25 20:57:19', 10, 'Hello Hello Hello'),
 (27, 5, 4, '2016-03-07 23:09:51', 9, 'I love Cafe Thyme so much!');
 
 -- --------------------------------------------------------
@@ -202,7 +187,8 @@ INSERT INTO `restaurants` (`id`, `title`, `discount`, `address`, `phone`, `promo
 (6, 'Chilli Masala', '10%', '458 High Street, Lower Hutt', '04-586 4820', 1, '56de0ce78c421.jpg'),
 (7, 'The Bangalore Polo Club Wellington', '2%', '63 Courtenay Pl, Te Aro, Wellington', '04-384 6416', 0, NULL),
 (8, 'Riddiford Hotel & Restaurant', '2%', '21-29 Knights Rd, Lower Hutt ', '04-586 6318', 0, '56945a4849cf9.jpg'),
-(47, 'Wagamama', '0%', 'Wellington', '321456789', NULL, NULL);
+(47, 'Wagamama', '0%', 'Wellington', '321456789', NULL, NULL),
+(48, 'Nice to see you', '4%', 'Wellington', '10293887444', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -220,12 +206,15 @@ CREATE TABLE `restaurants_tags` (
 --
 
 INSERT INTO `restaurants_tags` (`restaurant_id`, `tag_id`) VALUES
+(6, 0),
+(6, 0),
+(6, 0),
+(6, 0),
+(6, 1),
+(0, 2),
+(48, 2),
 (4, 1),
-(6, 0),
-(6, 0),
-(6, 0),
-(6, 0),
-(6, 1);
+(3, 6);
 
 -- --------------------------------------------------------
 
@@ -275,7 +264,9 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `tag`) VALUES
-(1, 'india');
+(2, ''),
+(1, 'india'),
+(6, 'kiwi');
 
 -- --------------------------------------------------------
 
@@ -361,10 +352,15 @@ ALTER TABLE `comments`
 ALTER TABLE `enqiry_form`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
+-- AUTO_INCREMENT for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+--
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
