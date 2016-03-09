@@ -248,7 +248,7 @@ class RestaurantModel extends DatabaseModel
 			// 				ORDER BY (score_title + score_address + score_tag) DESC";
 
 			$query = "
-						SELECT restaurants.id, title, address, taglist, 
+						SELECT restaurants.id, title, address, taglist, poster, 
 							MATCH(title) AGAINST(@searchterm) * 2 AS score_title, 
 							MATCH(address) AGAINST(@searchterm) AS score_address,
 							MATCH(taglist) AGAINST(@searchterm IN BOOLEAN MODE) * 1.5 AS score_tag
