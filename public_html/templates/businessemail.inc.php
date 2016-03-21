@@ -7,7 +7,7 @@ $emailHeader = [
 	];
 ?>
 
-Hi <?php echo $aboutbusiness->name; ?>",
+Hi <?php echo $aboutbusiness->name; ?>,
 
 Thank you for sending us an enquiry form. We will contact you within 48 hours. 
 

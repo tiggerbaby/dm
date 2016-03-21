@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2016 at 08:39 AM
+-- Generation Time: Mar 10, 2016 at 10:42 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -100,7 +100,8 @@ INSERT INTO `comments` (`id`, `user_id`, `restaurant_id`, `created`, `rating`, `
 (16, 3, 4, '0000-00-00 00:00:00', 9, 'nice nice nice nice nice '),
 (19, 3, 6, '2016-01-17 21:30:34', 9, 'Hello Hello Hello Hello'),
 (20, 3, 2, '2016-01-17 21:39:56', 8, 'The sushi is awesome.'),
-(27, 5, 4, '2016-03-07 23:09:51', 9, 'I love Cafe Thyme so much!');
+(27, 5, 4, '2016-03-07 23:09:51', 9, 'I love Cafe Thyme so much!'),
+(28, 3, 6, '2016-03-10 01:53:54', 9, 'Good place to go.');
 
 -- --------------------------------------------------------
 
@@ -213,8 +214,9 @@ INSERT INTO `restaurants_tags` (`restaurant_id`, `tag_id`) VALUES
 (6, 1),
 (0, 2),
 (48, 2),
-(4, 1),
-(3, 6);
+(3, 6),
+(1, 6),
+(4, 2);
 
 -- --------------------------------------------------------
 
@@ -345,7 +347,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `enqiry_form`
 --
@@ -360,7 +362,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
