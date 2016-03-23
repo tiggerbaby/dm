@@ -15,9 +15,6 @@
     <!-- <link href="css/bootstrap-rating.css" rel="stylesheet">  -->
     <link href="rateit/src/rateit.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
-   
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,86 +52,13 @@
               <li><a href=".\?page=user.account"><small>Hello <?= static::$auth->user()->username; ?></small></a></li> 
               <li><a href=".\?page=logout"><small>Logout</small></a></li>
             <?php endif; ?>
-
-            <!--  <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo">
-Sign Up</button></li> --> 
-            <!--  <li class="bg-danger" data-toggle="modal" data-target="#signUpForm" data-whatever="@mdo"><a href="#" > Sign Up</a> </li>
-             <li data-toggle="modal" data-target="#signInForm" data-whatever="@mdo"><a href="#"> Sign In</a></li>  -->          
-                   
          
           </ul>
         </div>
       </div>
     </nav>
 
-<!-- Sign Up Form -->
-<!-- <div class="modal fade" id="signUpForm" tabindex="-1" role="dialog" aria-labelledby="signUpFormLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="signUpFormLabel">Welcome to Dining Mate!</h4>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action=".\?page=registersuccess"> 
-          <div class="form-group">
-              <label for="registerName" class="control-label">Name*</label>
-            <input type="text" class="form-control" id="registerName">
-           </div>
-            <div class="form-group">
-              <label for="registerEmail" class="control-label">Email*</label>
-              <input type="email" class="form-control" id="registerEmail">
-            </div>
-            <div class="form-group">
-              <label for="registerPassword" class="control-label">Password*</label>
-              <input type="password" class="form-control" id="registerPassword">
-            </div>
-             <div class="form-group">
-              <label for="comfirmPassword" class="control-label">Comfirm Password*</label>
-              <input type="password" class="form-control" id="comfirmPassword">
-            </div>
-          <div class="checkbox">
-           <label>
-            <input type="checkbox">I agree to the terms and conditions of Use and Privacy Policy.
-           </label>
-         </div>
-         <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Create Account</button>
-      </div>
-        </form>
-      </div>
-      
-    </div>
-  </div>
-</div> -->
 
-<!-- Sign In Form -->
-<!-- <div class="modal fade" id="signInForm" tabindex="-1" role="dialog" aria-labelledby="signInFormLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="signInFormLabel">Please Sign In</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-            <div class="form-group">
-              <label for="loginEmail" class="control-label">Email*</label>
-              <input type="email" class="form-control" id="loginEmail">i
-            </div>
-            <div class="form-group">
-              <label for="password" class="control-label">Password*</label>
-              <input type="password" class="form-control" id="password">
-            </div>
-             <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Sign In</button>
-      </div>
-        </form>
-      </div>
-     
-    </div>
-  </div>
-</div> -->
 
 
 
@@ -151,12 +75,6 @@ Sign Up</button></li> -->
                 <a href="https://www.plus.google.com/">
                   <img src="img/googleplus.svg" alt="googleplus logo" class="footerlink" onerror="this.src='img/googleplus.png'">
                 </a>
-                 <a href="https://www.facebook.com/">
-                <!--  <div class="footerlink">
-                   <object data="img/fblogo.svg" type="img/svg+xml"></object>
-                 </div>
-                 -->
-                
                     <img src="img/fb.svg" alt="facebook logo" class="footerlink" onerror="this.src='img/fb.png'">
                   </a>
                 <a href="https://www.twitter.com/">
